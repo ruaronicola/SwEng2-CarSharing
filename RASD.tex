@@ -1,18 +1,69 @@
-\documentclass[openright, draft]{report}
+\documentclass[openright]{report}
 
 % Including titlesec package 
 % documentation: www.ctex.org/documents/packages/layout/titlesec.pdf
 \usepackage{titlesec}
-\titleformat{\chapter}{\Huge\bfseries}{\thechapter.}{20pt}{\Huge}
+\titleformat{\chapter}{\Huge\bfseries}{}{0pt}{\Huge}
+
+% Including graphicx package for images
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% Including vrsion for version's numbering, just comment \keepversion for non-debug builds
+\usepackage[hundred]{vrsion}
+\keepversion
+
+%Include tocbibind package for bibliography in TOC
+\usepackage{tocbibind}
+
 
 \begin{document}
-	\title{Requirements Analysis and Specification Document}
-    \author{Gregori Giacomo and Ruaro Nicola}
-    \date{November 2016}
+	\begin{titlepage}
+		\centering
+		\includegraphics[width=0.50\textwidth]{polimi}\\\vspace{0.25cm}
+		{\scshape\LARGE Politecnico di Milano\par}\vspace{0.25cm}
+		{\scshape\Large Software Engineering II project: PowerEnjoy\par}\vspace{1.5cm}
+		{\huge\bfseries Requirements Analysis and Specification Document\par}\vspace{1cm}
+		{\large Gregori Giacomo and Ruaro Nicola\par}\vfill
+
+		% Bottom of the page
+		{\large \today \\Version \version}
+	\end{titlepage}
+
     
-    \maketitle
-    
+    \tableofcontents
+
+    \part{Requirements analysis}
+    \chapter{Introduction}
+    \section{Sample section}
+		[Sample text]
+    \chapter{Overall description}
+    \section{Sample section}
+		[Sample text]
+    \chapter{Specific requirements}
+    \section{Sample section}
+		[Sample text]
+
+	\part{Requirements specification}
+	\chapter{Introduction}
+    \section{Sample section}
+		[Sample text]
 	\chapter{Sample chapter}
-    	\section{Sample section}
-			[Sample text]
+	\section{Sample section}
+		[Sample text]
+
+
+    \newpage
+    \appendix
+    \chapter{Appendix A}
+    \section{Sample element}
+
+	\newpage
+	\begin{thebibliography}{10}
+		\bibitem{FirstReference}
+			IEEE Std 830, Recommended Practice for Software Requirements Specifications, 1998
+		\bibitem{SecondReference}
+			Luca Mottola and Elisabetta Di Nitto, Software Engineering 2: Project goal, schedule and rules, 2016
+	\end{thebibliography}
+
 \end{document}
