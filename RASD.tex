@@ -1,5 +1,8 @@
 \documentclass[openright]{report}
 
+% Auxiliary variable for version tracking
+\def \version {0.1}
+
 % Including titlesec package 
 % documentation: www.ctex.org/documents/packages/layout/titlesec.pdf
 \usepackage{titlesec}
@@ -8,10 +11,6 @@
 % Including graphicx package for images
 \usepackage{graphicx}
 \graphicspath{{images/}}
-
-% Including vrsion for version's numbering, just comment \keepversion for non-debug builds
-\usepackage[hundred]{vrsion}
-\keepversion
 
 %Include tocbibind package for bibliography in TOC
 \usepackage{tocbibind}

@@ -70,6 +70,7 @@ GitHub.sublime-settings
 *.ps
 *.eps
 *.pdf
+!*_CURRENT.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
