@@ -1,167 +1,91 @@
+% Set the document's formatting to "report"
 \documentclass[openright]{report}
 
-% Including titlesec package 
-% documentation: www.ctex.org/documents/packages/layout/titlesec.pdf
+% Including titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc] and fp[variables evaluation] packages
 \usepackage{titlesec}
-\titleformat{\chapter}{\Huge\bfseries}{}{0pt}{\Huge}
-
-% Including graphicx package for images
 \usepackage{graphicx}
-\graphicspath{{../resources/images/}}
-
-%Include tocbibind package for bibliography in TOC
 \usepackage{tocbibind}
-
-% Include fp package for variables evaluation
 \usepackage[nomessages]{fp}
 
+% Edit title styling
+\titleformat{\chapter}{\Huge\bfseries}{}{0pt}{\Huge}
+
+% Set images path
+\graphicspath{{../resources/images/}}
 
 % Auxiliary variables for worktime and version tracking 
-\def \worktimeNicola {5}
+\def \worktimeNicola {6}
 \def \worktimeGiacomo {5}
 \FPupn{worktimeTotal}{worktimeNicola worktimeGiacomo + 0 round}
 \FPupn{version}{worktimeTotal 50 swap / 2 round}
 
 
 \begin{document}
-	\begin{titlepage}
-		\centering
-		\includegraphics[width=0.50\textwidth]{polimi}\\\vspace{0.25cm}
-		{\scshape\LARGE Politecnico di Milano\par}\vspace{0.25cm}
-		{\scshape\Large Software Engineering II project: PowerEnjoy\par}\vspace{1.5cm}
-		{\huge\bfseries Requirements Analysis and Specification Document\par}\vspace{1cm}
-		{\large Gregori Giacomo and Ruaro Nicola\par}\vfill
 
-		% Bottom of the page
-		{\large \today \\Version \version}
+	\begin{titlepage}
+		\input{contents/Titlepage}
 	\end{titlepage}
 
+	% Change page numbering to uppercase roman for introductory pages
     \pagenumbering{Roman}
 
     \tableofcontents
 
     \begin{abstract}
-		The main purpose of this document is to give a specification of the requirements that our system has to fulfill adopting the IEEE-830 standard for RASD documentation. 
-		It also introduces functional and non-functional requirements via high level specification of the system. 
-		In the last part a formal model is presented using Alloy. 
-		\\The information contained in this document is intended for the stakeholders and developers: for the stakeholders this document presents an useful description to understand the project development, meanwhile for the developers it’s quite a comfortable way to match the stakeholders' requests and the proposed solutions.
+		\input{contents/Abstract}
 	\end{abstract}
 
+	% Change page numbering to arabic for the rest of the document
 	\pagenumbering{arabic}
 
     \part{Requirements analysis}
     \chapter{Introduction}
-    	\section{Purpose of the system}
-		The aim of this project is to develop a digital management system called PowerEnJoy. \\PowerEnJoy is a car-sharing service which uses only eletric-cars and allow the users to easily find a car (thanks to the location services) and to use it. \\To encourage the virtuous behaviors of the users some discounts and lots are provided and can be applied to the bill.
-		 %A previous version of the system doesn't exist so it will be created completely from scratch.
-		\section{Scope of the system}
-		Users have to be registered to the system and provide credentials (as well as payment informations), then a password will be sent that can be used to access the car-sharing service. They can easily find eletric-cars thanks to the location service and reserve them for up to an hour. 
-		\\When an user is near to a vehicle that she want to drive, she contacts the system telling that she's nearby that specific car, than the system unlock the car letting her to get into it. Then the system automatically calculates the charge during the ride, notifying the user through a screen on the car. Finally when the car is parked in a safe area and the user exits the car, the system stops charging the user and automatically lock the car that become available again.
-		\\The system should encourage virtuous behaviour of the users, %(to change if possible)
-		to do that some discounts can be applied on their last ride. For example a discount of the 10\% is applied if the user took at least two other passengers onto the car. Other discounts are applied if a car is left with no more than 50\% of the battery empty or if the user left the car in a special park where it can be recharged(20\%) and she takes care of plugging the car into the power grid (30\%). \\On the other side the system charges 30\% more on the last ride if the car is left at more than 3 Km from the nearest power grid station or with more than 80\% of the battery empty in order to compensate for the cost required to re-charge the car on-site.
-		%point e not necessary. MAYBE DOT-LIST HERE
-		\section{Objectives and success criteria of the project}
-		At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-		\section{Assumptions}
-		Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-		\section{Stakeholders Identification}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    	\input{contents/Requirements_Analysis/Introduction}
 	\chapter{Actors Identification}
-	    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    \\Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-	    \\At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+	    \input{contents/Requirements_Analysis/Actors_Identification}
     \chapter{Overview of the purposed system}
-	    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    \\Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-	    \\At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+	    \input{contents/Requirements_Analysis/Overview_of_the_purposed_system}
     \chapter{Functional requirements}
-    	\section{[1] Some functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		\section{[2] Some other functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		\section{[3] Some other functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 	aliquip ex ea commodo consequat.
-		\section{[4] Some other functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    	\input{contents/Requirements_Analysis/Functional_Requirements}
 	\chapter{Non-Functional requirements}
-    	\section{[1] Some non-functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		\section{[2] Some other non-functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		\section{[3] Some other non-functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		\section{[4] Some other non-functional requirement}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    	\input{contents/Requirements_Analysis/Non-Functional_Requirements}
+
+
+    % Insert a break for the table of contents
+    \addtocontents{toc}{\protect\newpage}
+
 
 	\part{Requirements specification}
 	\chapter{Introduction}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		\input{contents/Requirements_Specification/Introduction}
 	\chapter{Developer Overview}
-		\section{High-level diagrams: UML and dataflow}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	\chapter{System models}
-		\section{The world and the machine}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\\ 
-		\begin{center}
-			\vspace{0.2cm}
-			\includegraphics[width=0.50\textwidth]{/RASD/TheWorldAndTheMachine}\\ 
-			\vspace{0.5cm}
-		\end{center}
-		\section{Scenarios}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{Use case diagram}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{Sequence diagrams}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{State Chart diagram}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{User interface: navigational paths and screen mock-ups}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		\input{contents/Requirements_Specification/Developer_Overview}
+	\chapter{System Models}
+		\input{contents/Requirements_Specification/System_Models}
 	\chapter{Alloy Modelling}
-		\section{Signatures}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{Facts}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{Asserts}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{Predicates}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{Results}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		\section{Generated Worlds}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			\subsection{General world}
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			\subsection{Maybe some other world}
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		\input{contents/Requirements_Specification/Alloy_Modelling}
 
 
-    \newpage
+	% Insert a break for the table of contents
+    \addtocontents{toc}{\protect\newpage}
+
+
     \appendix
+    \newpage
     \chapter{Appendix A: Used Tools}
-	    \section{\LaTeX}
-	    Used to format and redact this document
-	    \section{\textit git}
-	    Used as version control system in order to lead development
+	    \input{contents/Appendix_A}
 
 	\newpage
 	\chapter{Appendix B: Hours of work}
-	    These are the hours of work spent by each group member in order to redact this document:
-	    \begin{itemize}  
-		\item Ruaro Nicola: \worktimeNicola \ hours
-		\item Gregori Giacomo: \worktimeGiacomo \ hours
-		\item Total worktime: \worktimeTotal \ hours
-		\end{itemize}
+	    \input{contents/Appendix_B}
 
 	\newpage
 	\chapter{Appendix C: Glossary}
+		\input{contents/Appendix_C}
 
 	\newpage
 	\begin{thebibliography}{10}
-		\bibitem{FirstReference}
-			IEEE Std 830, Recommended Practice for Software Requirements Specifications, 1998
-		\bibitem{SecondReference}
-			Luca Mottola and Elisabetta Di Nitto, Software Engineering 2: Project goal, schedule and rules, 2016
+		\input{contents/Bibliography}
 	\end{thebibliography}
 
 \end{document}
