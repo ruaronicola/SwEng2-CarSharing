@@ -26,7 +26,7 @@ users. Specifically:
 ### Deadlines
 
 * **Group registration** deadline: 16/10/2016
-* **[RASD](https://github.com/ruaronicola/SwEng2-CarSharing/releases/tag/v0.22alpha)** submission deadline: 13/11/2016
+* **[RASD](https://github.com/ruaronicola/SwEng2-CarSharing/files/545467/RASD.pdf)** submission deadline: 13/11/2016
 * **DD** submission deadline: 11/12/2016
 * **Testing document** submission deadline: 15/01/2017
 * **Project management** deadline: 22/01/2017
