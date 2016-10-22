@@ -1,5 +1,9 @@
 # Software Engineering 2: PowerEnjoy
-Shared project by Giacomo Gregori and Nicola Ruaro 
+
+
+![Image not found](resources/images/powerEnjoy.png)
+<sub>*Shared project by Giacomo Gregori and Nicola Ruaro*</sub>
+
 
 ### Problem Description
 
