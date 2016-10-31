@@ -1,11 +1,16 @@
 % Set the document's formatting to "report"
 \documentclass[openright]{report}
 
-% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc] and fp[variables evaluation] packages
+% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], fp[variables evaluation] and glossaries/imakeidx[glossary] packages
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{tocbibind}
 \usepackage[nomessages]{fp}
+\usepackage[nonumberlist,acronym,toc,xindy]{glossaries}
+\makeglossaries
+\usepackage[xindy]{imakeidx}
+\makeindex
+
 
 % Edit title styling
 \titleformat{\chapter}{\Huge\bfseries}{}{0pt}{\Huge}
@@ -14,7 +19,7 @@
 \graphicspath{{../resources/images/}}
 
 % Create uxiliary variables for worktime and version tracking 
-\def \worktimeNicola {6}
+\def \worktimeNicola {8}
 \def \worktimeGiacomo {5}
 \FPupn{worktimeTotal}{worktimeNicola worktimeGiacomo + 0 round}
 \FPupn{version}{worktimeTotal 50 swap / 2 round}
@@ -79,9 +84,10 @@
 	\chapter{Appendix B: Hours of work}
 	    \input{contents/Appendix_B}
 
-	\newpage
-	\chapter{Appendix C: Glossary}
-		\input{contents/Appendix_C}
+
+	\input{contents/Glossary}
+	\glsaddall
+	\printglossaries
 
 	\newpage
 	\begin{thebibliography}{10}
