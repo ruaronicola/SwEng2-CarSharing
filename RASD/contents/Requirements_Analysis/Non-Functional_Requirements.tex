@@ -1,16 +1,26 @@
-\section{[1] Some non-functional requirement}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-\section{[2] Some other non-functional requirement}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-\section{[3] Some other non-functional requirement}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-\section{[4] Some other non-functional requirement}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\section{Usability}
+ The use interface has to be user-friendly. It has to be simple, intuitive and well-organized. A typical user has not a previous knowledge of the system and we shall do it as easily to use as possible.
+
+\section{Reliability}
+The system should be avaible 24/24, 7/7, 365/365. On the other side the system has to be supported by an Internet connection that reliability depends by their providers. 
+\\It should be permitted to have little stops for maintenance. If ocasionally the system has an unexpected stop however it can be accepted as the system don't cover a critical function.
+
+\section{Performance}
+The system shall support about 500000 terminals in the first implementation. At the same time the system should accept 1000 simultaneous users, and at least 90\% of the transactions should be process in less then 3 seconds.
+\\The amount of information handled by the system is on the order of few Terabytes. Most of the information can be dividen into location service info, cars status info, users info and reservations info.
+\\The performance will also depends by the Internet connection’s speed and reliability. In order to provide a service always available, the server should have a stable Internet connection with an adequate bandwidth.
+The interactions between the user and the system has to be reduced to a minimum, in order to not overload the net. 
+
+\section{Portability}
+Our system should be very portable due to the very wide range of users. It should be compatible to all the major hardware and software components, Our mobile application should work on the most used mobile operative systems. The web application needs to be supported by all the most used browsers. The code should be developed so that only a minor part should be adapted at the specific operation system.
+
+\section{Maintainability}
+The maintainability of the system is guarantee by the administrator. The development of a 100\% bug-free software is desiderable but impossible to achive, so the administrator has to fix the system every time is needed. The administrator can also access to the data of the system for manually modify or update them.
+
+\section{Consistency}
+In order to not lose the data in case of system fault they have always to be duplicate in a backup server.  
+
+\section{Security}
+%encripted and protected by an asymmetric key and a strong hash function (e.g.: 2048 RSA key and SHA-2 hash salting)
+We need to apply security protocols at different levels for ensure a correct access to the data. Each user can access to her page using her personal \gls{ID} and \gls{pwd}.
+%to finish security
