@@ -1,4 +1,5 @@
 \section{Usability}
+\label{sec:usability}
  The use interface has to be user-friendly. It has to be simple, intuitive and well-organized. A typical user has not a previous knowledge of the system and we shall do it as easily to use as possible.
 
 \section{Reliability}
@@ -24,3 +25,29 @@ In order to not lose the data in case of system fault they have always to be dup
 %encripted and protected by an asymmetric key and a strong hash function (e.g.: 2048 RSA key and SHA-2 hash salting)
 We need to apply security protocols at different levels for ensure a correct access to the data. Each user can access to her page using her personal \gls{ID} and \gls{pwd}.
 %to finish security
+
+\section{User Interface}
+As stated in section \ref{sec:usability} and subsection \ref{subsec:user_interfaces} the application's UI must be extremely friendly and functionally equivalent across devices. 
+\\Regarding the mobile UI a 3-page mockup is presented (fig. \ref{fig:mobile_mockup}) to highlight the most important functions: 
+\begin{itemize}
+	\item{Login page: the first page presented to the end-user will obviously be a simple login/signup page where she can login using her credentials or register to the system}
+	\item{Car reservation and localization: this is probably the most important use-case, the user will be able to browse and find nearby cars, eventually requesting a reservation}
+	\item{Unlock: the user will request to unlock the car through a procedure similar to the one described in point 2 above, than a confirmation will be asked to provide security and force the user to really locate the car before unlocking it}
+\end{itemize}
+\begin{figure}[!h]
+	\centering
+	\vspace{0.2cm}
+	\includegraphics[width=1.0\textwidth]{/RASD/mobile_mockup}\\ 
+	\vspace{0.5cm}
+	\caption{3-page mockup representing the main pages of the mobile application} \label{fig:mobile_mockup} 
+\end{figure}
+Additional pages are the account management page, the payment page and maybe statistics related pages; those pages are not presented here as they are not strictly related to the application logic.
+
+The web application will be really similar in features to the mobile application, the main use-cases are in fact the ones presented above in figure \ref{fig:mobile_mockup}; a basic mockup is presented (fig. \ref{fig:web_mockup}) to provide completeness:
+\begin{figure}[!h]
+	\centering
+	\vspace{0.2cm}{}
+	\includegraphics[width=1.0\textwidth]{/RASD/web_mockup}\\ 
+	\vspace{0.5cm}
+	\caption{1-page mockup representing the main page of the web application} \label{fig:web_mockup} 
+\end{figure}
