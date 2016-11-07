@@ -1,0 +1,48 @@
+\subsubsection{Functional Requirements}
+\begin{itemize}
+  \item She has to provide her credentials. 
+  \item She has to provide her payment information.
+  \item The system shall give back a password that can be used for log-in.
+\end{itemize}
+\subsubsection{Scenario 1}
+Mark has been told that a new awesome car-sharing service just launched, he than decide to download the mobile application and register as a new user. After filling the sign-up module a confirmation e-mail is sent to Mark containing his new credentials.
+
+\subsubsection{Scenario 2}
+Susan was browsing the net when an advertisement caught her attention, it says: "PowerEnJoy is the new planet-friendly car sharing service! Register now and get a discount on your first ride!". She than clicks the advertisement and opens the web application: the first page is a Sign-up page and Susan fills up her personal informations and confirms. Unfortunately the informations provided are not complete and the system signals an error, she notices that the driving licence's informations are missing and compiles the remaining part of the module before submitting it and receiving a confirmation e-mail.
+
+\subsubsection{Use-case table}
+\begin{center}
+  \begin{tabular}{ l | p{12cm} }
+    \hline
+    Actors & Guest\\ \hline
+    Goal & G\ref{itm:goal-registration}\\ \hline
+    Entry conditions & 
+\begin{itemize}
+\item The Guest has to have internet access.
+\item The Guest entres the Sign-up page in the browser/ mobile application. 
+\end{itemize} \\ \hline
+    Flow of events &
+\begin{itemize} % todo: shrink items
+\item The Guest is shown a form to fill with her personal e-mail, name, surname, tax code and phone number. %da scegliere se l'ID viene scelto dal system o dal Guest 
+\item The Guest fills the form and confirm her provided information.
+\item The Guest is shown a form to fill with her drive license's information.
+\item The Guest fills the form and confirm her provided information.
+\item The Guest is shown a form to fill with her payment information.
+\item The Guest fills the form and confirm her provided information.
+\item The system sends a confirmation e-mail to the Guest's personal e-mail with an activation link.
+\item The Guest clicks the link in the system's e-mail.
+\item The system allocates the User in the database.
+\item The system sends an e-mail to the User's e-mail with her personal \gls{pwd}.
+\item The system loads the User's homepage.
+\end{itemize} \\ \hline
+  	Exit conditions & The Guest is registered to PowerEnJoy and became an User. Now the User is in her homepage. \\ \hline
+	Exceptions & 
+\begin{itemize}
+\item The Guest provides an e-mail or a phone number or a tax code already used (in this case the system signals an error).
+\item The Guest does not fill one or more fields in a form (in this cases the system does not allow to proceed and signals an InformationLack).
+\item The Guest provided wrong payment information (in this case the system signals an error).
+\item The Guest provided wrong drive license information (in this case the system signals an error).
+\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a CennectionToSystemFail).%volendo si possono modificare i nomi delle eccezzioni.
+\end{itemize} \\ \hline
+  \end{tabular}
+\end{center}

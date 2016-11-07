@@ -1,12 +1,15 @@
 % Set the document's formatting to "report"
 \documentclass[openright]{report}
 
-% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], lmodern/fontend[fix tilde typesetting], mathtools[math symbols], fp[variables evaluation] and glossaries/imakeidx[glossary] packages
+% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], comment[comment paragraphs], lmodern/fontend[fix tilde typesetting], afterpage[insert blankpages], etoolbox[flawless page numbering] mathtools[math symbols], fp[variables evaluation] and glossaries/imakeidx[glossary] packages
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{tocbibind}
+\usepackage{comment}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
+\usepackage{afterpage}
+\usepackage{etoolbox}
 \usepackage{mathtools}
 \usepackage[nomessages]{fp}
 \usepackage[nonumberlist,acronym,toc,xindy]{glossaries}
@@ -14,14 +17,26 @@
 \usepackage[xindy]{imakeidx}
 \makeindex
 
+
+% Patch page numbering
+\patchcmd{\abstract}{\titlepage}{\thispagestyle{empty}}{}{}
+\patchcmd{\endabstract}{\endtitlepage}{\clearpage}{}{}
+
+% Create new \blankpage command
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
 % Edit title styling
 \titleformat{\chapter}{\Huge\bfseries}{}{0pt}{\Huge}
 
 % Set images path
 \graphicspath{{../resources/images/}}
 
-% Create uxiliary variables for worktime and version tracking 
-\def \worktimeNicola {16}
+% Create auxiliary variables for worktime and version tracking 
+\def \worktimeNicola {18}
 \def \worktimeGiacomo {15}
 \FPupn{worktimeTotal}{worktimeNicola worktimeGiacomo + 0 round}
 \FPupn{version}{worktimeTotal 50 swap / 2 round}
@@ -38,6 +53,8 @@
 
     \tableofcontents
 
+    \newpage
+    \blankpage
     \begin{abstract}
 		\input{contents/Abstract}
 	\end{abstract}
@@ -45,37 +62,38 @@
 	% Change page numbering to arabic for the rest of the document
 	\pagenumbering{arabic}
 
-    \part{Requirements analysis}
+	\part{Requirements analysis}
     \chapter{Introduction}
     	\input{contents/Requirements_Analysis/Introduction}
-	\chapter{Actors Identification}
-	    \input{contents/Requirements_Analysis/Actors_Identification}
     \chapter{Overview of the purposed system}
 	    \input{contents/Requirements_Analysis/Overview_of_the_purposed_system}
-    \chapter{Functional requirements}
-    	\input{contents/Requirements_Analysis/Functional_Requirements}
-	\chapter{Non-Functional requirements}
-    	\input{contents/Requirements_Analysis/Non-Functional_Requirements}
-
 
     % Insert a break for the table of contents
     \addtocontents{toc}{\protect\newpage}
 
+    \newpage
+    \blankpage
+    \renewcommand{\abstractname}{Developer Overview}
+    \begin{abstract}
+		\input{contents/Requirements_Specification/Developer_Overview}
+	\end{abstract}
 
 	\part{Requirements specification}
-	\chapter{Introduction}
-		\input{contents/Requirements_Specification/Introduction}
-	\chapter{Developer Overview}
-		\input{contents/Requirements_Specification/Developer_Overview}
-	\chapter{System Models}
-		\input{contents/Requirements_Specification/System_Models}
-	\chapter{Alloy Modelling}
+	\chapter{Specific requirements}
+		\input{contents/Requirements_Specification/Specific_Requirements}
+	\chapter{Alloy modelling}
 		\input{contents/Requirements_Specification/Alloy_Modelling}
 
 
 	% Insert a break for the table of contents
     \addtocontents{toc}{\protect\newpage}
 
+    % Set page numbering to arabic and restart it before appendix
+    \clearpage
+	\pagenumbering{Roman}
+	\setcounter{page}{1}
+
+	\blankpage
 
     \appendix
     \newpage
