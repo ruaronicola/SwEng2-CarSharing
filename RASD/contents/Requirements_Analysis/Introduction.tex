@@ -1,21 +1,20 @@
 \section{Purpose of the system}
-The aim of this project is to develop a digital management system called PowerEnJoy. 
+The purpose of this project is to develop a digital management system called PowerEnJoy. 
 \\PowerEnJoy is a car-sharing service which uses only eletric-cars and allow the users to easily find a car, thanks to the location services, and to use it. 
-\\To encourage the virtuous behaviors of the users some discounts and lots are provided and can be applied to the bill.
  % TODO: Maybe "A previous version of the system doesn't exist so it will be created completely from scratch." OR "The system is completely new and nothing has been implemented before."
 
 \section{Scope of the system}
-Users have to be registered to the system and provide credentials (as well as payment informations), then a password will be sent that can be used to access the car-sharing service. 
-They can easily find eletric-cars thanks to the location service and reserve them for up to an hour. 
+Users have to be registered to the system and provide credentials (as well as payment informations), then a password will be sent that can be used to access the car-sharing service. They can easily find eletric-cars thanks to the location services and reserve them for up to an hour. 
 \\When an user is near to a vehicle that she want to drive, she contacts the system telling that she's nearby that specific car, than the system unlock the car letting her to get into it. 
 Then the system automatically calculates the charge during the ride, notifying the user through a screen on the car. 
 Finally when the car is parked in a safe area and the user exits the car, the system stops charging the user and automatically lock the car that become available again.
-\\The system should encourage virtuous behaviour of the users, % TODO: change if possible
-to do that some discounts can be applied on their last ride. For example a discount of the 10\% is applied if the user took at least two other passengers onto the car. 
+\\The system should encourage virtuous behaviour of the users and to do that some discounts can be applied on their last ride. For example a discount of the 10\% is applied if the user took at least two other passengers onto the car. 
+\begin{comment}
 Other discounts are applied if a car is left with no more than 50\% of the battery empty or if the user left the car in a special park where it can be recharged(20\%) 
 and she takes care of plugging the car into the power grid (30\%). 
 \\On the other side the system charges 30\% more on the last ride if the car is left at more than 3 Km from the nearest power grid station or with more than 80\% of the battery empty in order to compensate for the cost required to re-charge the car on-site.
 % TODO: Point e is not necessary. MAYBE DOT-LIST HERE
+\end{comment}
 
 \section{Objectives and success criteria of the project}
 \label{sec: proj_objectives}
@@ -30,21 +29,11 @@ After a first analysis on our average users, the main features that should be pr
 	% TODO: Maybe other more system-related features
 \end{enumerate}
 
-\section{Assumptions}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni 
-dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, 
-consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
-vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-
 \section{Actors Identification}
 \begin{itemize}
-	\item{{\bf Guest}: is a person that hasn't already registered to the system or an user that hasn't already log in. She can only proceed with a new registration or log in.}
+	\item{{\bf Guest}: is a person that hasn't already registered to the system or an user that hasn't already logged in. She can only proceed with a new registration or log in.}
 	\item{{\bf User}: we believe that PowerEnJoy can be used by a wide range of people that need only to access the system for benefit. A person became an user after her registration to the system, when she provides her credentials and payment information. 
-	\\A tipical user is a person who want to easily move around in a social end eco-friendly way. Usually she uses the service only for short travels near the \glspl{charging station}.
+	\\A tipical user is a person who want to easily move around in a social end eco-friendly way, usually only for short travels near the \glspl{charging station}.
 	\\Our scope is to create an easy-to-use and efficent system that make the users satisfied and willing to use PowerEnJoy.}
 \end{itemize}
 
