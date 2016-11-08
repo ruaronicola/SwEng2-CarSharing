@@ -13,17 +13,26 @@ Mark is a typical PowerEnJoy user, he got used to the credentials form submissio
 \subsubsection{Scenario 3}
 A guest confused the login form with the registration one and after submiting the form is told that such user is not registered to the PowerEnJoy service. She than clicks on "Register to PowerEnJoy" and follows the registration procedure.
 
+
+\subsubsection{Mockups}
+\begin{figure}[!ht]
+  \centering
+  \vspace{0.2cm}
+  \includegraphics[width=0.25\textwidth]{/RASD/System_Functions/login_mockup}\\
+  \vspace{0.4cm}
+  %\caption{Mockup for the login mobile page} 
+  \label{fig:login_mockup} 
+\end{figure}
+% maybe home page mockup here 
+
+
 \subsubsection{Use-case table}
 \begin{center}
   \begin{tabular}{ l | p{10cm} }
     \hline
     Actors & Guest\\ \hline
     Goal & G\ref{itm:goal-access}\\ \hline
-    Entry conditions & 
-\begin{itemize}
-\item The Guest has to be sucessfully registered to PowerEnJoy.
-\item The Guest entres the Log-in page in the browser/ mobile application. 
-\end{itemize} \\ \hline
+    Entry conditions & The Guest is registered to PowerEnJoy and browse to the Log-in page in the web/mobile application. \\ \hline
     Flow of events &
 \begin{itemize}
 \item The Guest insert her \gls{ID} and \gls{pwd}.
@@ -35,7 +44,19 @@ A guest confused the login form with the registration one and after submiting th
 \begin{itemize}
 \item The Guest provides wrong username-password pair (the system signals a LoginError).
 \item The Guest doesn't fill both the fields (the systems signals an InformationLack).
-\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a CennectionToSystemFail).%volendo si possono modificare i nomi delle eccezzioni.
+\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).%volendo si possono modificare i nomi delle eccezzioni.
 \end{itemize} \\ \hline
   \end{tabular}
 \end{center}
+
+
+\subsubsection{Sequence diagram}
+\begin{figure}[!ht]
+  \centering
+  \vspace{0.1cm}
+  \includegraphics[width=0.6\textwidth]{/RASD/System_Functions/login_sequence}\\
+  \vspace{0.1cm}
+  %\caption{Sequence diagram for the login procedure} 
+  \label{fig:login_sequence} 
+\end{figure}
+
