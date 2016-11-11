@@ -9,23 +9,22 @@
 \end{itemize}
 
 \subsubsection{Scenario 1}
-After five months that Susan is using PowerEnJoyshe she has decided that is better to change her \gls{pwd}. So she open her menage profile page and change it. Then she save the changes and the system upload Susan's information. Then for the future acesses Susan will use her new \gls{pwd}.
+After five months that Susan is using PowerEnJoyshe she has decided that is better to change her \gls{pwd}. So she open her manage profile page and change it. Then she save the changes and the system upload Susan's information. Then for the future acesses Susan will use her new \gls{pwd}.
 
 \subsubsection{Scenario 2}
 Mark is a typical PowerEnJoy user. Unfortunatly his credic card is expired and so he has to change it. He was using that credit card also for pay his PowerEnJoy's charges. So as soon as he has his new credit card he decides to upload his payment information on PowerEnJoy. He accesses his manage profile page and changed the payment information. Since that moment PowerEnJoy is going to charge Mark on his new credit card.
 
 
 
-%\subsubsection{Mockups}
-%\begin{figure}[!ht]
-%  \centering
-%  \vspace{0.2cm}
- % \includegraphics[width=0.25\textwidth]{/RASD/System_Functions/login_mockup}\\
- % \vspace{0.4cm}
- % %\caption{Mockup for the login mobile page} 
- % \label{fig:login_mockup} 
-%\end{figure}
-% maybe home page mockup here 
+\subsubsection{Mockups}
+\begin{figure}[!ht]
+  \centering
+  \vspace{0.2cm}
+  \includegraphics[width=0.25\textwidth]{/RASD/System_Functions/manage_account_mockup}\\
+  \vspace{0.4cm}
+  %\caption{Mockup for the account management mobile page} 
+  \label{fig:manage_account_mockup} 
+\end{figure}
 
 
 \subsubsection{Use-case table}
@@ -34,17 +33,16 @@ Mark is a typical PowerEnJoy user. Unfortunatly his credic card is expired and s
     \hline
     Actors & User\\ \hline
     Goal & G\ref{itm:goal-access}\\ \hline
-    Entry conditions & \begin{itemize}
-      \item The User is logged into the system and she is viewing her profile page.   
-\end{itemize}
-           \\ \hline
+    Entry conditions & The User is logged into the system and she is viewing her profile page.   
+    \\ \hline
     Flow of events &
-\begin{itemize}
-\item The User select the "Modify profile" option.
-\item The User modifies one or more information.
-\item The User submit the modifications.
-\item The system checks the modifications and upload them.
-\end{itemize} \\ \hline
+      \begin{itemize}
+        \item The User select the "Modify profile" option.
+        \item The User modifies one or more information.
+        \item The User submit the modifications.
+        \item The system checks the modifications and upload them.
+      \end{itemize} 
+      \\ \hline
     Exit conditions & The User's profile is modified. \\ \hline
   Exceptions & 
 \begin{itemize}
@@ -60,9 +58,9 @@ Mark is a typical PowerEnJoy user. Unfortunatly his credic card is expired and s
 \begin{figure}[!ht]
   \centering
   \vspace{0.1cm}
-  \includegraphics[width=0.6\textwidth]{/RASD/System_Functions/menage_sequence}\\
+  \includegraphics[width=0.6\textwidth]{/RASD/System_Functions/manage_account_sequence}\\
   \vspace{0.1cm}
-  %\caption{Sequence diagram for the login procedure} 
-  \label{fig:menage_sequence} 
+  %\caption{Sequence diagram for the account management procedure} 
+  \label{fig:manage_account_sequence} 
 \end{figure}
 
