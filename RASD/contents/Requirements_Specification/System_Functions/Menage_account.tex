@@ -1,0 +1,68 @@
+\subsubsection{Functional Requirements}
+\begin{itemize}
+  \item The system shall store all the account information.
+  \item The user could modify the \gls{pwd}.
+  \item The system shall upload any information added.
+  \item The system shall check that all the required information are inserted.
+  \item The system shall check that all the information are valid.
+  %\item 
+\end{itemize}
+
+\subsubsection{Scenario 1}
+After five months that Susan is using PowerEnJoyshe she has decided that is better to change her \gls{pwd}. So she open her menage profile page and change it. Then she save the changes and the system upload Susan's information. Then for the future acesses Susan will use her new \gls{pwd}.
+
+\subsubsection{Scenario 2}
+Mark is a typical PowerEnJoy user. Unfortunatly his credic card is expired and so he has to change it. He was using that credit card also for pay his PowerEnJoy's charges. So as soon as he has his new credit card he decides to upload his payment information on PowerEnJoy. He accesses his manage profile page and changed the payment information. Since that moment PowerEnJoy is going to charge Mark on his new credit card.
+
+
+
+%\subsubsection{Mockups}
+%\begin{figure}[!ht]
+%  \centering
+%  \vspace{0.2cm}
+ % \includegraphics[width=0.25\textwidth]{/RASD/System_Functions/login_mockup}\\
+ % \vspace{0.4cm}
+ % %\caption{Mockup for the login mobile page} 
+ % \label{fig:login_mockup} 
+%\end{figure}
+% maybe home page mockup here 
+
+
+\subsubsection{Use-case table}
+\begin{center}
+  \begin{tabular}{ l | p{10cm} }
+    \hline
+    Actors & User\\ \hline
+    Goal & G\ref{itm:goal-access}\\ \hline
+    Entry conditions & \begin{itemize}
+      \item The User is logged into the system and she is viewing her profile page.   
+\end{itemize}
+           \\ \hline
+    Flow of events &
+\begin{itemize}
+\item The User select the "Modify profile" option.
+\item The User modifies one or more information.
+\item The User submit the modifications.
+\item The system checks the modifications and upload them.
+\end{itemize} \\ \hline
+    Exit conditions & The User's profile is modified. \\ \hline
+  Exceptions & 
+\begin{itemize}
+\item The User insert empty or invalid values as modifications.
+\item The User doesn't submit the modifications.
+\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).%volendo si possono modificare i nomi delle eccezzioni.
+\end{itemize} \\ \hline
+  \end{tabular}
+\end{center}
+
+
+\subsubsection{Sequence diagram}
+\begin{figure}[!ht]
+  \centering
+  \vspace{0.1cm}
+  \includegraphics[width=0.6\textwidth]{/RASD/System_Functions/menage_sequence}\\
+  \vspace{0.1cm}
+  %\caption{Sequence diagram for the login procedure} 
+  \label{fig:menage_sequence} 
+\end{figure}
+
