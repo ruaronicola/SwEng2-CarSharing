@@ -17,6 +17,10 @@ sig Position {}
 one sig SafeArea {
 	coverage: set Position
 }{#coverage>0}
+//some sig ChargingStation in SafeArea{
+//	recharge: set Position
+//}(#recharge>0)
+
 
 abstract sig BatteryLevel {}
 one sig LOW, MEDIUM, HIGH extends BatteryLevel {}
@@ -25,10 +29,12 @@ abstract sig Vehicle {
 	category: one Category,
 	state: one State,
 	position: one Position,
-	batteryLevel: one BatteryLevel
+	batteryLevel: one BatteryLevel,
+	charging: one Bool //if a car is charging it's in a charge staton!
 }{
 	batteryLevel = LOW implies state = OUT_OF_SERVICE
 	not (position in SafeArea.coverage) implies (state = OUT_OF_SERVICE)
+	charging=True implies ( position in SafeArea.coverage)
 }
 sig Car extends Vehicle{}{category=B_CATEGORY}
 
@@ -79,6 +85,7 @@ sig Ride extends Event{
 	endPosition: lone Position,
 	hasAdditionalPassengers: one Bool,
 	hasLeftLowBattery: one Bool,
+	hasLeftHighBattery: one Bool,
 	bill: lone Bill
 }{
 	startPosition in SafeArea.coverage
@@ -86,8 +93,12 @@ sig Ride extends Event{
 	#bill=1 or #endPosition=1 <=> not isActive[this]
 	#bill=1 <=> #endPosition=1
 	bill.type!=EXPIRATION_BILL
-    bill.type=FEE_BILL <=> not isActive[this] and ( (endPosition not in SafeArea.coverage) or (hasLeftLowBattery=True) )
-	bill.type=DISCOUNT_BILL <=> not isActive[this] and ( (hasAdditionalPassengers=True) )
+	
+	bill.type=DISCOUNT_BILL <=> not isActive[this] and ( (endPosition in SafeArea.coverage) and (hasAdditionalPassengers=True) )
+	bill.type=DISCOUNT_BILL <=> not isActive[this] and ((endPosition  in SafeArea.coverage) and ( vehicle.charging= True ))
+	bill.type=DISCOUNT_BILL <=> not isActive[this] and ( (endPosition in SafeArea.coverage) and(hasLeftHighBattery= True )	)
+	bill.type=STD_BILL =>  not isActive[this] and (endPosition in SafeArea.coverage)
+	bill.type=FEE_BILL <=>  not isActive[this] and (( not (endPosition in SafeArea.coverage) )or (hasLeftLowBattery=True) ) 
 }
 
 
