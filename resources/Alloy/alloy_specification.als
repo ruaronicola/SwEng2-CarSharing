@@ -1,8 +1,10 @@
 module PowerEnJoy
-open util/boolean
 
 
 // SIGNATURES 
+
+abstract sig Bool{}
+one sig True, False extends Bool {}
 
 abstract sig Category {}
 one sig A_CATEGORY, B_CATEGORY extends Category {}
@@ -13,8 +15,8 @@ one sig FREE, RESERVED, IN_USE, OUT_OF_SERVICE extends State {}
 
 sig Position {}
 one sig SafeArea {
-	positions: set Position
-}{#positions>0}
+	coverage: set Position
+}{#coverage>0}
 
 abstract sig BatteryLevel {}
 one sig LOW, MEDIUM, HIGH extends BatteryLevel {}
@@ -26,7 +28,7 @@ abstract sig Vehicle {
 	batteryLevel: one BatteryLevel
 }{
 	batteryLevel = LOW implies state = OUT_OF_SERVICE
-	not (position in SafeArea.positions) implies (state = OUT_OF_SERVICE)
+	not (position in SafeArea.coverage) implies (state = OUT_OF_SERVICE)
 }
 sig Car extends Vehicle{}{category=B_CATEGORY}
 
@@ -67,8 +69,8 @@ sig Reservation extends Event{
 }{
 	isActive[this] implies isExpired=False
 	isExpired=True implies not isActive[this]
-    isActive[this] implies vehicle.state=RESERVED
-	bill.type=EXPIRATION_BILL
+	#bill=1 <=> isExpired=True 
+	#bill=1 implies bill.type=EXPIRATION_BILL
 }
 
 sig Ride extends Event{
@@ -79,34 +81,41 @@ sig Ride extends Event{
 	hasLeftLowBattery: one Bool,
 	bill: lone Bill
 }{
-	startPosition in SafeArea.positions
+	startPosition in SafeArea.coverage
+	startPosition!=endPosition
+	#bill=1 or #endPosition=1 <=> not isActive[this]
 	#bill=1 <=> #endPosition=1
-	isActive[this] <=> #bill=0 and #endPosition=0
-	#bill=1 implies bill.type!=EXPIRATION_BILL
-    bill.type=FEE_BILL <=> !isActive[this] and ( (endPosition not in SafeArea.positions) or (hasLeftLowBattery=True) )
-	bill.type=DISCOUNT_BILL <=> !isActive[this] and ( (hasAdditionalPassengers=True) )
+	bill.type!=EXPIRATION_BILL
+    bill.type=FEE_BILL <=> not isActive[this] and ( (endPosition not in SafeArea.coverage) or (hasLeftLowBattery=True) )
+	bill.type=DISCOUNT_BILL <=> not isActive[this] and ( (hasAdditionalPassengers=True) )
 }
 
 
 // FACTS
 
 fact ReservationMatchRide {
+	all res:Reservation | lone ride:Ride | ride.reservation=res
     all ride:Ride | ride.user=ride.reservation.user
 	all ride:Ride | ride.vehicle=ride.reservation.vehicle
 }
 
-fact NoDoubleEvent {
-	no e1:Event | some e2:Event | overlap[e1, e2] and e1.user=e2.user 
-	no e1:Event | some e2:Event | overlap[e1, e2] and e1.vehicle=e2.vehicle 
+fact NoEventOverlap {
+	no disj e1, e2:Event | overlap[e1, e2] and e1.user=e2.user 
+	no disj e1, e2:Event | overlap[e1, e2] and e1.vehicle=e2.vehicle 
 }
 
-fact LicenseMatchesVehicle {
-	no r:Reservation | not (r.vehicle.category in r.user.license.categories)
+fact LicenseMatchUser {
+	all l:License | one u:User | u.license=l
+}
+
+fact LicenseMatchVehicle {
+	all e:Event | e.vehicle.category in e.user.license.categories
 }
 
 fact NoRandomRide {
 	no r:Ride | isActive[r.reservation]
 	no r:Ride | r.reservation.isExpired=True
+	all ride:Ride | ride.startTime>=ride.reservation.endTime
 }
 
 fact NoLockedUserAction {
@@ -114,14 +123,17 @@ fact NoLockedUserAction {
 }
 
 fact VehicleStateConsistency {
-	all v:Vehicle | all r:Ride | r.reservation.vehicle=v implies (not isActive[r]) and (not isActive[r.reservation]) <=> v.state = FREE
-	all v:Vehicle | some r:Reservation | r.vehicle=v implies isActive[r] <=> v.state = RESERVED
-	all v:Vehicle | some r:Ride | r.reservation.vehicle=v implies isActive[r] <=> v.state = IN_USE
-	
+	all v:Vehicle | all r:Ride | r.reservation.vehicle=v implies ( (not isActive[r]) and (not isActive[r.reservation]) <=> v.state = FREE )
+	all v:Vehicle | one r:Reservation | r.vehicle=v implies ( isActive[r] <=> v.state = RESERVED )
+	all v:Vehicle | one r:Ride | r.reservation.vehicle=v implies ( isActive[r] <=> v.state = IN_USE )
 }
 
 fact NoRandomBill {
-	all b:Bill | some r1:Reservation, r2:Ride | r1.bill=b or r2.bill=b
+	all b:Bill | one r1:Reservation, r2:Ride | r1.bill=b or r2.bill=b
+}
+
+fact ConsistentVehiclePosition {
+	all v:Vehicle | (some r:Ride | r.vehicle=v) implies (some r1:Ride | r1.endPosition=v.position and (all r2:Ride | r2!=r1 and r2.vehicle=r1.vehicle implies r2.endTime<r1.endTime))  //if vehicle was used its position should match with last ride endPosition
 }
 
 // keep track of bills and discounts/charges based upon final car state after a ride.. (//additionalPassengers: one Bool.. additionalPassenger)
