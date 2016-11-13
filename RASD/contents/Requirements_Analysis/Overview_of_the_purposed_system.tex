@@ -3,15 +3,17 @@ In this chapter the product and its requirements are described in order to provi
 \section{Product perspective}
 % Here we put the application into perspective with other related products, interfaces/communication means should be identified
 
+
 \subsection{User interfaces} % aka "Ease of use"
 \label{subsec:user_interfaces}
+We want to build an immediate and minimal graphic interface, which can be understood at first sight also by inexperienced users. Pages will be user-friendly and the link between them will appear as a natural relationship.
 The user should be able to interact with the system in three ways:
 \begin{itemize}
 	\item{Web application}: is strongly cross-platform and then accessible from any device that can browse the web
 	\item{Mobile application}: accessible from smartphones and mobile devices in order to guarantee portability and ease of use
 	\item{On-Board computer}: accessible from the inside of any PowerEnjoy car, it must be extremely straightforward and let the user focus on the actual interaction
 \end{itemize}
-A common and friendly UI should be provided to create a sort of logical connection between the three different applications and make the user feel comfortable.
+A common and friendly UI should be provided to create a sort of logical connection between the three different applications and make the user feel comfortable. 
 
 \subsection{Hardware interfaces}
 The web application has no other hardware constraints despite the ones specified in subsection \ref{subsec: hw_constraints}, it should run on any device meeting such minimum requirements. Mobile application has to communicate with GPS, Antenna and WiFi modules in order to retrieve location and query the server, requirements easily met by any modern smartphone.
@@ -79,21 +81,25 @@ In order for the system to work properly some domain assumptions are needed:%May
 	\item{Cars are equipped with a standard diagnostic connector and are using OBD-II communication protocols}
 	\item{The GPS signal is sufficiently accurate ($\pm5m$ accuracy with A-GPS)}
 	\item{All the cars are insured}
-	\item{If an User is reserving a car she can't try to find an other car}
+	\item{If an user is reserving a car she can't try to find an other car}
 	\item{Users driving licenses are checked}
-	\item{If an User demage a car he have to pay the demages.}
-	\item {The User have to assure the system that when she unlocks a car she drives it. If PowerEnJoy finds that is driving an other person the User is charge with an heavy fee, she is reported and her profile is freezed}
-	\item{The system storage all the User's information}
+	\item{If an user demage a car he have to pay the demages.}
+	\item{Bills are payed once}
+	\item{Payments are correctly handled by payment handler}
+	\item {The user have to assure the system that when she unlocks a car she drives it. If PowerEnJoy finds that is driving an other person the User is charge with an heavy fee, she is reported and her profile is freezed}
+	\item{The system storage all the user's information}
 	\item{There isn't a time limit for a single ride}%to decide
 	\item{There isn't a distance limit for a single ride}%to decide
-	\item{If more than one discounts or fees can be applied to an user on the same ride only one of them will be applied. It should be the highest fee, in the case there is at least a fee applicable, or the highest discount, in the case there are more concurrent discounts}
+	\item {The charging stations are into safe areas.}
+	\item {If a car is charging, it's in a \gls{charging station}}
+	\item{If more than one discounts or fees can be applied to an user on the same ride only one of them will be applied. It should be the highest fee, in the case there is at least a fee applicable, or the highest discount, in the case there are more concurrent discounts. The only exception is in the case that the battery pecentage is less than 20\% (fee condition) but the user left it in a \gls{charging station} and plug the car into the power grid: in this case the user will receive a discount of 30\%}
 	\item{PowerEnJoy runs only one type of car}
 	\item{The data center can't be improperly modified or hackered}
-	\item{An User checks the car before to use it. If there are issues or demages PowerEnJoy automatically reserves an other car for her and charges the car's previous User of the repair costs.}
+	\item{An user checks the car before to use it. If there are issues or demages PowerEnJoy automatically reserves an other car for her and charges the car's previous user of the repair costs.}
 	\item{If a car is left at more then 3 KM from the nearest power grid station there are PowerEnJoy's employees that move the car back in a \gls{safe area}}
 	\item{If a car is left with more than 80\% of the battery empty there are PowerEnJoy's employees that re­‐charge the car on-­site}
 	\item{When a discount or a fee refers to the percentage of the battery used, the percentage refers to the full charge of the battery}
-	\item{If an User unlocks a car and don't ignite the engine within three minutes the system start to charge the User}% To check with the system function related!!!
+	\item{If an user unlocks a car and don't ignite the engine within three minutes the system start to charge the user}% To check with the system function related!!!
 	\item{The system use an external payment system}
 	
 \end{itemize}
