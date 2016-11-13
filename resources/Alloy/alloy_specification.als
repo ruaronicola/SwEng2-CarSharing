@@ -1,5 +1,5 @@
 module PowerEnJoy
-open utils/boolean
+open util/boolean
 
 
 // SIGNATURES 
@@ -35,7 +35,7 @@ sig License{
 }{#categories>0}
 
 sig User {
-	license: lone License,
+	license: one License,
 	isLocked: one Bool
 }
 
@@ -44,28 +44,30 @@ sig User {
 // so, alternatively we can model start/end time as Ints and check intervals for overlapping
 // but be careful..! use cases and so on should be adapted
 abstract sig BillType {}
-one sig EXPIRATION_BILL, STD_BILL, DISCOUNT_BILL, FEE_BILL extends BillType {}
+one sig EXPIRATION_BILL, STD_BILL, DISCOUNT_BILL, FEE_BILL extends BillType {}  //assume some kind of precedence between special rates
 sig Bill {
-	type: one BillType
-	payedBy: one User
-//	payedTime: one Int
+	type: one BillType,
+	payed: one Bool   // assume that bills are payed once and correctly handled by payment handler
 }
 
 abstract sig Event {
-	startTime: one Int,
-	endTime: lone Int
-}{endTime>startTime
-	startTime>0
-	endTime>0}
-
-sig Reservation extends Event{
 	user: one User,
 	vehicle: one Vehicle,
+	startTime: one Int,
+	endTime: lone Int
+}{
+	startTime>0
+	endTime>0
+	endTime>startTime
+}
+
+sig Reservation extends Event{
 	isExpired: one Bool,
 	bill: lone Bill
 }{
-	active implies not isExpired
-	isExpired implies not active //forse isActive ci va?
+	isActive[this] implies isExpired=False
+	isExpired=True implies not isActive[this]
+    isActive[this] implies vehicle.state=RESERVED
 	bill.type=EXPIRATION_BILL
 }
 
@@ -73,55 +75,55 @@ sig Ride extends Event{
 	reservation: one Reservation,
 	startPosition: one Position,
 	endPosition: lone Position,
-	bill: one Bill
-	otherTwoOrMorePassengers: one Bool
+	hasAdditionalPassengers: one Bool,
+	hasLeftLowBattery: one Bool,
+	bill: lone Bill
 }{
-	not(bill=null) implies not(endPosition=null)
-	(endPosition=null) implies (bill=null)
 	startPosition in SafeArea.positions
-	bill.type!=EXPIRATION_BILL
-	(!(isActive) and (endPosition !=SafeArea.position)) implies (bill.type= FEE_BILL)
-	(!(isActive) and (reservation.vehicle.batteryLevel=LOW) implies (bill.type= FEE_BILL)
-	reservation.vehicle.category=B_CATEGORY //per ora che ci sono solo auto.
+	#bill=1 <=> #endPosition=1
+	isActive[this] <=> #bill=0 and #endPosition=0
+	#bill=1 implies bill.type!=EXPIRATION_BILL
+    bill.type=FEE_BILL <=> !isActive[this] and ( (endPosition not in SafeArea.positions) or (hasLeftLowBattery=True) )
+	bill.type=DISCOUNT_BILL <=> !isActive[this] and ( (hasAdditionalPassengers=True) )
 }
 
 
 // FACTS
 
-fact NoDoubleReservations {
-	no r1:Reservation | some r2:Reservation | overlap[r1, r2] and r1.user=r2.user 
-	no r1:Reservation | some r2:Reservation | overlap[r1, r2] and r1.vehicle=r2.vehicle
+fact ReservationMatchRide {
+    all ride:Ride | ride.user=ride.reservation.user
+	all ride:Ride | ride.vehicle=ride.reservation.vehicle
 }
 
-fact NoDoublePayment{
-	no b1:Bill | some b2: Bill | b1.payedBy=b2.payedBy
+fact NoDoubleEvent {
+	no e1:Event | some e2:Event | overlap[e1, e2] and e1.user=e2.user 
+	no e1:Event | some e2:Event | overlap[e1, e2] and e1.vehicle=e2.vehicle 
 }
-
-fact NoDoubleRide{
-	no r1:Ride | some r2:Ride|overlap[r1,r2] and r1.reservation=r2.reservation
-	//no r1:Ride | some r2:Ride | overlap[r1, r2] and r1.reservation.car=r2.reservation.car   --ripetizione
-}	
-
 
 fact LicenseMatchesVehicle {
-	no r:Reservation | not (r.car.category in r.user.licence.categories)
+	no r:Reservation | not (r.vehicle.category in r.user.license.categories)
 }
 
 fact NoRandomRide {
-	no r:Ride |  isActive[r.reservation]
-	no r:Ride |  r.reservation.isExpired
+	no r:Ride | isActive[r.reservation]
+	no r:Ride | r.reservation.isExpired=True
 }
 
 fact NoLockedUserAction {
-	no r:Reservation | r.user.isLocked
+	no r:Reservation | isActive[r] and r.user.isLocked=True
 }
 
 fact VehicleStateConsistency {
-	all v:Vehicle | all r:Ride | r.reservation.vehicle=v | (not isActive[r]) and (not isActive[r.reservation]) <=> v.state = FREE
-	all v:Vehicle | some r:Reservation | r.vehicle=v | isActive[r] <=> v.state = RESERVED
-	all v:Vehicle | some r:Ride | r.reservation.vehicle=v | isActive[r] <=> v.state = IN_USE
+	all v:Vehicle | all r:Ride | r.reservation.vehicle=v implies (not isActive[r]) and (not isActive[r.reservation]) <=> v.state = FREE
+	all v:Vehicle | some r:Reservation | r.vehicle=v implies isActive[r] <=> v.state = RESERVED
+	all v:Vehicle | some r:Ride | r.reservation.vehicle=v implies isActive[r] <=> v.state = IN_USE
 	
 }
+
+fact NoRandomBill {
+	all b:Bill | some r1:Reservation, r2:Ride | r1.bill=b or r2.bill=b
+}
+
 // keep track of bills and discounts/charges based upon final car state after a ride.. (//additionalPassengers: one Bool.. additionalPassenger)
 
 
@@ -132,13 +134,13 @@ pred isActive [e: Event]{
 }
 
 pred overlap [e1,e2: Event]{
-	e1.startTime<e2.startTime<e1.endTime or 
-	e2.startTime<e1.startTime<e2.endTime or
+	e1.startTime<e2.startTime and e2.startTime<e1.endTime or 
+	e2.startTime<e1.startTime and e1.startTime<e2.endTime or
 	isActive[e1] and isActive[e2]
 }
 
 pred show {}
 
 
-run show for 10
+run show for 3 but 2 Bill
 
