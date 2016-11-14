@@ -1,8 +1,8 @@
+
 % Set the document's formatting to "report"
 \documentclass[openright]{report}
 
-% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], comment[comment paragraphs], lmodern/fontend[fix tilde typesetting], afterpage[insert blankpages], etoolbox[flawless page numbering], blindtext[lorem ipsum], mathtools[math symbols], fp[variables evaluation] and glossaries/imakeidx[glossary] packages
-\usepackage{listings}
+% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], comment[comment paragraphs], lmodern/fontend[fix tilde typesetting], afterpage[insert blankpages], etoolbox[flawless page numbering], blindtext[lorem ipsum], mathtools[math symbols], listings/alloy/color[alloy syntax], fp[variables evaluation] and glossaries/imakeidx[glossary] packages
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{tocbibind}
@@ -13,12 +13,19 @@
 \usepackage{etoolbox}
 \usepackage{blindtext}
 \usepackage{mathtools}
+\usepackage{listings}
+\usepackage{alloy}
+\usepackage{color}
 \usepackage[nomessages]{fp}
 \usepackage[nonumberlist,acronym,toc,xindy]{glossaries}
 \makeglossaries
 \usepackage[xindy]{imakeidx}
 \makeindex
 
+
+\definecolor{alloy-keyword}{rgb}{0.23, 0.23, 0.7}
+\definecolor{alloy-comment}{rgb}{0.18, 0.64, 0.18}
+\definecolor{alloy-string}{rgb}{0.71, 0.18, 0.71}
 
 % Patch page numbering
 \patchcmd{\abstract}{\titlepage}{\thispagestyle{empty}}{}{}
@@ -38,10 +45,10 @@
 \graphicspath{{../resources/images/}}
 
 % Create auxiliary variables for worktime and version tracking 
-\def \worktimeNicola {35}
+\def \worktimeNicola {30}
 \def \worktimeGiacomo {30}
 \FPupn{worktimeTotal}{worktimeNicola worktimeGiacomo + 0 round}
-\FPupn{version}{worktimeTotal 50 swap / 2 round}
+\FPupn{version}{1.0}
 
 
 \begin{document}
