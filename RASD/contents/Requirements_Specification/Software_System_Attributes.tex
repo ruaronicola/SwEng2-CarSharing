@@ -3,8 +3,7 @@
  The use interface has to be user-friendly. It has to be simple, intuitive and well-organized. A typical user has not a previous knowledge of the system and we shall do it as easily to use as possible.
 
 \subsection{Reliability}
-The system should be avaible 24/24, 7/7, 365/365. On the other side the system has to be supported by an Internet connection that reliability depends by their providers.  
-\\It should be permitted to have little stops for maintenance. If ocasionally the system has an unexpected stop however it can be accepted as the system don't cover a critical function. 
+The system must be opportunely reliable in order to support users while accessing the service, a 3-nines availability (\textasciitilde9hours/year) is more than enough for a non life-critical system.
 
 \subsection{Portability}
 Our system should be very portable due to the very wide range of users. It should be compatible to all the major hardware and software components. Our mobile application should work on the most used mobile OS. The web application needs to be supported by all the most used browsers. The code should be developed so that only a minor part should be adapted at the specific operation system.
@@ -17,6 +16,7 @@ The maintainability of the system is guarantee by the administrator. The develop
 In order to not lose the data in case of system fault they have always to be duplicate in a backup server.  
 
 \subsection{Security}
+% todo: identify safety considerations(driving licence, safe areas, fraud, user/car damage...)
 %encripted and protected by an asymmetric key and a strong hash function (e.g.: 2048 RSA key and SHA-2 hash salting)
 We need to apply security protocols at different levels for ensure a correct access to the data. First of all each user can access to her page using her personal \gls{ID} and \gls{pwd}, as esplain in the user interface. The \gls{pwd} is gived by the system and should be an alphanumeric code of 8 digits, with at least two upper case letter, randomly selected. The \gls{pwd} can be upload by the user, but it have to respect the 8-digits lenght and the two upper case letter have to be present.
 \\Secondly every acess to the database have to filtered in order to avoid an uncorrect managment and the incosistency of the data.
