@@ -31,8 +31,7 @@ abstract sig Vehicle {
 	batteryLevel: one BatteryLevel,
 	plugged: one Bool
 }{
-	batteryLevel = LOW implies state = OUT_OF_SERVICE 
-	not (position in SafeArea.coverage) implies state=OUT_OF_SERVICE
+	(batteryLevel=LOW or not (position in SafeArea.coverage)) and not plugged=True <=> state=OUT_OF_SERVICE
 	plugged=True implies ( position in SafeArea.coverage)
 }
 sig Car extends Vehicle{}{category=B_CATEGORY}
@@ -85,7 +84,9 @@ sig Ride extends Event{
 }{
 	startPosition in SafeArea.coverage
 	startPosition!=endPosition
-	hasLeftHighBattery=True <=> not hasLeftLowBattery=True
+	hasLeftHighBattery=True implies not hasLeftLowBattery=True
+	hasLeftLowBattery=True implies not hasLeftHighBattery=True
+	isActive[this] implies (not  hasLeftLowBattery=True and not hasLeftHighBattery=True)
 	#bill=1 <=> #endPosition=1
 	#endPosition=1 <=> not isActive[this]
 	bill.type!=EXPIRATION_BILL
@@ -99,7 +100,7 @@ sig Ride extends Event{
 
 // all reservations are assigned to at most one ride and have coherent user/vehicle
 fact ReservationMatchRide {
-	all res:Reservation | lone ride:Ride | ride.reservation=res
+	no disj r1,r2:Ride | r1.reservation=r2.reservation 
     all ride:Ride | ride.user=ride.reservation.user
 	all ride:Ride | ride.vehicle=ride.reservation.vehicle
 }
@@ -129,19 +130,22 @@ fact NoRandomRide {
 
 // banned users cannot reserve/drive cars
 fact NoLockedUserAction {
-	no r:Reservation | isActive[r] and r.user.isLocked=True
+	no e:Event | isActive[e] and e.user.isLocked=True
 }
 
 // vehicle state should be consistent
 fact VehicleStateConsistency {
-	all v:Vehicle | v.state=FREE or v.state=OUT_OF_SERVICE implies (no e:Event | e.vehicle=v and isActive[e])
-	all v:Vehicle | v.state=RESERVED implies (one r:Reservation | r.vehicle=v and isActive[r])
-	all v:Vehicle | v.state=IN_USE implies (one r:Ride | r.vehicle=v and isActive[r])
+	all v:Vehicle | v.state=FREE or v.state=OUT_OF_SERVICE <=> (no e:Event | e.vehicle=v and isActive[e])
+	all v:Vehicle | v.state=RESERVED <=> (one r:Reservation | r.vehicle=v and isActive[r])
+	all v:Vehicle | v.state=IN_USE <=> (one r:Ride | r.vehicle=v and isActive[r])
 }
 
-// all bills are assigned to a ride or a reservation
+// all bills are assigned to a single ride or reservation
 fact NoRandomBill {
-	all b:Bill | one r1:Reservation, r2:Ride | r1.bill=b or r2.bill=b
+	no disj r1,r2:Ride | #r1.bill=1 and #r2.bill=1 and r1.bill=r2.bill
+	no disj r1,r2:Reservation | #r1.bill=1 and #r2.bill=1 and r1.bill=r2.bill
+	no r1:Ride, r2:Reservation | #r1.bill=1 and #r2.bill=1 and r1.bill=r2.bill
+	no b:Bill | no r1:Ride, r2:Reservation |  (#r1.bill=1 and r1.bill=b) or (#r2.bill=1 and r2.bill=b)
 }
 
 //if vehicle was used its position should match with last ride endPosition
@@ -168,6 +172,7 @@ fact ConsistentPosition {
 	no disj c1,c2:ChargingStation | c1.position = c2.position
 }
 
+
 // PREDICATES
 
 pred isActive [e: Event]{
@@ -175,12 +180,15 @@ pred isActive [e: Event]{
 }
 
 pred overlap [e1,e2: Event]{
-	e1.startTime<e2.startTime and e2.startTime<e1.endTime or 
-	e2.startTime<e1.startTime and e1.startTime<e2.endTime or
+	e1.startTime<=e2.startTime and e2.startTime<=e1.endTime or 
+	e2.startTime<=e1.startTime and e1.startTime<=e2.endTime or
 	isActive[e1] and isActive[e2]
 }
 
-pred show {}
+pred show {
+	#Ride>1
+	some expired:Reservation | expired.isExpired=True
+}
 
 
-run show for 3
+run show for 3 but 5 Event

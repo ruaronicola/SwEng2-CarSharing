@@ -24,6 +24,15 @@ sig ChargingStation {
 abstract sig BatteryLevel {}
 one sig LOW, MEDIUM, HIGH extends BatteryLevel {}
 
+
+
+
+
+
+
+
+
+
 abstract sig Vehicle {
 	category: one Category,
 	state: one State,
@@ -31,8 +40,9 @@ abstract sig Vehicle {
 	batteryLevel: one BatteryLevel,
 	plugged: one Bool
 }{
-	batteryLevel = LOW implies state = OUT_OF_SERVICE 
-	not (position in SafeArea.coverage) implies state=OUT_OF_SERVICE
+	state=OUT_OF_SERVICE <=> not plugged=True and
+		(batteryLevel=LOW or not (position in SafeArea.coverage))
+		
 	plugged=True implies ( position in SafeArea.coverage)
 }
 sig Car extends Vehicle{}{category=B_CATEGORY}
@@ -47,7 +57,11 @@ sig User {
 }
 
 abstract sig BillType {}
-one sig EXPIRATION_BILL, STD_BILL, DISCOUNT_BILL, FEE_BILL extends BillType {}  
+one sig EXPIRATION_BILL extends BillType {}  
+one sig STD_BILL extends BillType {}  
+one sig DISCOUNT_BILL extends BillType {}  
+one sig FEE_BILL extends BillType {}  
+
 sig Bill {
 	type: one BillType,
 	payed: one Bool   
@@ -85,20 +99,26 @@ sig Ride extends Event{
 }{
 	startPosition in SafeArea.coverage
 	startPosition!=endPosition
-	hasLeftHighBattery=True <=> not hasLeftLowBattery=True
+	hasLeftHighBattery=True implies not hasLeftLowBattery=True
+	hasLeftLowBattery=True implies not hasLeftHighBattery=True
+	isActive[this] implies (not hasLeftLowBattery=True and 
+							not hasLeftHighBattery=True)
 	#bill=1 <=> #endPosition=1
 	#endPosition=1 <=> not isActive[this]
 	bill.type!=EXPIRATION_BILL
- 	bill.type=DISCOUNT_BILL <=> not isActive[this] and 
- 								(endPosition in SafeArea.coverage) and 
- 								(hasAdditionalPassengers=True or 
- 								 hasLeftHighBattery=True or 
- 								 hasLeftPlugged=True)
- 	bill.type=FEE_BILL <=> not isActive[this] and 
- 						   not bill.type=DISCOUNT_BILL and 
- 						   (not(endPosition in SafeArea.coverage) or 
- 						   	hasLeftLowBattery=True)
-	bill.type=STD_BILL <=> not isActive[this] and 
-						   not bill.type=DISCOUNT_BILL and 
-						   not bill.type=FEE_BILL
+ 	bill.type=DISCOUNT_BILL <=> 
+ 		not isActive[this] and 
+ 		(endPosition in SafeArea.coverage) and 
+ 		(hasAdditionalPassengers=True or 
+ 		 hasLeftHighBattery=True or 
+ 		 hasLeftPlugged=True)
+ 	bill.type=FEE_BILL <=> 
+ 		not isActive[this] and 
+ 		not bill.type=DISCOUNT_BILL and 
+ 		(not(endPosition in SafeArea.coverage) or 
+ 		 hasLeftLowBattery=True)
+	bill.type=STD_BILL <=> 
+		not isActive[this] and 
+		not bill.type=DISCOUNT_BILL and 
+		not bill.type=FEE_BILL
 }
