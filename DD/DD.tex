@@ -1,0 +1,157 @@
+% Set the document's formatting to "report"
+\documentclass[openright]{report}
+
+% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], comment[comment paragraphs], lmodern/fontend[fix tilde typesetting], afterpage[insert blankpages], etoolbox[flawless page numbering], blindtext[lorem ipsum], mathtools[math symbols], listings/alloy/color[alloy syntax], fp[variables evaluation] and glossaries/imakeidx[glossary] packages
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{tocbibind}
+\usepackage{comment}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{afterpage}
+\usepackage{etoolbox}
+\usepackage{blindtext}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{alloy}
+\usepackage{color}
+\usepackage[nomessages]{fp}
+\usepackage[nonumberlist,acronym,toc,xindy]{glossaries}
+\makeglossaries
+\usepackage[xindy]{imakeidx}
+\makeindex
+
+
+\definecolor{alloy-keyword}{rgb}{0.23, 0.23, 0.7}
+\definecolor{alloy-comment}{rgb}{0.18, 0.64, 0.18}
+\definecolor{alloy-string}{rgb}{0.71, 0.18, 0.71}
+
+% Patch page numbering
+\patchcmd{\abstract}{\titlepage}{\thispagestyle{empty}}{}{}
+\patchcmd{\endabstract}{\endtitlepage}{\clearpage}{}{}
+
+% Create new \blankpage command
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+% Edit title styling
+\titleformat{\chapter}{\Huge\bfseries}{}{0pt}{\Huge}
+
+% Set images path
+\graphicspath{{../resources/images/}}
+
+% Create auxiliary variables for worktime and version tracking 
+\def \worktimeNicola {0}
+\def \worktimeGiacomo {0}
+\FPupn{worktimeTotal}{worktimeNicola worktimeGiacomo + 0 round}
+\FPupn{version}{1.0}
+
+
+\begin{document}
+
+	\begin{titlepage}
+		\input{contents/Titlepage}
+	\end{titlepage}
+
+	% Change page numbering to uppercase roman for introductory pages
+    \pagenumbering{Roman}
+
+    \tableofcontents
+
+    \newpage
+    \blankpage
+    \begin{abstract}
+		\input{contents/Abstract} %lo mettiamo?
+	\end{abstract}
+
+	% Change page numbering to arabic for the rest of the document
+	\pagenumbering{arabic}
+
+	\part{Introduction}
+    \chapter{Purpose}
+    	\input{contents/Introduction/Purpose}
+    \chapter{Scope}
+    	\input{contents/Introduction/Scope}
+    \chapter{Document Structure}
+    	\input{contents/Introduction/Document_structure}
+      
+	\part{Architectural Design}
+    \chapter{Overview:High level components and their interaction}
+	    \input{contents/Architectural_design/Overview_hlcomponents_interactions}
+	\chapter{Component view}
+	    \input{contents/Architectural_design/Component_view}
+	\chapter{Deployment view}
+	    \input{contents/Architectural_design/Deployment_view}
+	\chapter{Runtime view}
+	    \input{contents/Architectural_design/Runtime_view}
+	\chapter{Component Interfaces}
+	    \input{contents/Architectural_design/Component_interfaces}
+	\chapter{Selected architectural styles and patterns}
+	    \input{contents/Architectural_design/Selected_architectural_styles_patterns}
+	\chapter{Other design decisions}
+	    \input{contents/Architectural_design/Other_design_decisions}
+    % Insert a break for the table of contents
+    \addtocontents{toc}{\protect\newpage}
+
+    \part{Algorithm design}
+    \input{contents/Algorithm_design}
+    \part{User interface design}
+    \input{contents/User_interface_design}
+    \part{Requirements Traceability}
+    \input{contents/Requirements_traceability}
+    \part{Architectural Design}
+    \input{contents/Architectural_design/Overview_hlcomponents_interactions}
+    \part{Architectural Design}
+    \input{contents/Architectural_design/Overview_hlcomponents_interactions}
+
+    \begin{comment}
+    \newpage
+    \blankpage
+    \renewcommand{\abstractname}{Developer Overview}
+    \begin{abstract}
+		\input{contents/Requirements_Specification/Developer_Overview}
+	\end{abstract}
+
+	\part{Requirements specification}
+	\chapter{Specific requirements}
+		\input{contents/Requirements_Specification/Specific_Requirements}
+	\chapter{Alloy modelling}
+		\input{contents/Requirements_Specification/Alloy_Modelling}
+	\end{comment}
+
+	% Insert a break for the table of contents
+    \addtocontents{toc}{\protect\newpage}
+
+    % Set page numbering to arabic and restart it before appendix
+    \clearpage
+	\pagenumbering{Roman}
+	\setcounter{page}{1}
+
+	\blankpage
+
+    \appendix
+    \newpage
+    \chapter{Appendix A: Used Tools}
+	    \input{contents/Appendix_A}
+
+	\newpage
+	\chapter{Appendix B: Hours of work}%effort spent
+	    \input{contents/Appendix_B}
+
+	\newpage
+	\chapter{Appendix C: Revisions}
+	    \input{contents/Appendix_C}
+
+	\input{contents/Glossary}
+	\glsaddall
+	\printglossaries
+
+	\newpage
+	\begin{thebibliography}{10}
+		\input{contents/Bibliography}
+	\end{thebibliography}
+
+\end{document}
