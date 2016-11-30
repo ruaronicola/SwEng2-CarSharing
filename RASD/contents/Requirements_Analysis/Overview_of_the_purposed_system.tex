@@ -72,32 +72,30 @@ The system has to be supported by an Internet connection that reliably depends b
 In order for the system to work properly some domain assumptions are needed:%Maybe to check the order
 \begin{itemize}
 	\item{Sensors and devices needed to support the functionalities of the system are already installed on vehicles}
-	\item{The system knows the perentage of battery in each car}
-	\item{The system knows the location of each car}
-	\item{The system knows how much people are in the car}
+	\item{The system knows the battery level, location and number of passengers in each car}
 	\item{Cars are equipped with a standard diagnostic connector and are using OBD-II communication protocols}
 	\item{The GPS signal is sufficiently accurate ($\pm5m$ accuracy with A-GPS)}
-	\item{All the cars are insured}
-	\item{If an user is reserving a car she can't try to find an other car}
+	\item{All the vehicles are insured}
+	\item{PowerEnJoy runs only one type of vehicle}
+	\item{The battery level always refers to the full-charge}
+
+	\item{All other functions are locked while reserving a vehicle}
 	\item{Users driving licenses are checked}
-	\item{If an user demage a car he have to pay the demages.}
+	\item{The vehicle is driven by the user that reserved it}
+	\item{If a vehicle is damaged during the ride the user is responsible for it}
+	\item{If a vehicle is charging it's in a charging station}	
+	
+	\item{There are no time or distance limits for a single ride}
+	\item{The system stores all users' information}
+	\item{The charging stations are into safe areas}
+	\item{The data center can't be improperly modified or hacked}
+	\item{If a vehicle is not usable the system suggest another reservation and charges the previous user for the reparation costs}
+	\item{There are PowerEnJoy employees that move and re-charge out-of-service vehicles}
+
+	\item{If an unlocked car is not ignited within three minutes the system starts to charge the user}
+	\item{The system uses a reliable external payment system}
 	\item{Bills are payed once}
-	\item{Payments are correctly handled by payment handler}
-	\item {The user have to assure the system that when she unlocks a car she drives it. If PowerEnJoy finds that is driving an other person the User is charge with an heavy fee, she is reported and her profile is freezed}
-	\item{The system storage all the user's information}
-	\item{There isn't a time limit for a single ride}%to decide
-	\item{There isn't a distance limit for a single ride}%to decide
-	\item {The charging stations are into safe areas.}
-	\item {If a car is charging, it's in a \gls{charging station}}
-	\item{If more than one discounts or fees can be applied to an user on the same ride only one of them will be applied. It should be the highest fee, in the case there is at least a fee applicable, or the highest discount, in the case there are more concurrent discounts. The only exception is in the case that the battery pecentage is less than 20\% (fee condition) but the user left it in a \gls{charging station} and plug the car into the power grid: in this case the user will receive a discount of 30\%}
-	\item{PowerEnJoy runs only one type of car}
-	\item{The data center can't be improperly modified or hackered}
-	\item{An user checks the car before to use it. If there are issues or demages PowerEnJoy automatically reserves an other car for her and charges the car's previous user of the repair costs.}
-	\item{If a car is left at more then 3 KM from the nearest power grid station there are PowerEnJoy's employees that move the car back in a \gls{safe area}}
-	\item{If a car is left with more than 80\% of the battery empty there are PowerEnJoy's employees that re­‐charge the car on-­site}
-	\item{When a discount or a fee refers to the percentage of the battery used, the percentage refers to the full charge of the battery}
-	\item{If an user unlocks a car and don't ignite the engine within three minutes the system start to charge the user}% To check with the system function related!!!
-	\item{The system use an external payment system}
+	\item{There are precedence rules regarding the fee/discount application}	
 	
 \end{itemize}
 % todo: complete assumptions listening to recordings and consulting notes on the firs lab
