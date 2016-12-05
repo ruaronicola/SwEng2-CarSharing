@@ -1,10 +1,9 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The system shall kwon if a car is avaible or not.
-  \item The system shall know if an user is already reserving a car.
-  \item The system shall turn a car avaible or not avaible.
-  \item The system shall know the time when an user do a reservation.
-  \item The system shall tag a car avaible again if a car is not picked-up within an hour from the reservation.
+  \item The system must correctly handle the availability of vehicles.
+  \item The system must prevent an user from reserving more vehicles.
+  \item The system must correctly switch the car state to FREE or RESERVED.
+  \item The system must correctly register the reservation's time.
 \end{itemize}
 
 \subsubsection{Scenario 1}
@@ -63,11 +62,9 @@ Susan is a typical PowerEnJoy user, she was walking through a street when a frie
 \end{itemize}  \\ \hline
   Exceptions & 
 %\begin{itemize}
-%\item The User has already reserved a car.
-
-%\item 
-The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).%volendo si possono modificare i nomi delle eccezzioni.
-%\end{itemize} 
+\item The vehicle has already been reserved (the system signals an error).
+\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).
+\end{itemize} 
 \\ \hline
   \end{tabular}
 \end{center}

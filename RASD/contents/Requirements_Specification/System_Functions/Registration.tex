@@ -1,12 +1,9 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The user has to provide her credentials.
-  \item The user has to provide her payment information.
-  \item The system shall give back a password that can be used for log-in.
-  %\item The user must insert valid data
-  %\item The user must provide valid payment information.
-  %\item The system must check all the form fields and create a new user.
-  %\item The system must give back a password that can be used to log-in. 
+  \item The user must insert valid informations.
+  \item The user must provide valid payment information.
+  \item The system must check all the form fields and create a new user.
+  \item The system must give back a password that can be used to log-in.
 \end{itemize}
 
 
@@ -51,10 +48,10 @@ Susan was browsing the net when an advertisement caught her attention, it says: 
     Exit conditions & The Guest is registered to PowerEnJoy and became an User. Now the User is in her homepage. \\ \hline
   	Exceptions & 
     \begin{itemize}
-      \item The Guest provides an e-mail or a phone number or a tax code already used (in this case the system signals an error).
-      \item The Guest does not fill one or more fields in a form (in this cases the system does not allow to proceed and signals an InformationLack).
-      \item The Guest provided wrong payment information (in this case the system signals an error).
-      \item The Guest provided wrong drive license information (in this case the system signals an error).
+      \item The Guest does not fill one or more fields in the form (the system does not allow to proceed and signals an InformationLack).
+      \item The Guest provides in-use informations (the system signals an error).
+      \item The Guest provides wrong payment information (the system signals an error).
+      \item The Guest provides wrong driving license information (the system signals an error).
       \item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure). % modifiable exceptions names
     \end{itemize} \\ \hline
   \end{tabular}

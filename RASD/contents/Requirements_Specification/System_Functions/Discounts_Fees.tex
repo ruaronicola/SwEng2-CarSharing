@@ -1,9 +1,9 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The system should apply a discount of 10\% on the last ride if it detects the user took at least two other passengers onto the car.
-  \item The system should apply a discount of 20\% on the last ride if the car is left with no more than 50\% of the battery empty.
-  \item The system should apply a discount of 30\% on the last ride If the car is left at special parking areas where they can be recharged and the user takes care of plugging the car into the power grid.
-  \item The system should charge 30\% more n the last ride if a car is left at more then 3 KM from the nearest power grid station or with more than 80\% of the battery empty.
+  \item The system must apply a discount of 10\% on the last ride if it detects that the user took at least two other passengers in the car.
+  \item The system must apply a discount of 20\% on the last ride if the car is left with no more than 50\% of the battery empty.
+  \item The system must apply a discount of 30\% on the last ride If the car is left in a special parking area and the user takes care of plugging the car into the power grid.
+  \item The system must charge 30\% more on the last ride if a car is left at more then 3Km from the nearest power grid station or with more than 80\% of the battery empty.
 \end{itemize}
 
 \subsubsection{Scenario 1}
@@ -47,12 +47,9 @@ Susan decides to go to the supermarket with her sister and her mother. She knows
   \item The User has to do the payment now, as show in the "Charge ride" function.
 \end{itemize}  \\ \hline
   Exceptions & 
-%\begin{itemize}
-%\item The User has already reserved a car.
-
-%\item 
-The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).%volendo si possono modificare i nomi delle eccezzioni.
-%\end{itemize} 
+\begin{itemize}
+  \item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).
+\end{itemize} 
 \\ \hline
   \end{tabular}
 \end{center}

@@ -1,11 +1,11 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The system shall charge the user using her payment information after each utilization.
-  \item The system shall start to calculate the charge as soon as the engine ignites.
-  \item The system shall stop to calculate the final charge as soon as the car is parked in a safe area and the user exits the car.%same moment that the car is locked
-  \item The system shall start to calculate the charge as soon as the engine ignites.
-  \item The system shall calculate the current charges. The amount of money per minute is gived.
-  \item The system shall notified the current charges to the user through a screen on the car.
+  \item The system must charge the user using her payment information after each utilisation.
+  \item The system must start to calculate the charges as soon as the engine ignites.
+  \item The system must stop to calculate the final charges as soon as the car is parked in a safe area and the user exits the car.%same moment that the car is locked
+  \item The system must start to calculate the charge as soon as the engine ignites.
+  \item The system must calculate the current charges. The amount of money per minute is given.
+  \item The system must notify the current charges to the user through a screen inside the car.
 \end{itemize}
 
 \subsubsection{Scenario 1}
@@ -14,17 +14,6 @@ Mark has just used PowerEnJoy for going from his house to his office. During his
 
 \subsubsection{Scenario 2}
 During a sunny day Susan decides to use PowerEnJoy to go to the countryside. She takes a car and drives for an hour. When she arrives she notices that the system doesn't stop to charge her. After a quick check she discovers that it isn't a safe area. Unfortunatly for stopping the charge she has to drive back for a while and park the car in a safe area. She finds a bus and uses it for reach the countryside again. The PowerEnJoy service should be used mostly for travels around the city, the cars should be available alongside the city ready for being shared between the users. 
-
-%\subsubsection{Mockups}
-%\begin{figure}[!ht]
-%  \centering
- % \vspace{0.2cm}
- % \includegraphics[width=0.25\textwidth]{/RASD/System_Functions/login_mockup}\\
- % \vspace{0.4cm}
-  %\caption{Mockup for the login mobile page} 
- % \label{fig:login_mockup} 
-%\end{figure}
-% maybe home page mockup here 
 
 
 \subsubsection{Use-case table}
@@ -53,9 +42,8 @@ During a sunny day Susan decides to use PowerEnJoy to go to the countryside. She
     Exit conditions & The user has finished his ride and has payed PowerEnJoy for the service. \\ \hline
   Exceptions & 
 \begin{itemize}
-\item The payment failed.
-\item The user turns off the engine and exits the car in a not safe area
-\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).%volendo si possono modificare i nomi delle eccezzioni.
+\item The payment fails (the system signals an error).
+\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).
 \end{itemize} \\ \hline
   \end{tabular}
 \end{center}

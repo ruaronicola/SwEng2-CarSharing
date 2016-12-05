@@ -1,15 +1,15 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The system shall unlock the right car when an user requests to.
-  \item The system should not unlock any car that does not match the user's reservation.
-  \item The system should switch the car state to "IN USE" only when the user unlocks it.
-  \item The system should close the reservation as soon as the car state is set to "IN USE".
-  \item The onboard computer should unlock the car commands if and only if the right PIN code has been inserted.
-  \item The system shall calculate the current charges and display it through the onboard computer.
-  \item The system should correctly detect accidents and set the car as "OUT OF SERVICE".
-  \item The system should correctly detect when a car is outside the safe-area and prevent the user from ending the ride.
-  \item The system shall set the car state to "FREE" only when the user leaves it.
-  \item Exceptionally, if a car is left at more than 3 KM from the nearest power grid station or with more than 80\% of the battery empty, its state is set to "OUT OF SERVICE".  An operator will then charge it on-site and notify the system to set its state to "FREE" again. % todo assumptions because the assignment is not clear
+  \item The system must unlock the right car when an user requests to.
+  \item The system must not unlock any car that does not match the user's reservation.
+  \item The system must switch the car state to "IN USE" only when the user unlocks it.
+  \item The system must set the car state to "FREE" only when the user leaves it.
+  \item The system must close the reservation as soon as the car state is set to "IN USE".
+  \item The onboard computer must unlock the car commands if and only if the right PIN code has been inserted.
+  \item The system must calculate the current charges and display it through the onboard computer.
+  \item The system must correctly detect accidents and set the car state to "OUT OF SERVICE".
+  \item The system must correctly detect when a car is outside the safe-area and prevent the user from ending the ride.
+  \item If a car is left at more than 3Km from the nearest power grid station or with more than 80\% of the battery empty, its state must be set to "OUT OF SERVICE" and an operator must charge it on-site and notify the system to set its state to "FREE" again.
 \end{itemize}
 
 
@@ -54,8 +54,9 @@ Michael and his two brothers are far from home and its really late, the subway i
     Exit conditions & The User has left the car and has no active reservations, he has been charged for the rental. The car state is "FREE". \\ \hline
   	Exceptions & 
     \begin{itemize}
-      \item The reservation expires just before the unlock request. The system notifies an InvalidReservation error.
-      \item An accident/engine fault occurs. The system tags the car as "OUT OF SERVICE" and requests maintenance.
+      \item The reservation expires just before the unlock request (the system notifies an InvalidReservation exception).
+      \item An accident/engine fault occurs (the system tags the car as "OUT OF SERVICE" and requests maintenance).
+      \item The user doesn't leave the car in a safe area (the system tags the car as "OUT OF SERVICE").
     \end{itemize} \\ \hline
   \end{tabular}
 \end{center}

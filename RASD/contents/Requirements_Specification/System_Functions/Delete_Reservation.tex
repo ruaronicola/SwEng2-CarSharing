@@ -1,7 +1,7 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The system shall tag a car avaible again if a related reservation is deleted
-  \item The system shall not apply any charge if the reservation is deleted before expiration
+  \item The system must tag a car avaible again if a related reservation is deleted.
+  \item The system must not apply any charge if the reservation is deleted before expiration.
 \end{itemize}
 
 
@@ -40,8 +40,8 @@ Michael is in a hurry because he has a meeting downtown in 20 minutes, he is rea
     Exit conditions & The User is in his homepage but his last reservation has been deleted and the vehicle is free again \\ \hline
   	Exceptions & 
     \begin{itemize}
-      %we assume here that the system reacts in real time in case of expiration and so a deletion cannot be requested
-      \item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure). % modifiable exceptions names
+      \item The reservation is already expired (the system signals an error).
+      \item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).
     \end{itemize} \\ \hline
   \end{tabular}
 \end{center}

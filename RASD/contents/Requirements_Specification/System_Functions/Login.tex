@@ -1,9 +1,7 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The user has to provide her \gls{ID}.
-  \item The user has to provide her \gls{pwd}.
-  %\item The user must provide a valid ID.
-  %\item The user must provide a valid password.
+  \item The user must provide a valid ID.
+  \item The user must provide a valid password.
 \end{itemize}
 
 \subsubsection{Scenario 1}
@@ -45,8 +43,8 @@ A guest confused the login form with the registration one and after submiting th
   Exceptions & 
 \begin{itemize}
 \item The Guest provides wrong username-password pair (the system signals a LoginError).
-\item The Guest doesn't fill both the fields (the systems signals an InformationLack).
-\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).%volendo si possono modificare i nomi delle eccezzioni.
+\item The Guest doesn't fill one of the fields (the systems signals an InformationLack).
+\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).
 \end{itemize} \\ \hline
   \end{tabular}
 \end{center}

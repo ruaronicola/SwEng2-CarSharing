@@ -1,14 +1,9 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
-  \item The system shall store all the account information.
-  \item The user could modify the \gls{pwd}.
-  \item The system shall upload any information added.
-  \item The system shall check that all the required information are inserted.
-  \item The system shall check that all the information are valid.
-  %\itemThe system must store all the account information.
-  %\itemThe user must be able to modify the password.
-  %\itemThe system must update any changed information.
-  %\itemThe system shall check that all the informations are valid.
+  \itemThe system must store all the account information.
+  \itemThe user must be able to modify the password.
+  \itemThe system must update any changed information.
+  \itemThe system shall check that all the informations are valid.
 \end{itemize}
 
 \subsubsection{Scenario 1}
@@ -49,9 +44,9 @@ Mark is a typical PowerEnJoy user. Unfortunatly his credic card is expired and s
     Exit conditions & The User's profile is modified. \\ \hline
   Exceptions & 
 \begin{itemize}
-\item The User insert empty or invalid values as modifications.
-\item The User doesn't submit the modifications.
-\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).%volendo si possono modificare i nomi delle eccezzioni.
+\item The User provides empty or invalid values as modifications (the system signals an error).
+\item The User doesn't submit the modifications (the system aborts the request).
+\item The system is not able to complete the operation due to some internal issues or connection broken (the system signals a ConnectionFailure).
 \end{itemize} \\ \hline
   \end{tabular}
 \end{center}
