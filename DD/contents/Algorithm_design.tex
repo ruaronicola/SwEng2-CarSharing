@@ -1,1 +1,18 @@
-\blindtext
+\section{Computation of additional charges and discounts}
+One of the main requirements for the PowerEnJoy system, as discussed in the RASD, is the correct computation of charges/discounts for bad/virtuous users.
+\\We assumed that there are precedence rules regarding the fee/discount application and here a computation pseudo-algorithm is presented:
+
+\begin{enumerate}
+	\item The On-Board computer detects a virtuous/bad behaviour
+	\item The On-Board computer updates the Application Server and the behaviour-detection is added to the ride object
+	\item When the ride ends the Application Server calculates the total charges:
+	\begin{lstlisting}
+		if #detections = 0 
+			pass;
+		elif #detections.bad > 0
+			apply(detections.bad.get_higher)
+		else
+			apply(detections.virtuous.get_higher)
+	\end{lstlisting}
+	\item The Application Server notifies the user
+\end{enumerate}
