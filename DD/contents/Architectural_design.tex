@@ -34,17 +34,8 @@ To define and easily understand what kind of functionalities must be implemented
 
 \subsection{Database components}
 In particular the data stored in the database will be split through different subcomponents that identified the main entities of our system:
-\begin{itemize}
-	\item User  %location is not necessary, if a reservation is active we need a tag to indicate it
-	\item Vehicle 
-	\item SafaArea\&ChargingStation
-	\item Reservation 
-	\item Ride
-	\item Payment  
-	\item Notification 
-\end{itemize} %something else??
-
-The designed model for persistent data is provided here in a ER diagram in order to better analyze the motivations of our design. That's the representation of the database model:
+User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviours and Payment.  
+\\The designed model for persistent data is provided here in a ER diagram in order to better analyze the motivations of our design. That's the representation of the database model:
 \begin{figure}[!h]
   \centering
   \vspace{0.2cm}
@@ -67,7 +58,7 @@ The designed model for persistent data is provided here in a ER diagram in order
 	\item{Payment (\underline{ID\_Payment}, \textit{ID\_User}, \textit{ID\_Reservation}, \textit{ID\_Ride}, date\&time, total\_cost, status, type)}
 \end{itemize}
 In the User entity there are all the main information about the user such as credentials and payment method. Her status can be reserving, riding, free or banned. The location of the user is not necessary.
-\\A Vehicle entity has different attributes, some of them supply by the On-Board computer. The status here can be free, reserved, in_use or out_of_order.
+\\A Vehicle entity has different attributes, some of them supply by the On-Board computer. The status here can be free, reserved, in\_use or out\_of\_order.
 \\The Location entity represent a location provided by the GPS. Safe area are zones composed by one or more locations. Into the Safe areas there can be also some Charging stations.
 \\The Reservation entity is connected with an user and a vehicle. It can end or with an unlock or with an expiration, and in this second case it comports the payment of a fee by the user. The reservation is strictly connected with the Ride entity, which can exist only related with it. Each ride has a starting point and when it finishes an end point. A ride also comports a payment, in particular if the Behaviours entity is present related with the ride it comport a variation of the final price. 
 \\In the Payment entity there are the information about the transaction from th user to PowerEnJoy, the status indicates if the payments has been done with success or if the system is still waiting for it.
@@ -84,24 +75,69 @@ made.}
 	\item{In the Database all the information of the system are stored. It's accessible only by the Application Server that store and take data from there.}
 \end{itemize} 
 
-%TO DO schema Deployment View
+\begin{figure}[!h]
+  \centering
+  \vspace{0.2cm}
+  \includegraphics[width=0.6\textwidth]{/DD/DeploymentView}\\
+  \vspace{0.4cm}
+  \caption{Components Diagram} 
+  \label{fig:Deployment View} 
+\end{figure}
+
 
 \section{Runtime view}
 
 In order to state the interaction between the different components of the system here are presented some sequence diagrams.
 \\The sequence diagrams highlight the part of the system that interact for implement a function and the messages exchanged between them.
-\\In this document are analyzed - different sequence diagrams: %decide the number
-\begin{itemize}%TODO
-	\item Sign-up
-	\item Log-in
-	\item Reserve a vehicle
-	\item Delate a reservation
-	\item Use car
-	\item Charge ride
-\end{itemize} 
 
 
 
  \section{Component Interfaces}
  	\blindtext
+%Questo e' copiato da quello dello scorso anno.
+\begin{comment}
+ PDO: PHP Data Objects used by the BLL to communicate with the DAL.
+ 	RESTful API with JSON used by clients ( both mobile apps and web
+browsers ) to interact with the BLL. API calls that need authentication are
+required to authenticate via HTTP basic authentication for each request. exchanged
+data will be secured using SSL.
+as now ( v1 ) our exposed methods are the following:
+• api/v1/driver [auth]
+– GET: get driver info
+– PATCH/PUT: update driver data ( position and available status )
+• api/v1/request
+– POST: create a new request
+• api/v1/reservation
+– POST: create a new reservation
+• api/v1/ride
+– POST: create a new ride
+\end{comment}
+
  \section{Selected architectural styles and patterns}
+Building this application different architectural styles and patterns have been used.
+\subsection{4-tier JEE client-server architecture}
+	This architectural style has been used for separating efficiently the different levels of execution. The components of the application are identified in this tiers:
+	\begin{itemize}
+		\item{Client tier: is the layer that interact with the users. It runs on the client machine. This layer contains the On-Board computer, the Mobile application and the Web application.}
+		\item{Web tier: is the layer that manage the interaction between the Web application and the Business tier. It contains Servlets, JSP pages and JavaServer Faces. In our system it is implemented by the Web server.}%giusto definire cosi' la cosa?
+		\item{Business tier: contains Java Beans and Java Persistence Entities. It receives data from client programs, processes it (if necessary), and sends it to the enterprise information system tier for storage. An enterprise bean also retrieves data from storage, processes it (if necessary), and sends it back to the client program. In our system it is implemented by the Application server.}
+		\item{Enterprise Information System tier: runs EIS software and includes enterprise infrastructure systems, such as enterprise resource planning (ERP), mainframe transaction processing, database systems, and other legacy information systems. It represents the data layer. The MySQL Database server is chosen for the creation and the maintainance of all the application data.}
+	\end{itemize}
+	\begin{figure}[!h]
+  \centering
+  \vspace{0.2cm}
+  \includegraphics[width=0.6\textwidth]{/DD/Architecture_of_the_system}\\
+  \vspace{0.4cm}
+  \caption{Components Diagram} 
+  \label{fig:Architecture of the system} 
+\end{figure}
+\subsection{Client-Server}
+	The client-server communication model is highly used in this application.
+	The On-Board computer and the Mobile application are clients with respect to the Application Server. The Web application consist of a Web browser that is a client with respect to the Web Server. The Web server is also a client with respect to the Application server. The Database is a server with respect to the Application server that act as a client.
+\subsection{Thin client}
+	In order to avoid that the client machine is involved in any logic decision we decided that all the computations will be run in the Application server. This comports different important advantages for the client tier: the client application will comport lower operational cost for the device, a superior security is obtained, the data are synchronized and the system is highly reliable. In addition this make the application independent from the number of clients connected.
+\subsection{MVC}
+	The Model-View-Controller pattern has been used in this application during the implementation of the client tier. In this way we separated the model, that rapresent the knowledge, the view, that is a visual representation of the model, and the controller, that is the link between a user and the system.
+
+ \section{Other design decisions}
+ 	\blindtext
