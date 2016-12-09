@@ -58,7 +58,7 @@ User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviou
 	\item{Payment (\underline{ID\_Payment}, \textit{ID\_User}, \textit{ID\_Reservation}, \textit{ID\_Ride}, date\&time, total\_cost, status, type)}
 \end{itemize}
 In the User entity there are all the main information about the user such as credentials and payment method. Her status can be reserving, riding, free or banned. The location of the user is not necessary.
-\\A Vehicle entity has different attributes, some of them supply by the On-Board computer. The status here can be free, reserved, in_use or out_of_order.
+\\A Vehicle entity has different attributes, some of them supply by the On-Board computer. The status here can be free, reserved, in\_use or out\_of\_order.
 \\The Location entity represent a location provided by the GPS. Safe area are zones composed by one or more locations. Into the Safe areas there can be also some Charging stations.
 \\The Reservation entity is connected with an user and a vehicle. It can end or with an unlock or with an expiration, and in this second case it comports the payment of a fee by the user. The reservation is strictly connected with the Ride entity, which can exist only related with it. Each ride has a starting point and when it finishes an end point. A ride also comports a payment, in particular if the Behaviours entity is present related with the ride it comport a variation of the final price. 
 \\In the Payment entity there are the information about the transaction from th user to PowerEnJoy, the status indicates if the payments has been done with success or if the system is still waiting for it.
@@ -116,7 +116,7 @@ as now ( v1 ) our exposed methods are the following:
  \section{Selected architectural styles and patterns}
 Building this application different architectural styles and patterns have been used.
 \subsection{4-tier JEE client-server architecture}
-	This archtectural style has been used for separating efficiently the different levels of execution. The components of the application are identified in this tiers:
+	This architectural style has been used for separating efficiently the different levels of execution. The components of the application are identified in this tiers:
 	\begin{itemize}
 		\item{Client tier: is the layer that interact with the users. It runs on the client machine. This layer contains the On-Board computer, the Mobile application and the Web application.}
 		\item{Web tier: is the layer that manage the interaction between the Web application and the Business tier. It contains Servlets, JSP pages and JavaServer Faces. In our system it is implemented by the Web server.}%giusto definire cosi' la cosa?
@@ -135,9 +135,9 @@ Building this application different architectural styles and patterns have been 
 	The client-server communication model is highly used in this application.
 	The On-Board computer and the Mobile application are clients with respect to the Application Server. The Web application consist of a Web browser that is a client with respect to the Web Server. The Web server is also a client with respect to the Application server. The Database is a server with respect to the Application server that act as a client.
 \subsection{Thin client}
-	In order to avoid that the client machine is involved in any logic decision we decided that all the computations will be run in the Application server. This comports different important advantages for the client tier: the client application will comport lower operational cost for the device, a superior security is obteined, the data are synchronizated and the sistem is highly reliable. In addition this make the application indipendent from the number of clients connected.
+	In order to avoid that the client machine is involved in any logic decision we decided that all the computations will be run in the Application server. This comports different important advantages for the client tier: the client application will comport lower operational cost for the device, a superior security is obtained, the data are synchronized and the system is highly reliable. In addition this make the application independent from the number of clients connected.
 \subsection{MVC}
-	The Model-View-Controller pattern has been used in this application during the implementation of the client tier. In this way we separated the model, that rapresent the knowledge, the view, that is a visual rapresentation of the model, and the controller, that is the link between a user and the system.
+	The Model-View-Controller pattern has been used in this application during the implementation of the client tier. In this way we separated the model, that rapresent the knowledge, the view, that is a visual representation of the model, and the controller, that is the link between a user and the system.
 
  \section{Other design decisions}
  	\blindtext
