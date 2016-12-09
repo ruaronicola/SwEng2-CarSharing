@@ -75,7 +75,15 @@ made.}
 	\item{In the Database all the information of the system are stored. It's accessible only by the Application Server that store and take data from there.}
 \end{itemize} 
 
-%TO DO schema Deployment View
+\begin{figure}[!h]
+  \centering
+  \vspace{0.2cm}
+  \includegraphics[width=0.6\textwidth]{/DD/DeploymentView}\\
+  \vspace{0.4cm}
+  \caption{Components Diagram} 
+  \label{fig:Deployment View} 
+\end{figure}
+
 
 \section{Runtime view}
 
@@ -86,6 +94,25 @@ In order to state the interaction between the different components of the system
 
  \section{Component Interfaces}
  	\blindtext
+%Questo e' copiato da quello dello scorso anno.
+\begin{comment}
+ PDO: PHP Data Objects used by the BLL to communicate with the DAL.
+ 	RESTful API with JSON used by clients ( both mobile apps and web
+browsers ) to interact with the BLL. API calls that need authentication are
+required to authenticate via HTTP basic authentication for each request. exchanged
+data will be secured using SSL.
+as now ( v1 ) our exposed methods are the following:
+• api/v1/driver [auth]
+– GET: get driver info
+– PATCH/PUT: update driver data ( position and available status )
+• api/v1/request
+– POST: create a new request
+• api/v1/reservation
+– POST: create a new reservation
+• api/v1/ride
+– POST: create a new ride
+\end{comment}
+
  \section{Selected architectural styles and patterns}
 Building this application different architectural styles and patterns have been used.
 \subsection{4-tier JEE client-server architecture}
@@ -96,6 +123,14 @@ Building this application different architectural styles and patterns have been 
 		\item{Business tier: contains Java Beans and Java Persistence Entities. It receives data from client programs, processes it (if necessary), and sends it to the enterprise information system tier for storage. An enterprise bean also retrieves data from storage, processes it (if necessary), and sends it back to the client program. In our system it is implemented by the Application server.}
 		\item{Enterprise Information System tier: runs EIS software and includes enterprise infrastructure systems, such as enterprise resource planning (ERP), mainframe transaction processing, database systems, and other legacy information systems. It represents the data layer. The MySQL Database server is chosen for the creation and the maintainance of all the application data.}
 	\end{itemize}
+	\begin{figure}[!h]
+  \centering
+  \vspace{0.2cm}
+  \includegraphics[width=0.6\textwidth]{/DD/Architecture_of_the_system}\\
+  \vspace{0.4cm}
+  \caption{Components Diagram} 
+  \label{fig:Architecture of the system} 
+\end{figure}
 \subsection{Client-Server}
 	The client-server communication model is highly used in this application.
 	The On-Board computer and the Mobile application are clients with respect to the Application Server. The Web application consist of a Web browser that is a client with respect to the Web Server. The Web server is also a client with respect to the Application server. The Database is a server with respect to the Application server that act as a client.
@@ -104,10 +139,5 @@ Building this application different architectural styles and patterns have been 
 \subsection{MVC}
 	The Model-View-Controller pattern has been used in this application during the implementation of the client tier. In this way we separated the model, that rapresent the knowledge, the view, that is a visual rapresentation of the model, and the controller, that is the link between a user and the system.
 
-
-
-
-
-
-
-
+ \section{Other design decisions}
+ 	\blindtext
