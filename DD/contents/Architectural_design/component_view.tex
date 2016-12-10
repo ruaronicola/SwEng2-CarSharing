@@ -17,7 +17,7 @@ To define and easily understand what kind of functionalities must be implemented
 	\item \textbf{LocationManager}: This component handles the logic behind the vehicle/user localization and tracking, it is also responsible for safe-areas and charging-stations' location consistency.
 	\item \textbf{ReservationController}: This component manages the reservation logic, it receives informations from the LocationManager, correctly handles the timing for expiration and queries the CarManager component to update the car status (FREE, RESERVED, INUSE, OUTOFSERVICE). It is responsible for the Reservation logic and correctness checking.
 	\item \textbf{RideController}: This component controls the (un)locking of the car, the car status and correctly handles the timing and charges for the ride. It is responsible for the Ride logic and correctness checking.
-	provide the possibility to unlock and lock of the car. Then all the system functions related with the ride are allocated here.
+	Provide also the possibility to unlock and lock of the car. Then all the system functions related with the ride are allocated here.
 	\item \textbf{CarManager}: This component is responsible for communications with the on-board computer and for car's status update.
 	\item \textbf{ChargeManager}: This component handles the application of charges for rides and reservations, it also process the applications of fees and discounts due to bad/virtuous behaviours. It is responsible to communicate with the PaymentGateway to complete the payment process.
 	\item \textbf{NotificationManager}: This component manages the users' notification, in particular regarding charges and payment requests. It communicates with the NotificationGateway to effectively notify the users.

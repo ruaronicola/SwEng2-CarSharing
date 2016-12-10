@@ -1,19 +1,14 @@
-\blindtext
-%Questo e' copiato da quello dello scorso anno.
-\begin{comment}
- PDO: PHP Data Objects used by the BLL to communicate with the DAL.
- 	RESTful API with JSON used by clients ( both mobile apps and web
+
+In our system there are three main interfaces: the first one between the Database and the Application server, the second one between the Application server and the Web server, the Mobile application and the On-Board computer and finally the third interface is between the Web server and the Web application.
+
+\subsection{PDO}
+PHP Data Objects is a lightweight, consistent interface for accessing databases in PHP. In this system it is used by the Application server to communicate with the Database.
+ 	
+\subsection{JSON RESTful}
+RESTful API with JSON used by clients ( both mobile apps and web
 browsers ) to interact with the BLL. API calls that need authentication are
 required to authenticate via HTTP basic authentication for each request. exchanged
 data will be secured using SSL.
 as now ( v1 ) our exposed methods are the following:
-• api/v1/driver [auth]
-– GET: get driver info
-– PATCH/PUT: update driver data ( position and available status )
-• api/v1/request
-– POST: create a new request
-• api/v1/reservation
-– POST: create a new reservation
-• api/v1/ride
-– POST: create a new ride
-\end{comment}
+
+
