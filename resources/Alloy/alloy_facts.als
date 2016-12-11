@@ -54,6 +54,12 @@ fact NoRandomBill {
 											  (#r2.bill=1 and r2.bill=b)
 }
 
+//if a vehicle is charging is in a charging station
+fact ConsistentCharging {
+	all v:Vehicle | v.plugged=True implies 
+					(some c:ChargingStation | c.position=v.position)  
+}
+
 //if vehicle was used its position should match with last ride endPosition
 fact ConsistentVehiclePosition {
 	all v:Vehicle | (some r:Ride | r.vehicle=v) implies 
@@ -86,6 +92,8 @@ fact ConsistentVehicleBattery {
 									 r1.hasLeftLowBattery=False <=> 
 									 v.batteryLevel=MEDIUM))
 }
+
+
 
 // no two distinct objects with the same position
 fact ConsistentPosition {
