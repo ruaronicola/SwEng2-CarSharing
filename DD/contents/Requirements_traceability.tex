@@ -4,6 +4,23 @@
 		\hline
 		RASD Goals & RASD Functions & DD Component \\\hline
 		\hline
-		G1, G2, G3 & Registration, Login, Account Management & UserController \\\hline
+		%component -> goals and functions which need the component to be achieved
+		G1, G2 & Registration & \textbf{AuthenticationManager} \\
+		       & Login & \\\hline
+		G3 & Account Management & \textbf{ProfileManager} \\\hline
+		G4 & Create reservation & \textbf{LocationManager} \\\hline
+		   & Use car & \\\hline
+		G5 & Create reservation & \textbf{ReservationController} \\
+		   & Delete reservation & \\
+		   & Reservation expiration & \\\hline
+		G6 & Use car & \textbf{RideController} \\\hline
+		G5, G6 & Use car & \textbf{CarManager} \\\hline
+		       & Create reservation & \\
+			   & Delete reservation & \\
+			   & Reservation expiration & \\\hline	
+		G1, G7 & Charge ride & \textbf{NotificationManager}, \textbf{NotificationGateway} \\
+		       & Registration & \\\hline
+		G7 & Charge ride & \textbf{ChargeManager}, \textbf{PaymentGateway} \\
+		       & Discounts \& fees & \\\hline
 	\end{tabular}
 \end{center}
