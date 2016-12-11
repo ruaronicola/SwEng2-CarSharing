@@ -30,7 +30,7 @@ To define and easily understand what kind of functionalities must be implemented
 
 \newpage
 \subsection{Database components}
-In particular the data stored in the database will be split through different subcomponents that identified the main entities of our system:
+The data stored in the database will be split into different subcomponents that identifies the main entities of our system:
 User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviours and Payment.  
 \\The designed model for persistent data is provided here in a ER diagram in order to better analyze the motivations of our design. That's the representation of the database model:
 \begin{figure}[!ht]
@@ -54,8 +54,9 @@ User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviou
 	\item{Behaviours(\underline{Type}, \textit{ID\_Ride}, price\_variation)}
 	\item{Payment (\underline{ID\_Payment}, \textit{ID\_User}, \textit{ID\_Reservation}, \textit{ID\_Ride}, date\&time, total\_cost, status, type)}
 \end{itemize}
-In the User entity there are all the main information about the user such as credentials and payment method. Her status can be reserving, riding, free or banned. The location of the user is not necessary.
-\\A Vehicle entity has different attributes, some of them supply by the On-Board computer. The status here can be FREE, RESERVED, IN USE or OUTOFSERVICE.
+In the User entity there are all the main informations about the user such as credentials and payment method. Her status can be reserving, riding, free or banned. The location of the user is not necessary.
+\\A Vehicle entity has different attributes, some of them supplied by the On-Board computer. The status here can be FREE, RESERVED, INUSE or OUTOFSERVICE.
 \\The Location entity represent a location provided by the GPS. Safe area are zones composed by one or more locations. Into the Safe areas there can be also some Charging stations.
-\\The Reservation entity is connected with an user and a vehicle. It can end or with an unlock or with an expiration, and in this second case it comports the payment of a fee by the user. The reservation is strictly connected with the Ride entity, which can exist only related with it. Each ride has a starting point and when it finishes an end point. A ride also comports a payment, in particular if the Behaviours entity is present related with the ride it comport a variation of the final price. 
-\\In the Payment entity there are the information about the transaction from th user to PowerEnJoy, the status indicates if the payments has been done with success or if the system is still waiting for it.
+\\The Reservation entity is connected with an user and a vehicle. It can end or with an unlock or with an expiration, and in this second case it comports the payment of a fee by the user. The reservation is strictly connected with the Ride entity, which can exist only related with it. Each ride has a starting point and when it finishes an end point. 
+\\Every Ride is associated with a Payment object, in particular the presence of a related Behaviour object implies a variation of the final price. 
+\\In the Payment entity there are informations about the transaction from the user to PowerEnJoy, the status indicates if the payments succeeded or is pending.
