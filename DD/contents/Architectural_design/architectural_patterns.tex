@@ -7,14 +7,6 @@ Building this application different architectural styles and patterns have been 
 		\item{Business tier: contains Java Beans and Java Persistence Entities. It receives data from client programs, processes it (if necessary), and sends it to the enterprise information system tier for storage. An enterprise bean also retrieves data from storage, processes it (if necessary), and sends it back to the client program. In our system it is implemented by the Application server.}
 		\item{Enterprise Information System tier: runs EIS software and includes enterprise infrastructure systems, such as enterprise resource planning (ERP), mainframe transaction processing, database systems, and other legacy information systems. It represents the data layer. The MySQL Database server is chosen for the creation and the maintainance of all the application data.}
 	\end{itemize}
-	\begin{figure}[!ht]
-  \centering
-  \vspace{0.2cm}
-  \includegraphics[width=0.6\textwidth]{/DD/jee_architecture}\\
-  \vspace{0.4cm}
-  \caption{Components Diagram} 
-  \label{fig:Architecture of the system} 
-\end{figure}
 \subsection{Client-Server}
 	The client-server communication model is highly used in this application.
 	The On-Board computer and the Mobile application are clients with respect to the Application Server. The Web application consist of a Web browser that is a client with respect to the Web Server. The Web server is also a client with respect to the Application server. The Database is a server with respect to the Application server that act as a client.
