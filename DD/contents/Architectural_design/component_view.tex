@@ -44,7 +44,7 @@ User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviou
 
  And this is the relation schema associated with the ER diagram.
 \begin{itemize} 
-	\item{User (\underline{Username}, \textit{Location}, e-mail, password, driving\_license\_number, name, surname, address, phone number, taxcode, card\_number, expiration\_date, card\_security\_code, card\_holder\_name, status)} %status: reserving, riding, free, (guarda caso utente bloccato)
+	\item{User (\underline{taxcode}, \textit{Location}, e-mail, password, driving\_license\_number, name, surname, address, phone number, username, card\_number, expiration\_date, card\_security\_code, card\_holder\_name, status)} %status: reserving, riding, free, banned
 	\item{Vehicle (\underline{ID\_Vehicle}, \textit{Location}, plaque, type, odometer, battery\_level, status, num\_of\_seats, num\_of\_passengers) }
 	\item{Location (\underline{coordinate}, city)}	
 	\item{Safa Area (\underline{ID\_SA}, \textit{Location})} %type A=Safe Area, B=Charging Station, C=both, Add an ID!!!
@@ -55,7 +55,7 @@ User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviou
 	\item{Payment (\underline{ID\_Payment}, \textit{ID\_User}, \textit{ID\_Reservation}, \textit{ID\_Ride}, date\&time, total\_cost, status, type)}
 \end{itemize}
 In the User entity there are all the main information about the user such as credentials and payment method. Her status can be reserving, riding, free or banned. The location of the user is not necessary.
-\\A Vehicle entity has different attributes, some of them supply by the On-Board computer. The status here can be FREE, RESERVED, INUSE or OUTOFSERVICE.
+\\A Vehicle entity has different attributes, some of them supply by the On-Board computer. The status here can be FREE, RESERVED, IN USE or OUTOFSERVICE.
 \\The Location entity represent a location provided by the GPS. Safe area are zones composed by one or more locations. Into the Safe areas there can be also some Charging stations.
 \\The Reservation entity is connected with an user and a vehicle. It can end or with an unlock or with an expiration, and in this second case it comports the payment of a fee by the user. The reservation is strictly connected with the Ride entity, which can exist only related with it. Each ride has a starting point and when it finishes an end point. A ride also comports a payment, in particular if the Behaviours entity is present related with the ride it comport a variation of the final price. 
 \\In the Payment entity there are the information about the transaction from th user to PowerEnJoy, the status indicates if the payments has been done with success or if the system is still waiting for it.
