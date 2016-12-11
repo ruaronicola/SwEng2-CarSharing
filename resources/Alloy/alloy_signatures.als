@@ -43,7 +43,7 @@ abstract sig Vehicle {
 	state=OUT_OF_SERVICE <=> not plugged=True and
 		(batteryLevel=LOW or not (position in SafeArea.coverage))
 		
-	plugged=True implies ( position in SafeArea.coverage)
+	plugged=True implies (position in SafeArea.coverage)
 }
 sig Car extends Vehicle{}{category=B_CATEGORY}
 

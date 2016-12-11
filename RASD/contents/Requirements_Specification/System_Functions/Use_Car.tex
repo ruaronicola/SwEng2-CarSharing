@@ -1,7 +1,7 @@
 \subsubsection{Functional Requirements}
 \begin{itemize}
   \item The system must unlock the right car when an user requests to.
-  \item The system must not unlock any car that does not match the user's reservation.
+  \item The system must not unlock any car that does not match the user's reservation and the submitted vehicle-PIN.
   \item The system must switch the car state to "IN USE" only when the user unlocks it.
   \item The system must set the car state to "FREE" only when the user leaves it.
   \item The system must close the reservation as soon as the car state is set to "IN USE".
@@ -25,8 +25,8 @@ Michael and his two brothers are far from home and its really late, the subway i
 \begin{figure}[!ht]
   \centering
   \vspace{0.2cm}
-  \includegraphics[width=0.8\textwidth]{/RASD/System_Functions/use_car_mockup}\\
-  \vspace{0.4cm}
+  \includegraphics[width=0.75\textwidth]{/RASD/System_Functions/use_car_mockup}\\
+  \vspace{0.2cm}
   %\caption{Mockup for the use-car use case} 
   \label{fig:use_car_mockup} 
 \end{figure}
@@ -43,7 +43,7 @@ Michael and his two brothers are far from home and its really late, the subway i
      \\ \hline
     Flow of events &
     \begin{itemize} % todo: shrink items
-      \item The User requests to unlock the car through the application.
+      \item The User requests to unlock the car through the application, the unlock request must include the vehicle-PIN.
       \item The system checks the validity of the request and unlocks the car, setting its state to "IN USE".
       \item The User enters the car and digits the PIN on the onboard computer.
       \item The PIN is checked and the engine is unlocked.
