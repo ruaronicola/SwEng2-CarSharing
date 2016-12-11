@@ -1,10 +1,11 @@
-In our system there are three main interfaces: the first one between the Database and the Application server, the second one between the Application server and the Web server, the Mobile application and the On-Board computer and finally the third interface is between the Web server and the Web application.
+In our system there are three main interfaces: the first one between the Database and the Application server, the second one between the Application server and the Web server/Mobile application/On-Board application; finally the third interface is between the Web application and the Web server.
 
 \subsection{Java Persistence API}
-The Java Persistence API (JPA) is the interface that describes the management of relational data in PowerEnJoy. It is used by the Application server to communicate with the Database.
+The Java Persistence API (JPA) is the interface that describes the management of relational data in PowerEnJoy. It is used by the Application server to directly communicate with the Database.
  	
-\subsection{JAX-RS}
-JAX-RS develops our Application server in order to use the REST architecture.
-
 \subsection{RESTful API}
-RESTful API are used by clients to interact with the Application server. REST specifies an uniform interface. A RESTful API explicitly takes advantage of HTTP methodologies defined by the RFC 2616 protocol so each call that need authentication is required to authenticate via HTTP basic authentication.
+A RESTful API is used by clients to interact with the Application server. A stateless architecture is achieved, in particular, using the JAX-RS API.
+
+\subsection{HTTPS}
+The web application interacts with the application server passing through the web server; it uses the HTTPS protocol enforced with a RESTful approach (Query Authentication is discussed in subsection 2.7.1). 
+
