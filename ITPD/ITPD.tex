@@ -1,7 +1,7 @@
 % Set the document's formatting to "report"
 \documentclass[openright]{report}
 
-% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], comment[comment paragraphs], lmodern/fontend[fix tilde typesetting], afterpage[insert blankpages], etoolbox[flawless page numbering], blindtext[lorem ipsum], mathtools[math symbols], listings/alloy/color[alloy syntax], fp[variables evaluation] and glossaries/imakeidx[glossary] packages
+% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], comment[comment paragraphs], lmodern/fontend[fix tilde typesetting], afterpage[insert blankpages], etoolbox[flawless page numbering], blindtext[lorem ipsum], mathtools[math symbols], bigstrut[table height] fp[variables evaluation] and glossaries/imakeidx[glossary] packages
 \usepackage[utf8]{inputenc}
 \usepackage{titlesec}
 \usepackage{graphicx}
@@ -13,7 +13,7 @@
 \usepackage{etoolbox}
 \usepackage{blindtext}
 \usepackage{mathtools}
-\usepackage{listings}
+\usepackage{bigstrut}
 \usepackage[nomessages]{fp}
 \usepackage[nonumberlist,acronym,toc,xindy]{glossaries}
 \makeglossaries
@@ -39,8 +39,8 @@
 \graphicspath{{../resources/images/}}
 
 % Create auxiliary variables for worktime and version tracking 
-\def \worktimeNicola {0}
-\def \worktimeGiacomo {0}
+\def \worktimeNicola {2}
+\def \worktimeGiacomo {2}
 \FPupn{worktimeTotal}{worktimeNicola worktimeGiacomo + 0 round}
 \FPupn{version}{0.1}
 

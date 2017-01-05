@@ -1,2 +1,35 @@
 For each step of the integration process identified above, describe the type of tests that will be used to verify that the elements integrated in this step perform as expected. Describe in general the expected results of the test set. You may refer to Chapter 3 and Chapter 4 of the test plan example [1] as an example of what we expect.
 (NOTE: This is not a detailed description of test protocols. Think of this as the test design phase. Specific protocols will be written to fulfill the goals of the tests identified in this section.)
+
+\section{Sample Integration test case I1}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I1T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Client Communicator \ensuremath{\rightarrow} Client Translator \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Client Communicator input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Client Translator \bigstrut \\\hline
+		\textbf{Environmental Needs} & Client driver \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\newpage
+\section{Sample Integration test procedure TP1}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|p{9cm}|}
+		\hline
+		\textbf{Test Procedure Identifier} & TP1 \bigstrut \\\hline
+		\textbf{Purpose} 
+		& This test procedure verifies whether the dispatcher software: 
+		\begin{itemize} 
+			\item can handle command-line input
+			\item can handle client input
+			\item can handle agent input
+			\item can output requested information to a client
+			\item can output requested information to an agent
+		\end{itemize} \bigstrut \\\hline
+		\textbf{Procedure Steps} & Execute I5-I6 after I1-I4 \bigstrut \\\hline
+	\end{tabular}
+\end{center}
