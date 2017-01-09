@@ -1,16 +1,289 @@
 For each step of the integration process identified above, describe the type of tests that will be used to verify that the elements integrated in this step perform as expected. Describe in general the expected results of the test set. You may refer to Chapter 3 and Chapter 4 of the test plan example [1] as an example of what we expect.
 (NOTE: This is not a detailed description of test protocols. Think of this as the test design phase. Specific protocols will be written to fulfill the goals of the tests identified in this section.)
 
-\section{Sample Integration test case I1}
+\section{Sample Integration test case I01}\label{I01}
 \begin{center}
 	\vspace{0.6cm}
 	\begin{tabular}{|l|l|}
 		\hline
-		\textbf{Test Case Identifier} & I1T1 \bigstrut \\\hline
-		\textbf{Test Item(s)} & Client Communicator \ensuremath{\rightarrow} Client Translator \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Client Communicator input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Client Translator \bigstrut \\\hline
-		\textbf{Environmental Needs} & Client driver \bigstrut \\\hline
+		\textbf{Test Case Identifier} & I01T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Location \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Location input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I02}\label{I02}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I02T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & SafeArea \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical SafeArea input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I1 succeeded\bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I03}\label{I03}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I03T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & ChargingStation \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical ChargingStation input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I1 succeeded\bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I04}\label{I04}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I04T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & User \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical User input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I1 succeeded\bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I05}\label{I05}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I05T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Vehicle \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Vehicle input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I1 succeeded\bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I06}\label{I06}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I06T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Reservation \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Reservation input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I4 and I5 succeeded\bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I07}\label{I07}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I07T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Ride \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Ride input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I1, I4, I5 and I6 succeeded. Payment Driver\bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I08}\label{I08}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I08T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Behaviour \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Behaviour input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I7 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I09}\label{I09}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I09T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Payment \ensuremath{\rightarrow} DB \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Payment input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the DB \bigstrut \\\hline
+		\textbf{Environmental Needs} & I4, I6 and I7 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I10}\label{I10}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I10T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} ProfileManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the ProfileManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I11}\label{I11}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I11T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & AuthenticationManager \ensuremath{\rightarrow} NotificationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical AuthenticationManager input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the NotificationManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I12}\label{I12}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I12T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} AuthenticationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the AuthenticationManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & I11 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I13}\label{I13}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I13T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & ReservationController \ensuremath{\rightarrow} CarManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical ReservationController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the CarManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I14}\label{I14}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I14T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} ChargeManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the ChargeManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I15}\label{I15}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I15T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} CarManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the CarManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I16}\label{I16}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I16T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & ReservationController \ensuremath{\rightarrow} ChargeManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical ReservationController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the ChargeManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I17}\label{I17}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I17T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} ReservationController \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the ReservationController \bigstrut \\\hline
+		\textbf{Environmental Needs} & I13 and I16 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I18}\label{I18}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I18T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} LocationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the LocationManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I19}\label{I19}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I19T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & ReservationController \ensuremath{\rightarrow} LocationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical ReservationController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the LocationManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I20}\label{I20}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I20T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} RideController \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the RideController \bigstrut \\\hline
+		\textbf{Environmental Needs} & I14, I15, I17 and I18 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I21}\label{I21}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I21T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} LocationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the LocationManager \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I22}\label{I22}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I22T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} ReservationController \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the ReservationController \bigstrut \\\hline
+		\textbf{Environmental Needs} & I13, I16 and I19 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
 
@@ -22,9 +295,9 @@ For each step of the integration process identified above, describe the type of 
 		\hline
 		\textbf{Test Procedure Identifier} & TP1 \bigstrut \\\hline
 		\textbf{Purpose} 
-		& This test procedure verifies whether the dispatcher software: 
+		& This test procedure verifies whether the DB: 
 		\begin{itemize} 
-			\item can handle command-line input
+			\item can handle entities
 			\item can handle client input
 			\item can handle agent input
 			\item can output requested information to a client
