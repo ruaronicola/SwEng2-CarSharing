@@ -1,5 +1,6 @@
 For each step of the integration process identified above, describe the type of tests that will be used to verify that the elements integrated in this step perform as expected. Describe in general the expected results of the test set. You may refer to Chapter 3 and Chapter 4 of the test plan example [1] as an example of what we expect.
 (NOTE: This is not a detailed description of test protocols. Think of this as the test design phase. Specific protocols will be written to fulfill the goals of the tests identified in this section.)
+%to decide: split also client components;
 
 \section{Sample Integration test case I01}\label{I01}
 \begin{center}
@@ -292,10 +293,101 @@ For each step of the integration process identified above, describe the type of 
 	\vspace{0.6cm}
 	\begin{tabular}{|l|l|}
 		\hline
-		\textbf{Test Case Identifier} & I22T1 \bigstrut \\\hline
+		\textbf{Test Case Identifier} & I23T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} ReservationController \bigstrut \\\hline
 		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
 		\textbf{Output Specification} & Check if the correct functions are called in the ReservationController \bigstrut \\\hline
 		\textbf{Environmental Needs} & I13, I16 and I19 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I24}\label{I24}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I24T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Business Tier \ensuremath{\rightarrow} Enterprise Information System Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Business Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Enterprise Information System Tier \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I25}\label{I25}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I25T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Business Tier \ensuremath{\rightarrow} Payment Handler \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Business Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Payment Handler \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I26}\label{I26}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I26T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Business Tier \ensuremath{\rightarrow} Notification Handler \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Business Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Notification Handler \bigstrut \\\hline
+		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I27}\label{I27}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I27T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Web Tier \ensuremath{\rightarrow} Business Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Web Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Business Tier \bigstrut \\\hline
+		\textbf{Environmental Needs} & I24, I25 and I26 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I28}\label{I28}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I28T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Web Application \ensuremath{\rightarrow} Web Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Web Application input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Web Tier \bigstrut \\\hline
+		\textbf{Environmental Needs} & I27 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I29}\label{I29}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I29T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & Mobile Application \ensuremath{\rightarrow} Business Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical Mobile Application input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Business Tier \bigstrut \\\hline
+		\textbf{Environmental Needs} & I24, I25 and I26 succeeded \bigstrut \\\hline
+	\end{tabular}
+\end{center}
+
+\section{Sample Integration test case I30}\label{I30}
+\begin{center}
+	\vspace{0.6cm}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Test Case Identifier} & I30T1 \bigstrut \\\hline
+		\textbf{Test Item(s)} & On-Board Application \ensuremath{\rightarrow} Business Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Create typical On-Board Application input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct functions are called in the Business Tier \bigstrut \\\hline
+		\textbf{Environmental Needs} & I24, I25 and I26 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
