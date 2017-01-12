@@ -23,9 +23,13 @@ DD
 ITPD
 -integrate systems into Application Logic
 -Internal integration test for Mobile and On-Board??
+- Entities in the semple testing cases-> are them EJB ?
 
 PP
 -Tables can be used eg for risks management
 -overlapping activities in Gantt
 -Motivations, EVERYWHERE
 -Maybe mockups for the on board pc
+-Not important the numbers but the reasons
+-Resource allocation-> do similar to slides 
+-Table with risk | work packages(? ) | Mitigation strategy )
