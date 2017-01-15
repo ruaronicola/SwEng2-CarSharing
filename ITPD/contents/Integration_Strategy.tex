@@ -11,14 +11,13 @@ In the Design Document, we identified four main Tiers: the EIS Tier, the Busines
 \section{Integration testing strategy}
 We choose for our integration testing strategy to adopt a bottom-up approach. In this way, we test the subsystems from the lower level to the top level, where all the modules are integrated. 
 \\There are different advantages following this strategy. The test conditions for each module are easier to create and the test results can be analysed in a simpler way. Then it's easier to localize problems and faults. In the end we can proceed with the test phase of our subsystems alongside their implementation.
-\\On the other side the bottom-up approach brings some disadvantages. The main one is the need of driver programs in order to simulate the missing modules while they aren't already deployed. Another point is the fact that we can't test the whole program until the last module has been developed. Anyway, we think that these disadvantages are bearable comparing the advantages that this approach provides, a last evidence is the fact that probably almost all the faults occurs toward the bottom of the system.
+\\On the other side the bottom-up approach brings some disadvantages. The main one is the need of driver programs in order to simulate the missing modules while they aren't already deployed. Another disadvantage is the fact that we can't test the whole program until the last module has been developed. Anyway, we think that these disadvantages are bearable comparing the advantages that this approach provides, a last evidence is the fact that probably almost all the faults occurs toward the bottom of the system.
 \\In the testing phase we also selected the order of the subsystems to analyse, not randomly but privileging the critical ones.
 \\ We also follow a specific path before performing the integration test. First of all, we design the integration test and the specific drivers if they aren't already done. If it was not made at the unit test we design the input test data, thirdly we set the modules involved, the drivers and the input test data. Finally, we proceed performing the integration test.
 
+\newpage
 \section{Sequence of Component/Function Integration}
-NOTE: The structure of this section may vary depending on the integration strategy you select in Section 2.3. Use the structure proposed below as a non mandatory guide.
 
-	\newpage
 	\subsection{Software Integration Sequence}
 	The following figures (fig.\ref{fig:database_integration}, fig.\ref{fig:application_logic_subsystem}) show the components of the PowerEnJoy system integrated into subsystems, the arrows indicate the order of integration.
 
