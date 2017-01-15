@@ -1,14 +1,13 @@
 TODO
 
--Check for consistency among documents
+-Check for consistency among documents (Gateway->Handler in DD)
 -Check ambiguity (dictionary, assumpt.)
 -Completion: defined for each input; no characteristics yet to be discussed
 -Ridoundance/Un-Useful
+-Location only in rasd
 
 
 RASD
--Goal->W&M->Assertions and requirements
--maintainance service
 -Assumptions: auto non viene mai lasciata fuori dalle SafeArea (se viene lasciata fuori vi e' una multa e/o continua a caricare)
 -MODIFICA ASSUMPTION:"If a car is left at more ..."+ controlla l'assumption subito dopo
 -check sequence diagram with the DD (Jack)
@@ -17,6 +16,7 @@ DD
 -Check model+router (spiega che tutte le interazioni con il DB attraversano il Model)(idem per il router)
 -SafeArea da sistemare sotto allo schema ER
 -Schema ER e nella descrizione sotto volendo gli ID vanno maiuscoli
+- The payment handler is not part of the system, the chargemanager interacts with the db. Check sequence diagrams and document in general
 -fig 2.12 sequence diagram: RideManager->RideController + aggiungi commenti
 
 

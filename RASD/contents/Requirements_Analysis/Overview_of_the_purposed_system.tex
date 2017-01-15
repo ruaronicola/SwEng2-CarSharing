@@ -3,6 +3,9 @@ In this chapter the product and its requirements are described in order to provi
 \section{Product perspective}
 % Here we put the application into perspective with other related products, interfaces/communication means should be identified
 
+\subsection{System interfaces} % aka "Ease of use"
+\label{subsec:system_interfaces}
+The PowerEnJoy system interacts with an external system offering maintenance services: when a problem with a vehicle is detected (eg. engine fault) a PowerEnJoy employee working for the customer care department signals the problem to the external system which notifies back when the problem is solved.
 
 \subsection{User interfaces} % aka "Ease of use"
 \label{subsec:user_interfaces}
@@ -87,13 +90,12 @@ In order for the system to work properly some domain assumptions are needed:%May
 	
 	\item{There are no time or distance limits for a single ride}
 	\item{During a ride the number of passengers in a vehicle doesn't change}
-	\item{The system stores all users' information}
 	\item{The charging stations are into safe areas}
 	\item{The data center can't be improperly modified or hacked}
-	\item{If a vehicle is not usable the system suggest another reservation and charges the previous user for the reparation costs}
+	\item{If a vehicle is notified as damaged the previous user is charged for the reparation costs}
 	\item{There are PowerEnJoy employees that move and re-charge out-of-service vehicles}
 
-	\item{If an unlocked car is not ignited within three minutes the system starts to charge the user}
+	\item{The user starts using an unlocked vehicle after a short amount of time}
 	\item{The system uses a reliable external payment system}
 	\item{Bills are payed once}
 	\item{There are precedence rules regarding the fee/discount application}	
