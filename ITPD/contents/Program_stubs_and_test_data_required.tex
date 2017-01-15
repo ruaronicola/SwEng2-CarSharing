@@ -1,1 +1,22 @@
-Based on the testing strategy and test design, identify any program stubs or special test data required for each integration step.
+\section{Drivers}
+For the PowerEnJoy system integration tests we decided to use a bottom-up strategy, this approach requires drivers in order to simulate components and invoke methods on the under-integration component.
+
+The required drivers are:
+\begin{description}
+	\item [Entity Java Beans: ] these drivers are used to invoke the methods exposed by the Entity Java Beans components in order to test their integration with the connected components
+	\item [RouterDriver: ] this driver is used to invoke the methods exposed by the Router component in order to test its integration with the connected components
+	\item [RideControllerDriver: ] this driver is used to invoke the methods exposed by the RideController component in order to test its integration with the connected components
+	\item [ReservationControllerDriver: ] this driver is used to invoke the methods exposed by the ReservationController component in order to test its integration with the connected components
+	\item [AuthenticationManagerDriver: ] this driver is used to invoke the methods exposed by the AuthenticationManager component in order to test its integration with the connected components
+\end{description}
+
+\section{Stub}
+\begin{description}
+	\item [Payment Handler: ] the interactions with the Payment Handler must be tested using a stub in order to verify that all the calls performed over the provided API are correctly formed.
+	\item [Notification Handler: ] the interactions with the Notification Handler must be tested using a stub in order to verify that all the calls performed over the provided API are correctly formed.
+\end{description}
+
+\section{Data}
+\begin{description}
+	\item [DataBase: ] the Entity Java Beans components must be integrated with the DBMS, therefore a "Testing" DB with the same structure of the production's DB is needed. Such DataBase must have enough entries to allow extensive testing of the Enterprise Information System.
+\end{description}
