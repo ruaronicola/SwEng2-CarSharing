@@ -5,8 +5,9 @@ Before proceeding with the integration test in this section we analysed the prer
 \\Finally the RASD and DD must be completed, they provide all the documentation that we need for proceeding in the succeeding steps.
 
 \section{Elements to be integrated}
-In the Design Document, we identified four main Tiers: the EIS Tier, the Business Tier, the Web Tier and the Client Tier. These are the subsystems that we must integrate in this section.
-\\The Enterprise Information System Tier is composed principally by a DBMS that has to be integrated while in the Business Tier all the system components have to be tested individually before to be integrated. The Web Tier relates to the Client Tier and the Business Tier and both the interfaces have to be integrated. Finally, the Client Tier is composed by the On-Board computer, the Mobile application and Web application; they have to be tested individually and then they have to be integrated with their respective Tier. 
+In the Design Document, we identified four main Tiers: the EIS Tier, the Business Tier, the Web Tier and the Client Tier. These are the subsystems that we are going to integrate.
+Additionally, the Client tier is composed by the Web Application, the Mobile Application and the On-Board Application. Two main external systems, PaymentHandler and NotificationHandler, are to be integrated with the Business Tier.
+\\The subsystems that are to be integrated and their components are exhaustively described in section \ref{sec:integration_sequence} of this document.
 
 \section{Integration testing strategy}
 We choose for our integration testing strategy to adopt a bottom-up approach. In this way, we test the subsystems from the lower level to the top level, where all the modules are integrated. 
@@ -16,10 +17,10 @@ We choose for our integration testing strategy to adopt a bottom-up approach. In
 \\ We also follow a specific path before performing the integration test. First of all, we design the integration test and the specific drivers if they aren't already done. If it was not made at the unit test we design the input test data, thirdly we set the modules involved, the drivers and the input test data. Finally, we proceed performing the integration test.
 
 \newpage
-\section{Sequence of Component/Function Integration}
+\section{Sequence of Component/Function Integration} \label{sec:integration_sequence}
 
-	\subsection{Software Integration Sequence}
-	The following figures (fig.\ref{fig:database_integration}, fig.\ref{fig:application_logic_subsystem}) show the components of the PowerEnJoy system integrated into subsystems, the arrows indicate the order of integration.
+	\subsection{Software Integration Sequence}{}
+	The following figures (fig.\ref{fig:database_integration}, fig.\ref{fig:application_logic_subsystem}) show the components of the PowerEnJoy system integrated into subsystems, the arrows indicate the order of integration. Every figure is followed by a table which summarizes the related integration tests.
 
 	\begin{figure}[!ht]
 	  \centering
@@ -92,3 +93,20 @@ We choose for our integration testing strategy to adopt a bottom-up approach. In
 	  \caption{Integration sequence for the subsystems} 
 	  \label{fig:subsystem_integration_sequence} 
 	\end{figure}
+
+	\begin{center}
+		\vspace{0.6cm}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{ID} & \textbf{Integration Test} & \textbf{Paragraphs} \bigstrut \\\hline
+			\hline
+			I11T1 & Business Tier \ensuremath{\rightarrow} Enterprise Information System Tier & \ref{I11}, \ref{TP3} \bigstrut \\\hline
+			I12T1 & Business Tier \ensuremath{\rightarrow} Payment Handler & \ref{I12}, \ref{TP3} \bigstrut \\\hline
+			I13T1 & Business Tier \ensuremath{\rightarrow} Notification Handler & \ref{I13}, \ref{TP3} \bigstrut \\\hline
+			I14T1 & Web Tier \ensuremath{\rightarrow} Business Tier & \ref{I14}, \ref{TP3} \bigstrut \\\hline
+			I15T1 & Web Application \ensuremath{\rightarrow} Web Tier & \ref{I15}, \ref{TP3} \bigstrut \\\hline
+			I16T1 & Mobile Application \ensuremath{\rightarrow} Business Tier & \ref{I16}, \ref{TP3} \bigstrut \\\hline
+			I17T1 & On-Board Application \ensuremath{\rightarrow} Business Tier & \ref{I17}, \ref{TP3} \bigstrut \\\hline
+		\end{tabular}
+	\end{center}
+
