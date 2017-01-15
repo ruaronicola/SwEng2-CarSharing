@@ -1,15 +1,15 @@
 In this chapter are described the tests used in order to achieve our integration strategy and to verify that the integrated elements perform as expected.
 
 \section{Integration test case I01}\label{I01}
-In the following tables the integrations among the Entity Beans and the DBMS are described.
+In the following tables of section \ref{I01} the integrations among the Entity Beans and the DBMS are described.
 \begin{center}
 	\vspace{0.6cm}
 	\begin{tabular}{|l|l|}
 		\hline
 		\textbf{Test Case Identifier} & I01T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Location \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Location input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the Location table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -20,8 +20,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T2 \bigstrut \\\hline
 		\textbf{Test Item(s)} & SafeArea \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical SafeArea input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the SafeArea table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T1 succeeded\bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -32,8 +32,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T3 \bigstrut \\\hline
 		\textbf{Test Item(s)} & ChargingStation \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical ChargingStation input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the ChargingStation table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T1 succeeded\bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -44,8 +44,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T4 \bigstrut \\\hline
 		\textbf{Test Item(s)} & User \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical User input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the User table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T1 succeeded\bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -56,8 +56,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T5 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Vehicle \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Vehicle input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the Vehicle table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T1 succeeded\bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -68,8 +68,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T6 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Reservation \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Reservation input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the Reservation table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T4 and I01T5 succeeded\bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -80,8 +80,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T7 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Ride \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Ride input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the Ride table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T1, I01T4, I01T5 and I01T6 succeeded. Payment Driver\bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -92,8 +92,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T8 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Behaviour \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Behaviour input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the Behaviour table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T7 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -104,8 +104,8 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 		\hline
 		\textbf{Test Case Identifier} & I01T9 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Payment \ensuremath{\rightarrow} DBMS \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Payment input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the DBMS \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical queries for the Payment table \bigstrut \\\hline
+		\textbf{Output Specification} & Check the correctness of the DBMS answer \bigstrut \\\hline
 		\textbf{Environmental Needs} & I01T4, I01T6 and I01T7 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -114,12 +114,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I02}\label{I02}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I02T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} ProfileManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the ProfileManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Router input for the ProfileManager component \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the ProfileManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -127,12 +127,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I03}\label{I03}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I03T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & AuthenticationManager \ensuremath{\rightarrow} NotificationManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical AuthenticationManager input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the NotificationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical AuthenticationManager input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the NotificationManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -140,12 +140,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I04}\label{I04}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I04T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} AuthenticationManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the AuthenticationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Router input for the AuthenticationManager component \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the AuthenticationManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & I03T1 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -153,24 +153,24 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I05}\label{I05}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I05T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & ReservationController \ensuremath{\rightarrow} CarManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical ReservationController input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the CarManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical ReservationController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the CarManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
 
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I05T2 \bigstrut \\\hline
 		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} CarManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the CarManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the CarManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -178,24 +178,24 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I06}\label{I06}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I06T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} ChargeManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the ChargeManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the ChargeManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
 
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I06T2 \bigstrut \\\hline
 		\textbf{Test Item(s)} & ReservationController \ensuremath{\rightarrow} ChargeManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical ReservationController input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the ChargeManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical ReservationController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the ChargeManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -203,12 +203,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I07}\label{I07}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I07T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} ReservationController \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the ReservationController \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the ReservationController \bigstrut \\\hline
 		\textbf{Environmental Needs} & I05T1 and I06T2 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -216,36 +216,36 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I08}\label{I08}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I08T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & RideController \ensuremath{\rightarrow} LocationManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical RideController input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the LocationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical RideController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the LocationManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
 
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I08T2 \bigstrut \\\hline
 		\textbf{Test Item(s)} & ReservationController \ensuremath{\rightarrow} LocationManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical ReservationController input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the LocationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical ReservationController input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the LocationManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
 
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I08T3 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} LocationManager \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the LocationManager \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Router input for the LocationManager component \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the LocationManager \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -253,12 +253,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I09}\label{I09}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I09T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} RideController \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the RideController \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Router input for the RideController component \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the RideController \bigstrut \\\hline
 		\textbf{Environmental Needs} & I05T2, I06T1, I07T1 and I08T1 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -266,12 +266,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I10}\label{I10}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I10T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Router \ensuremath{\rightarrow} ReservationController \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Router input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the ReservationController \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Router input for the ReservationController component \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the ReservationController \bigstrut \\\hline
 		\textbf{Environmental Needs} & I05T1, I06T2 and I08T2 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -281,12 +281,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I11}\label{I11}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I11T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Business Tier \ensuremath{\rightarrow} Enterprise Information System Tier \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Business Tier input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Enterprise Information System Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Business Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the Enterprise Information System Tier \bigstrut \\\hline
 		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -294,40 +294,40 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I12}\label{I12}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I12T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Business Tier \ensuremath{\rightarrow} Payment Handler \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Business Tier input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Payment Handler \bigstrut \\\hline
-		\textbf{Test description} & In particular it's the ChargeManager, located in the Business Tier subsystem, that interact with the Payment Handler \bigstrut \\\hline
-		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Business Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the Payment Handler \bigstrut \\\hline
+		\textbf{Test description} & In particular it's the ChargeManager, located in the Business Tier subsystem, that interacts with the Payment Handler \bigstrut \\\hline
+		\textbf{Environmental Needs} & Payment Handler Stub \bigstrut \\\hline
 	\end{tabular}
 \end{center}
 
 \section{Integration test case I13}\label{I13}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I13T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Business Tier \ensuremath{\rightarrow} Notification Handler \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Business Tier input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Notification Handler \bigstrut \\\hline
-		\textbf{Test description} & In particular it's the NotificationManager, located in the Business Tier subsystem, that interact with the Notification Handler \bigstrut \\\hline
-		\textbf{Environmental Needs} & N/A \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Business Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the Notification Handler \bigstrut \\\hline
+		\textbf{Test description} & In particular it's the NotificationManager, located in the Business Tier subsystem, that interacts with the Notification Handler \bigstrut \\\hline
+		\textbf{Environmental Needs} & Notification Handler Stub \bigstrut \\\hline
 	\end{tabular}
 \end{center}
 
 \section{Integration test case I14}\label{I14}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I14T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Web Tier \ensuremath{\rightarrow} Business Tier \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Web Tier input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Business Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Web Tier input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the Business Tier \bigstrut \\\hline
 		\textbf{Environmental Needs} & I11T1, I12T1 and I13T1 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -335,12 +335,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I15}\label{I15}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I15T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Web Application \ensuremath{\rightarrow} Web Tier \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Web Application input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Web Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Web Application input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the Web Tier \bigstrut \\\hline
 		\textbf{Environmental Needs} & I14T1 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -348,12 +348,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I16}\label{I16}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I16T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & Mobile Application \ensuremath{\rightarrow} Business Tier \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical Mobile Application input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Business Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical Mobile Application input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the Business Tier \bigstrut \\\hline
 		\textbf{Environmental Needs} & I11T1, I12T1 and I13T1 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
@@ -361,12 +361,12 @@ In the following tables the integrations among the Entity Beans and the DBMS are
 \section{Integration test case I17}\label{I17}
 \begin{center}
 	\vspace{0.6cm}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|p{10cm}|}
 		\hline
 		\textbf{Test Case Identifier} & I17T1 \bigstrut \\\hline
 		\textbf{Test Item(s)} & On-Board Application \ensuremath{\rightarrow} Business Tier \bigstrut \\\hline
-		\textbf{Input Specification} & Create typical On-Board Application input \bigstrut \\\hline
-		\textbf{Output Specification} & Check if the correct functions are called in the Business Tier \bigstrut \\\hline
+		\textbf{Input Specification} & Generate typical On-Board Application input \bigstrut \\\hline
+		\textbf{Output Specification} & Check if the correct methods are called and the computations are performed correctly in the Business Tier \bigstrut \\\hline
 		\textbf{Environmental Needs} & I11T1, I12T1 and I13T1 succeeded \bigstrut \\\hline
 	\end{tabular}
 \end{center}
