@@ -24,6 +24,8 @@ ITPD
 -integrate systems into Application Logic
 -Internal integration test for Mobile and On-Board??
 - Entities in the semple testing cases-> are them EJB ?
+- Input/output specifications more clear for subsystems integration
+- Possible subsection regarding the application development and testing 
 
 PP
 -Tables can be used eg for risks management
