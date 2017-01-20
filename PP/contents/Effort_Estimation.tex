@@ -1,1 +1,152 @@
-\blindtext
+%COCOMO
+\section{COCOMO Approach}
+In this chapter we use COCOMO II in order to understand the Effort and Estimation. 
+\\Scale Drivers and Cost Drivers are deeply analyzed here. They are needed for the calculate of the Effort Equation, the main COCOMO formula.
+\\\begin{center} PM = $A * Size^E \prod_{i=1}^{17} EM_i$ 	, where A = 2.94 . \end{center}
+From the Scale Drivers we obtain E, while from the Cost Drivers we obtain EM. 
+\section{Scale Drivers}
+We use the Scale Factors table to obtain the values associated with the five main factors that characterize our Scale Drivers. %PRODUCT
+Now we firstly analyze this factors:
+\begin{itemize}
+    \item \textbf{Precedentedness}: the value will be low. In fact, this's the first project of this kind that our team developed.
+    \item \textbf{Development Flexibility}: the value will be nominal/high. There some instructions provided by the stakeholders but the specifics of the project are decided by us.
+    \item \textbf{Architecture / Risk Resolution}: the value will be very high. We have a good risk management plan, the architecture is well-define and the the schedule is planned in an efficiency way.
+    \item \textbf{Team Cohesion}: the value will be very high. We werw able to work as a team, we shared the same vision and to work together, expecially for planning each assignement and for chech each document before the relase.
+    \item \textbf{Process Maturity}: the value will be high. The maturity of our Project is assessed by well know method, called CMMI, and can be evaluated as Quantitatively Managed.
+\end{itemize}
+
+\begin{center}
+  \begin{tabular}{ l | l | l }% p{10cm} }
+   	\hline
+	\textbf{Scale Factor} & \textbf{Factor} & \textbf{Value}
+   	\\ \hline
+    Precedentedness & low & 4.96
+    \\\hline
+    Development Flexibility & nominal/high & 2.53
+    \\\hline
+    Architecture / Risk Resolution & high & 1.41
+    \\\hline
+    Team Cohesion & very high & 1.10
+ 	\\\hline
+ 	Process Maturity & high & 1.56
+   	\\\hline 
+  \end{tabular}
+  \begin{tabular}{ l l | l }% p{10cm} }
+   	\\\textbf{TOTAL} & & 11.56
+  \end{tabular}
+\end{center}
+
+\subsection{Evaluation of the Exponent E}
+The equation that we use for evaluationg the Evaluation of the Exponent is:
+\\\\E = $B + 0.01 * \sum_{j=1}^{5} SF_j$ , where B = 0.91 .
+\\\\For our project E = 0.91 + 0.01 x 11.56 = \textbf{1.0256}
+
+\newpage %SCEGLIERE SE USARE WE, US, OPPURE THE TEAM.
+\section{Cost Drivers}
+These are the 17 effort multipliers used in COCOMO® II Post-Architecture model to adjust the nominal effort, Person Months, to reflect the software product under development. They are grouped into four categories: product, platform, personnel, and project. From them we want to obtain the Effort Multiplier (EF).
+
+\subsection{Product factors}
+\begin{itemize}
+    \item \textbf{Required Software Reliability (RELY)}: the value will be high. This is the measure of the extent to which the software must perform its intended function over a period of time. We can have high financial losses due to software failures.
+    \item \textbf{Data Base Size (DATA)}: the value will be nominal. In fact we will have an high number of reservations, rides and payments but each of them need only a little amount of space.
+    \item \textbf{Product Complexity (CPLX)}: the value will be high. Thanks to the COCOMO® II CPLX rating scale we have evaluated control operations, computational operations, device-dependent operations, data management operations, and user interface management operations main characteristics and performances.
+	\item \textbf{Developed for Reusability (RUSE)}: the value will be high. Our efforts were aimed at the construction of components intended for reuse on the current or future projects. This effort is consumed with creating generic design of software, elaborate documentation, and extensive testing to ensure components are ready for use in other applications.
+	\item \textbf{Documentation Match to Life-Cycle Needs (DOCU)}: the value will be nominal. The project's documentation is suitable with its life-cycle needs.
+\end{itemize}
+
+\subsection{Platform factors}
+\begin{itemize}
+    \item \textbf{Execution Time Constraint (TIME)}: the value will be nominal. The percentage of available execution time expected to be used by the system is quite low,  less than 50\% of the execution time resource is consumed.
+    \item \textbf{Main Storage Constraint (STOR)}: the value will be nominal. Our project continue to expand with a low rate, and to consume whatever resources are available, making available processor execution time and main storage cost drivers still relevant.
+    \item \textbf{Platform Volatility (PVOL)}: the value will be nominal. We suppose that there is a major change every 6 months and a minor change every 2 weeks.
+\end{itemize}
+
+\subsection{Personnel Factors}
+\begin{itemize}
+    \item \textbf{Analyst Capability (ACAP)}: the vlue will be high. Our Analysis and Design ability, efficiency and thoroughness, and the ability to communicate and cooperate, fall in the 75th percentile.
+    \item \textbf{Programmer Capability (PCAP)}: the value will be nominal. We didn't programme our application so we chose a medium value for not compromise the calculation.
+    \item \textbf{Applications Experience (APEX)}: the value will be very low. Our level of experience with this type of application at the beginning of the project was null.
+    \item \textbf{Platform Experience (PLEX)}: the value will be low. Our experience in recognize the importance of platforms, including more graphic user interface, database, networking, and distributed middleware capabilities is lower then six months. During other courses we studied something useful here but most of the things were new for us.
+    \item \textbf{Language and Tool Experience (LTEX)}: the value will be low. We had little experience with Latex and Draw.io, the two most important tools for our project.
+    \item \textbf{Personnel Continuity (PCON)}: the value will be very high. During the development of the project our team haven't got turnovers.
+\end{itemize}
+
+\subsection{Project Factors}
+\begin{itemize}
+    \item \textbf{Use of Software Tools (TOOL)}: the value will be high. We used strong, mature lifecycle tools, moderately integrated. 
+    \item \textbf{Multisite Development (SITE)}: the value will be very high. The project has an international distribution and has a full interactive multimedia access.
+\end{itemize}
+
+\subsection{General Factor}
+\begin{itemize}
+    \item \textbf{Required Development Schedule (SCED)}: the value will be nominal/high. Our schedule has been quite strict, the work has to be done on time so the stretch-out has been between 100\% and 130\%. 
+\end{itemize}
+
+\begin{center}
+  \begin{tabular}{ l | l | l }% p{10cm} }
+   	\hline
+	\textbf{Cost Driver} & \textbf{Factor} & \textbf{Value}
+   	\\ \hline
+    RELY & high & 1.15
+    \\\hline
+    DATA & nominal & 1.08
+    \\\hline
+    CPLX & high & 1.15
+    \\\hline
+    RUSE &  high & 1.15
+ 	\\\hline
+ 	DOCU  & nominal & 1.00
+   	\\\hline 
+    TIME  & nominal & 1.00
+   	\\\hline 
+   	STOR  & nominal & 1.00
+   	\\\hline 
+   	PVOL  & nominal & 1.56
+   	\\\hline 
+   	ACAP  & high & 0.86
+   	\\\hline 
+   	PCAP  & nominal & 1.00
+   	\\\hline 
+   	APEX  & very low & 1.29
+   	\\\hline 
+   	PLEX  & low & 1,10
+   	\\\hline 
+   	LTEX  & low & 1.07
+   	\\\hline 
+   	PCON  & very high & 0.65
+   	\\\hline 
+   	TOOL  & high & 0.91
+   	\\\hline 
+   	SITE  & very high & 1.56
+   	\\\hline 
+   	SCED  & nominal/high & 1.02
+   	\\\hline 
+  \end{tabular}
+  \\\begin{tabular}{ l l | l }% p{10cm} }
+   	\\\textbf{EM} & & 3.1491
+  \end{tabular}
+\end{center}
+
+The EAF value is evaluated as: 
+\\\begin{center}EM = $cost driver_1 + cost driver_2 + ... + cost driver_{17}$ \end{center}
+
+\section{Effort Equation}
+Thanks to the values obtained in the previous section, now we are able to evaluate an estimation of the efforts that are needed for developing the project. It is measured in Person-Months, PM = $A * Size^E \prod_{i=1}^{17} EM_i$ 	, where A = 2.94 .
+
+Using FP we estimated a Size of .?.?. (KSLOC), Hence:
+\\\begin{center} PM = $2.94 * 11111^{1.0256} * 3.1491 $ \end{center}
+In our Organization, 1PM = 152PH
+.?.?. PH Estimated for the entire project.
+\section{Schedule Estimation}
+For evaluate an estimation of the duration of the project we can use the following formula:
+\begin{center}\textbf{Duration} = $3.67 * \textit{Effort}_F$  \end{center}
+Where:
+\begin{itemize}
+\item F = $0.28 * 0.2 \* (E - B)$ =
+\item Effort = 
+\end{itemize}
+
+Then: \\\begin{center}\textbf{Duration} = 3.67 x .?.?. \end{center}
+%CONSIDERAZIONI SUL VALORE
+Finally we can estimate the numbers of team's components needed to complete the project:
+\begin{center}\textbf{Members} = $\frac{Effort}{Duration} $= \end{center}
