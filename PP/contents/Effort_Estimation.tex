@@ -51,7 +51,7 @@ Now we firstly analyse this factors:
 \subsection{Evaluation of the Exponent E}
 The equation that we use for evaluationg the Evaluation of the Exponent is:
 \\\\E = $B + 0.01 * \sum_{j=1}^{5} SF_j$ , where B = 0.91 .
-\\\\For our project E = 0.91 + 0.01 x 14.18 = \textbf{1.0518}
+\\\\For our project $E = 0.91 + 0.01 x 14.18 \cong $\textbf{1.052}
 
 \newpage %SCEGLIERE SE USARE WE, US, OPPURE THE TEAM.
 \section{Cost Drivers}
@@ -81,7 +81,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
 	  \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
-      \includegraphics[width=1.0\textwidth]{/PP/Cost_drivers/CPLX}\\
+      \includegraphics[width=1.2\textwidth]{/PP/Cost_drivers/CPLX}\\
       \vspace{0.2cm}
       %\caption{Mockup for the login mobile page} 
       \label{fig:CPLX} 
@@ -157,7 +157,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:PCAP} 
     \end{figure}   
-    \item \textbf{Applications Experience (APEX)}:  Our level of experience with this type of application at the beginning of the project was null and then the value will be set very low.
+    \item \textbf{Applications Experience (APEX)}:  Our level of experience with this type of application at the beginning of the project was very modest and then the value will be set low.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -175,7 +175,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:PLEX} 
     \end{figure}  
-    \item \textbf{Language and Tool Experience (LTEX)}: we had little experience with Latex and Draw.io, the two most important tools for our project. The value will be set low. 
+    \item \textbf{Language and Tool Experience (LTEX)}: we had little experience with Latex and Draw.io, the two most important tools for our project. The value will be set nominal. 
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -243,36 +243,36 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
     CPLX & high & 1.15
     \\\hline
     RUSE &  high & 1.15
- 	\\\hline
- 	DOCU  & nominal & 1.00
+ 	  \\\hline
+  	DOCU  & nominal & 1.00
    	\\\hline 
     TIME  & nominal & 1.00
    	\\\hline 
    	STOR  & nominal & 1.00
    	\\\hline 
-   	PVOL  & nominal & 1.56
+   	PVOL  & nominal & 1.00
    	\\\hline 
    	ACAP  & high & 0.86
    	\\\hline 
    	PCAP  & nominal & 1.00
    	\\\hline 
-   	APEX  & very low & 1.29
+   	APEX  & low & 1.10
    	\\\hline 
-   	PLEX  & low & 1,10
+   	PLEX  & low & 1.10
    	\\\hline 
-   	LTEX  & low & 1.07
+   	LTEX  & nominal & 1.00
    	\\\hline 
    	PCON  & very high & 0.65
    	\\\hline 
    	TOOL  & high & 0.91
    	\\\hline 
-   	SITE  & very high & 1.56
+   	SITE  & very high & 0.86
    	\\\hline 
    	SCED  & nominal& 1.00
    	\\\hline 
   \end{tabular}
   \\\begin{tabular}{ l l | l }% p{10cm} }
-   	\\\textbf{EAF} & & 3.0874
+   	\\\textbf{EAF} & & 1.356
   \end{tabular}
 \end{center}
 
@@ -285,32 +285,32 @@ Thanks to the values obtained in the previous section, now we are able to evalua
 \item A = 2.94 
 \item In the FP we estimated the Size of the project with a lower-bound of 8.878 and an upper-bound of 12.931
 \item E = 1.0518 derived from the Scale drivers
-\item EAF = 3.0874 derived from the Cost drivers
+\item EAF = 1.356 derived from the Cost drivers
 \end{itemize}
 It is measured in Person-Months (PM).
 With the computed lower-bound we have: 
-\\\begin{center} $Effort_l$ = $ 2.94 * 8.878^{1.0518} * 3.0874 \cong$ \textbf{90 PM}\end{center}
+\\\begin{center} $Effort_l$ = $ 2.94 * 1.356 * 8.878^{1.052} \cong$ \textbf{40 PM}\end{center}
 with the upper:
-\\\begin{center} $Effort_u$ = $2.94 * 12.931^{1.0518} * 3.0874 \cong$ \textbf{134 PM} \end{center}
+\\\begin{center} $Effort_u$ = $2.94 * 1.356 * 12.931^{1.052} \cong$ \textbf{59 PM} \end{center}
 
-In our Organization, 1PM = 152PH , so 20368 PH are estimated for the entire project with the higher Effort.
+In our Organization, 1PM = 152PH , so 8968 PH are estimated for the entire project with the higher Effort.
 
 \section{Schedule Estimation}
 Evaluating an estimation of the duration of the project we can use the following formula:
-\begin{center}\textbf{Duration} = $3.67 * \textit{Effort}_F$  \end{center}
+\begin{center}\textbf{Duration} = $3.67 * \textit{Effort}^F$  \end{center}
 Where:
 \begin{itemize}
-\item F = $0.28 + 0.2 \* (E - B)$ = 0.3084
-\item Effort = 134 PM with the computed lower-bound, Effort = 90 PM with the upper-bound.
+\item F = $0.28 + 0.2 \* (E - B) \cong$  0.308
+\item Effort = 40 PM with the computed lower-bound, Effort = 59 PM with the upper-bound.
 \end{itemize}
 Then, with the lower-bound we have: 
-\begin{center}$Duration_l$ = \textbf{14.70 months} \end{center}
+\begin{center}$Duration_l \cong$ \textbf{11.5 months} \end{center}
 with the upper:
-\begin{center}$Duration_u$ = \textbf{16.62 months} \end{center}
+\begin{center}$Duration_u \cong$ \textbf{13 months} \end{center}
 The duration estimated here is reasonable for this kind of project.
 
 Finally we can estimate the numbers of team's components needed to complete the project:
-\begin{center}\textbf{Members} = $\frac{Effort}{Duration} \cong$ \textbf{6}\end{center}
+\begin{center}\textbf{Members} = $\frac{Effort}{Duration} \cong$ \textbf{3}\end{center}
 in the lower-bound case, while with the upper-bound:
-\begin{center}\textbf{Members} = $\frac{Effort}{Duration} \cong$ \textbf{8}\end{center}
+\begin{center}\textbf{Members} = $\frac{Effort}{Duration} \cong$ \textbf{5}\end{center}
 Generally, it's suggested to consider more the worst case then the best.
