@@ -1,1 +1,57 @@
-\blindtext
+In the following sections the main identified risks for the PowerEnJoy development process will be classified and analyzed. 
+
+\section{Project Risks}
+\begin{description}
+	\item[Milestone Delay :] One of the identified internal risks is the possibility of delayed deadlines, it can in fact occur that one or more deadlines are missed because of seasonal illness, injuries or unexpected complications. A possible solution for this problem is to take into account some extra time and distribute the responsibilities equally among the team members so that no task would be seriously compromised by personal and temporary problems.
+	\item[Knowledge Overestimation :] Another internal risk might be the over-estimation of the knowledge in a specific field. A possible solution could be consulting an expert in the early phases of development.
+	\item[Code Loss :] Losing (a part of) the entire application source code would be an important loss for our team. This must be avoided but fortunately it is quite easy to deal with it: a possible solution is the adoption of an opportune distributed version-control system.
+	\item[Lack of Communication :] One of the main risks in a team-project is the lack of communication, this can lead to arguments and misunderstandings, thus heavily slowing the development. A possible solution would be a fair division of the responsibilities and the planning of frequent team-meeting to discuss the most critical points.
+\end{description}
+
+\begin{center}
+  \begin{tabular}{ |l|l|l| }
+    \hline
+    Risk & Probability & Impact \\ \hline
+    Milestone Delay & Average & Negligible \\ \hline
+    Knowledge Overestimation & Average & Critical \\ \hline
+    Code Loss & Low & Catastrophic \\ \hline
+    Lack of Communication & Average & Marginal \\ \hline
+  \end{tabular}
+\end{center}
+
+
+\section{Technical Risks}
+\begin{description}
+	\item[External Services :] Since our system relies heavily on external services like the Notification, Payment and Map ones, a slight modification in the usage terms or the deprecation of one or more API functionalities can lead to malfunctions and financial consequences. In order to avoid this kind of situations we need to design the code to be as modular as possible and constantly monitor our external services looking for updates.
+	\item[Hardware Solutions :] The PowerEnJoy system is not only a software system. Some of the analyzed risks are in fact typical for this type of application but, in particular, when an hardware-based project is developed one massive risk probably regards the hardware parts. The vehicles are subject to different kind of faults (sensors, engine, mechanical, software etc.) and this must be taken into account. 
+	This has partially been discussed in the previous documents, an OUTOFSERVICE status has been implemented but the vehicles need to be actually fixed and for this reason the team must contact the local government and local vehicle-reparation laboratories in order to find a suitable agreement.
+\end{description}
+
+\begin{center}
+  \begin{tabular}{ |l|l|l| }
+    \hline
+    Risk & Probability & Effects \\ \hline
+    External Services & Low & Critical \\ \hline
+    Hardware Solutions & High & Critical \\ \hline
+  \end{tabular}
+\end{center}
+
+
+\section{Business Risks}
+\begin{description}
+	\item [Competitors Companies :] One first risk for this category is the possibility of having competitors companies (eg. car-sharing companies, futuristic self-driving taxies) opposing to our business, for this reason the PowerEnJoy system must always provide competitive prices and functionalities.
+	\item[Intended Users :] Probably the most severe issues regards the acceptance of the system from its intended users. Since this service is eco-friendly and has already some effective discount plans, we can assume that it will insert quite easily in the current car-sharing ecosystem, but the development team should take into account future marketing strategies and appealing discount plans.
+	\item [City Administration :] The local government has a considereable influence on the PowerEnJoy system, in fact the entire system relies on stable agreements for circulation (Limited Traffic Zones) and access to public parkings. A possible solution would be the planning of periodical meetings to during the 'insediation' in order to define the roles of both our system and the local government and negotiate on the most critical points.
+	\item [National Legislation :] This is a critical problem for a system like PowerEnJoy: the car-sharing leglislation (eg. car insurance) can possibly change and our system, being phisically involved, needs to be always up-to-date. A possible solution is to actively watch out for these laws and, since they typically take months to be approved, and plan the future evolution of the system along with the entire team.
+\end{description}
+
+\begin{center}
+  \begin{tabular}{ |l|l|l| }
+    \hline
+    Risk & Probability & Effects \\ \hline
+    Competitors Companies & High & Marginal \\ \hline
+    Intended Users & High & Critical \\ \hline
+    City Administration & Low & Marginal \\ \hline
+    National Legislation & Low & Marginal \\ \hline
+  \end{tabular}
+\end{center}
