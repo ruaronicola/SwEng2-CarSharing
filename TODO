@@ -1,5 +1,8 @@
 TODO
 
+
+HEY! I’M A REMINDER :) I AM HERE TO REMIND YOU THAT HERE YOU ASSUMED THAT: THE LOCATION WILL NOT STORE USER LOCATIONS, THE SAFE AREAS ARE REPRESENTED AS POLYGONS AND THE BEHAVIOURS WILL APPEAR IN THE RIDE TABLE AS A FOREIGN KEY. PLEASE INCLUDE MY ASSUMPTIONS IN THE PRECEDING DOCUMENTS BEFORE ERASING ME :)
+
 -Check for consistency among documents (Gateway->Handler in DD)
 -Check ambiguity (dictionary, assumpt.)
 -Completion: defined for each input; no characteristics yet to be discussed
