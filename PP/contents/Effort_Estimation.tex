@@ -1,33 +1,34 @@
 %COCOMO
 \section{COCOMO Approach}
-In this chapter, we use COCOMO II in order to understand the Effort and Estimation. 
-\\Scale Drivers and Cost Drivers are deeply analysed here. They are needed for the calculate of the Effort Equation, the main COCOMO formula.
+In this chapter, we use the COCOMO II model in order to estimate the effort needed to develop the PowerEnJoy system. 
+\\Scale Drivers and Cost Drivers are analysed in the following sections and are needed to calculate the Effort Equation, the main COCOMO formula:
 \\\begin{center} Effort = $A * EAF * KSLOC^E$  , where A = 2.94 . \end{center}
-From the Scale Drivers, we obtain E, while from the Cost Drivers we obtain EM. 
+From the Scale Drivers we will obtain the value of E, while from the Cost Drivers we will obtain EAF. 
 
+\newpage
 \section{Scale Drivers}
-We use the Scale Factors table to obtain the values associated with the five main factors that characterize our Scale Drivers. %PRODUCT
+In this section the Scale Factors table is used to obtain the values associated with the five main factors that characterize our Scale Drivers. %PRODUCT
 \begin{center}
 \begin{figure}[!ht]
   \centering
   \vspace{0.2cm}
   \includegraphics[width=1.0\textwidth]{/PP/Scale_factors}\\
-  \vspace{0.2cm}
+  \vspace{0.1cm}
   %\caption{Mockup for the login mobile page} 
   \label{fig:scale_factors} 
 \end{figure}
 \end{center}
 
-Now we firstly analyse this factors:
-\begin{itemize}
-    \item \textbf{Precedentedness}: this's the first project of this kind that our team developed. So, the value will be set low.
-    \item \textbf{Development Flexibility}: there some instructions provided by the stakeholders but the specifics of the project are decided by us. Then, the value will be set high.
-    \item \textbf{Architecture / Risk Resolution}: we have a good risk management plan, the architecture is well-define and the schedule is planned in an efficiency way. The value will be set very high. 
-    \item \textbf{Team Cohesion}: we were able to work as a team, we shared the same vision and to work together, especially for planning each assignment and for check each document before the release. Then, also this value will be set very high.
-    \item \textbf{Process Maturity}: the maturity of our Project is assessed by well know method, called CMMI, and can be evaluated as Quantitatively Managed. The value will be set nominal. 
-\end{itemize}
+\begin{description}
+    \item [Precedentedness :] This is the first project of this kind that our team developed, therefore the value will be set to LOW.
+    \item [Development Flexibility :] There are some instructions provided by the stakeholders but the specifics for the project are decided by us, therefore the value will be set to HIGH.
+    \item [Architecture / Risk Resolution :] We have a good risk management plan, the architecture is well-defined and the schedule is planned in an efficient way, therefore the value will be set to HIGH. 
+    \item [Team Cohesion :] We were able to work as a team, sharing the same vision and working together, especially for the assignment's planning the document's checking, therefore this value will be set to VERY HIGH.
+    \item [Process Maturity :] The maturity of our project is assessed by the well know CMMI method and can be evaluated as Quantitatively Managed. The value will be set to NOMINAL. 
+\end{description}
 
 \begin{center}
+  \vspace{0.2cm}
   \begin{tabular}{ l | l | l }% p{10cm} }
    	\hline
 	\textbf{Scale Factor} & \textbf{Factor} & \textbf{Value}
@@ -46,20 +47,21 @@ Now we firstly analyse this factors:
   \begin{tabular}{ l l | l }% p{10cm} }
    	\\\textbf{TOTAL} & & 14.18
   \end{tabular}
+  \vspace{0.2cm}
 \end{center}
 
 \subsection{Evaluation of the Exponent E}
-The equation that we use for evaluationg the Evaluation of the Exponent is:
+The equation that we use for the exponent's evaluation is:
 \\\\E = $B + 0.01 * \sum_{j=1}^{5} SF_j$ , where B = 0.91 .
 \\\\For our project $E = 0.91 + 0.01 x 14.18 \cong $\textbf{1.052}
 
 \newpage %SCEGLIERE SE USARE WE, US, OPPURE THE TEAM.
 \section{Cost Drivers}
-These are the 17 effort multipliers used in COCOMO® II Post-Architecture model to adjust the nominal effort, Person Months, to reflect the software product under development. They are grouped into four categories: product, platform, personnel, and project. From them we want to obtain the Effort Multiplier (EF).
+These are the 17 effort multipliers used in COCOMO® II Post-Architecture model to adjust the nominal effort and reflect the software product under development. The ratings related to the cost drivers will be summed and converted into rating levels using the provided tables. The cost-drivers are grouped into four categories: Product, Platform, Personnel, and Project. \\
 
 \subsection{Product factors}
-\begin{itemize}
-    \item \textbf{Required Software Reliability (RELY)}: this is the measure of the extent to which the software must perform its intended function over a period of time. We can have high financial losses due to software failures, so the value will be set high.
+\begin{description}
+    \item [Required Software Reliability (RELY) :] This is the measure of the extent to which the software must perform its intended function over a period of time. We can have high financial losses due to software failures, so the value will be set to HIGH.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -68,7 +70,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:RELY} 
     \end{figure}
-    \item \textbf{Data Base Size (DATA)}: we will have an high number of reservations, rides and payments but each of them need only a little amount of space. The value will be set nominal.
+    \item [Data Base Size (DATA) :] We will have an high number of reservations, rides and payments but each one of them need only a little amount of space. Therefore this value will be set to NOMINAL.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -77,16 +79,19 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:DATA} 
     \end{figure}
-    \item \textbf{Product Complexity (CPLX)}: we have evaluated control operations, computational operations, device-dependent operations, data management operations, and user interface management operations main characteristics and performances. So, accordingly with the COCOMO® II CPLX rating scale the value will be set high.
-	  \begin{figure}[!ht]
+
+    \item [Product Complexity (CPLX) :] We have evaluated control operations, computational operations, device-dependent operations, data management operations, and user interface management operations' main characteristics and performances. So, accordingly with the COCOMO® II CPLX rating scale the value will be set to HIGH.
+	  
+    \newpage
+    \begin{figure}[!ht]
       \centering
-      \vspace{0.2cm}
-      \includegraphics[width=1.2\textwidth]{/PP/Cost_drivers/CPLX}\\
-      \vspace{0.2cm}
+      \vspace{0.1cm}
+      \includegraphics[width=1.0\textwidth]{/PP/Cost_drivers/CPLX}\\
+      \vspace{0.1cm}
       %\caption{Mockup for the login mobile page} 
       \label{fig:CPLX} 
     \end{figure}
-    \item \textbf{Developed for Reusability (RUSE)}: our efforts were aimed at the construction of components intended for reuse on the current or future projects. This effort is consumed with creating generic design of software, elaborate documentation, and extensive testing to ensure components are ready for use in other applications. Then, the value will be set high.
+    \item [Developed for Reusability (RUSE) :] Our efforts were aimed at the construction of components intended for reuse on the current or future projects. This effort is consumed with creating generic design of software, elaborate documentation, and extensive testing to ensure components are ready to be used in other applications. Therefore this value will be set to HIGH.
 	   \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -95,7 +100,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:RUSE} 
     \end{figure}
-    \item \textbf{Documentation Match to Life-Cycle Needs (DOCU)}: the project's documentation is suitable with its life-cycle needs. The value for this cost driver will be set nominal.
+    \item [Documentation Match to Life-Cycle Needs (DOCU) :] The project's documentation is suitable with its life-cycle needs. The value for this cost driver will be set to NOMINAL.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -104,11 +109,11 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:DOCU} 
     \end{figure}
-\end{itemize}
+\end{description}
 
 \subsection{Platform factors}
-\begin{itemize}
-    \item \textbf{Execution Time Constraint (TIME)}: the percentage of available execution time expected to be used by the system is quite low, less than 50\% of the execution time resource is consumed. So, the value will be set nominal.
+\begin{description}
+    \item [Execution Time Constraint (TIME) :] The percentage of available-execution-time expected to be used by the system is quite low, less than 50\% of the execution time resource is consumed. Therefore, the value will be set to NOMINAL.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -117,7 +122,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:TIME} 
     \end{figure}
-    \item \textbf{Main Storage Constraint (STOR)}: our project continue to expand with a low rate, and to consume whatever resources are available, making available processor execution time and main storage cost drivers still relevant. The value will be set nominal.
+    \item [Main Storage Constraint (STOR) :] Our project continues to expand with a low rate, and to consume whatever resources are available, making available processor execution time and main storage cost drivers still relevant. The value will be set to NOMINAL.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -126,7 +131,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:STOR} 
     \end{figure}
-    \item \textbf{Platform Volatility (PVOL)}: we suppose that in our system there can be a major change every 6 months and a minor change every 2 weeks. These are maybe due to changes in the mobile operation systems or for the release of new and more performant software that we can use in the system. So, the value will be set nominal. 
+    \item [Platform Volatility (PVOL) :] We suppose that in our system there can be a major change every 6 months and a minor change every 2 weeks. These are maybe due to changes in the mobile operation systems or for the release of new and more performant software that we can use in the system. So, the value will be set to NOMINAL. 
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -135,11 +140,11 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:PVOL} 
     \end{figure}
-\end{itemize}
+\end{description}
 
 \subsection{Personnel Factors}
-\begin{itemize}
-    \item \textbf{Analyst Capability (ACAP)}: our Analysis and Design ability, efficiency and thoroughness, and the ability to communicate and cooperate, fall in the 75th percentile. Then, the value will be set high.
+\begin{description}
+    \item [Analyst Capability (ACAP) :] Our Analysis and Design ability, efficiency and thoroughness, and the ability to communicate and cooperate, fall in the 75th percentile. Then, the value will be set to HIGH.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -148,7 +153,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:ACAP} 
     \end{figure}   
-    \item \textbf{Programmer Capability (PCAP)}: e didn't programme our application so we chose a medium value for not compromise the calculation. The value will be set nominal.
+    \item [Programmer Capability (PCAP) :] E didn't programme our application so we chose a medium value for not compromise the calculation. The value will be set to NOMINAL.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -157,7 +162,9 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:PCAP} 
     \end{figure}   
-    \item \textbf{Applications Experience (APEX)}:  Our level of experience with this type of application at the beginning of the project was very modest and then the value will be set low.
+
+    \newpage
+    \item [Applications Experience (APEX) :]  Our level of experience with this type of application at the beginning of the project was very modest and then the value will be set to LOW.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -166,7 +173,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:APEX} 
     \end{figure}   
-    \item \textbf{Platform Experience (PLEX)}: our experience in recognize the importance of platforms, including more graphic user interface, database, networking, and distributed middleware capabilities is lower than six months. During other courses, we studied something useful here but most of the things were new for us and then the value will be set low.
+    \item [Platform Experience (PLEX) :] Our experience in recognize the importance of platforms, including more graphic user interface, database, networking, and distributed middleware capabilities is lower than six months. During other courses, we studied something useful here but most of the things were new for us and then the value will be set to LOW.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -175,7 +182,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:PLEX} 
     \end{figure}  
-    \item \textbf{Language and Tool Experience (LTEX)}: we had little experience with Latex and Draw.io, the two most important tools for our project. The value will be set nominal. 
+    \item [Language and Tool Experience (LTEX) :] We had little experience with Latex and Draw.io, the two most important tools for our project. The value will be set to NOMINAL. 
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -184,7 +191,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:LTEX} 
     \end{figure}  
-    \item \textbf{Personnel Continuity (PCON)}: during the development of the project our team haven't got turnovers, so the value will be set very high.
+    \item [Personnel Continuity (PCON) :] During the development of the project our team haven't got turnovers, so the value will be set to VERY HIGH.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -193,11 +200,11 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:PCON} 
     \end{figure}  
-\end{itemize}
+\end{description}
 
 \subsection{Project Factors}
-\begin{itemize}
-    \item \textbf{Use of Software Tools (TOOL)}: we used strong, mature lifecycle tools, moderately integrated. Then, the value will be set high.
+\begin{description}
+    \item [Use of Software Tools (TOOL) :] We used strong, mature lifecycle tools, moderately integrated. Then, the value will be set to HIGH.
      \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -206,7 +213,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:TOOL} 
     \end{figure}  
-    \item \textbf{Multisite Development (SITE)}: the project has an international distribution and has a full interactive multimedia access. The value will be set very high. 
+    \item [Multisite Development (SITE) :] The project has an international distribution and has a full interactive multimedia access. The value will be set to VERY HIGH. 
      \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -215,11 +222,12 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:SITE} 
     \end{figure}  
-\end{itemize}
+\end{description}
 
+\newpage
 \subsection{General Factor}
-\begin{itemize}
-    \item \textbf{Required Development Schedule (SCED)}: our schedule has been quite strict, the work had to be done on time so the stretch-out has been 100\% and the value will be set nominal.
+\begin{description}
+    \item [Required Development Schedule (SCED) :] Our schedule has been quite strict, the work had to be done on time so the stretch-out has been 100\% and the value will be set to NOMINAL.
     \begin{figure}[!ht]
       \centering
       \vspace{0.2cm}
@@ -228,7 +236,7 @@ These are the 17 effort multipliers used in COCOMO® II Post-Architecture model 
       %\caption{Mockup for the login mobile page} 
       \label{fig:SCED} 
     \end{figure}
-\end{itemize}
+\end{description}
 
 
 \begin{center}
