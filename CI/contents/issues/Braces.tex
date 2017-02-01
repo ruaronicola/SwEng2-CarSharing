@@ -1,0 +1,13 @@
+\subsubsection{[10] Inconsistent Bracing Style}
+Consistent bracing style is used\\
+Either the preferred “Allman” style (first brace goes underneath the opening block) or the “Kernighan and Ritchie” style (first brace is on the same line of the instruction that opens the new block).
+\subsubsection{[11] No Braces for One-Line Statements}
+All if, while, do-while, try-catch, and for statements that have only one statement to execute are surrounded by curly braces.\\
+Example:\\
+Avoid this:\\
+    if ( condition )\\
+        doThis();\\
+Instead do this:\\
+    if ( condition )\\
+    {\\
+doThis(); }\\

@@ -1,0 +1,109 @@
+% Set the document's formatting to "report"
+\documentclass[openright]{report}
+
+% Include titlesec[personalized chapters], graphicx[images], tocbibind[bibliography in toc], comment[comment paragraphs], lmodern/fontend[fix tilde typesetting], afterpage[insert blankpages], etoolbox[flawless page numbering], blindtext[lorem ipsum], mathtools[math symbols], bigstrut[table height] fp[variables evaluation] and glossaries/imakeidx[glossary] packages
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{tocbibind}
+\usepackage{comment}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{afterpage}
+\usepackage{etoolbox}
+\usepackage{blindtext}
+\usepackage{mathtools}
+\usepackage{bigstrut}
+\usepackage[nomessages]{fp}
+\usepackage[nonumberlist,acronym,toc,xindy]{glossaries}
+\makeglossaries
+\usepackage[xindy]{imakeidx}
+\makeindex
+
+
+% Patch page numbering
+\patchcmd{\abstract}{\titlepage}{\thispagestyle{empty}}{}{}
+\patchcmd{\endabstract}{\endtitlepage}{\clearpage}{}{}
+
+% Create new \blankpage command
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+% Edit title styling
+\titleformat{\chapter}{\Huge\bfseries}{}{0pt}{\Huge}
+
+% Set images path
+\graphicspath{{../resources/images/}}
+
+% Create auxiliary variables for worktime and version tracking 
+\def \worktimeNicola {2}
+\def \worktimeGiacomo {0}
+\FPupn{worktimeTotal}{worktimeNicola worktimeGiacomo + 0 round}
+\FPupn{version}{0.1}
+
+
+\begin{document}
+
+	\begin{titlepage}
+		\input{contents/Titlepage}
+	\end{titlepage}
+
+	% Change page numbering to uppercase roman for introductory pages
+    \pagenumbering{Roman}
+
+    \tableofcontents
+
+    \newpage
+    \blankpage
+    \begin{abstract}
+		\input{contents/Abstract}
+	\end{abstract}
+
+	% Change page numbering to arabic for the rest of the document
+	\pagenumbering{arabic}
+    
+    \newpage
+    \chapter{Introduction}
+    	\input{contents/Introduction}
+    
+    \newpage
+	\chapter{Inspection}
+		\input{contents/Inspection}
+
+
+	% Insert a break for the table of contents
+    %\addtocontents{toc}{\protect\newpage}
+
+    % Set page numbering to arabic and restart it before appendix
+    \clearpage
+	\pagenumbering{Roman}
+	\setcounter{page}{1}
+
+	\blankpage
+
+    \appendix
+    \newpage
+    \chapter{Appendix A: Used Tools}
+	    \input{contents/Appendix_A}
+
+	\newpage
+	\chapter{Appendix B: Hours of work}
+	    \input{contents/Appendix_B}
+
+	\newpage
+	\chapter{Appendix C: Revisions}
+	    \input{contents/Appendix_C}
+
+	\input{contents/Glossary}
+	\glsaddall
+	\printglossaries
+
+	\newpage
+	\begin{thebibliography}{10}
+		\input{contents/Bibliography}
+	\end{thebibliography}
+
+\end{document}
