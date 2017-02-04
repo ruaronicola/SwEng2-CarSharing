@@ -1,12 +1,18 @@
 \subsubsection{[28] Incorrect Type or Visibility}
-Check that variables and class members are of the correct type. Check that they have the right visibility (public/private/protected).
+%Check that variables and class members are of the correct type. Check that they have the right visibility (public/private/protected).
+The variables and class members are of the correct type. 
+
 \subsubsection{[29] Incorrect Scope}
-Check that variables are declared in the proper scope.
+All the variables are declared in the proper scope.
+
 \subsubsection{[30] Not Called Contructors}
 Check that constructors are called when a new object is desired.
+
 \subsubsection{[31] Not Initialized Objects}
-Check that all object references are initialized before use.
+The JavaMailContainer class' constructor is not declared and  also for the LoggingStoreListener class it isn't present. Only in the PollerTask class there is a constructor.
+
 \subsubsection{[32] Incorrect Variable Initialization}
-Variables are initialized where they are declared, unless dependent upon a computation.
+All the variables are initialized where they are declared.
+
 \subsubsection{[33] Incorrect Variable Declaration}
-Declarations appear at the beginning of blocks (A block is any code surrounded by curly braces ‘{’ and ‘}’). The exception is a variable can be declared in a for loop.
+All the variables are declared at the beginning of blocks.
