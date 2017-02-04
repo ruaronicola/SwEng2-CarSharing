@@ -1,21 +1,14 @@
 \subsubsection{[25] Unordered Class and Interface Declarations}
-The class or interface declarations shall be in the following order:
-(a) class/interface documentation comment; \\
-(b) class or interface statement;\\
-(c) class/interface implementation comment, if necessary;\\
-(d) class (static) variables;\\
-i. first public class variables;\\
-ii. next protected class variables;\\
-iii. next package level (no access modifier);\\
-iv. last private class variables. \\
-(e) instance variables;\\
-i. first public instance variables;\\
-ii. next protected instance variables;\\
-iii. next package level (no access modifier);\\
-iv. last private instance variables. \\
-(f) constructors;\\
-(g) methods.\\
+
+There isn't a comment before the class JavaMailContainer. 
+The variables are correctly list, first public class variables, next protected class variables and last private class variables. Package level variables aren't present.
+\\Neither instance variables nor constructors are declared. Then are present first the method thet have been override and next all the other methods of the class JavaMailContainer. 
+\\Finally there are the two inner classes PollerTask and LoggingStoreListener.
+
+
 \subsubsection{[26] Incorrect Method Grouping}
-Methods are grouped by functionality rather than by scope or accessibility.
+Methods are correctly grouped by functionality.
+
 \subsubsection{[27] Code Duplicates}
-Check that the code is free of duplicates, long methods, big classes, breaking encapsulation, as well as if coupling and cohesion are adequate.
+No duplicates, long methods, big classes and breaking encapsulation have been detected.
+Moreover coupling and cohesion are adequate.
