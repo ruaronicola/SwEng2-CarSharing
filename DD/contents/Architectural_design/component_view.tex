@@ -47,7 +47,7 @@ User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviou
 	\item{User (\underline{taxcode}, \textit{Location}, e-mail, password, driving\_license\_number, name, surname, address, phone number, card\_number, expiration\_date, security\_code, locked)}
 	\item{Vehicle (\underline{ID}, \textit{Location}, plate, type, odometer, battery\_level, status, num\_of\_seats, num\_of\_passengers) }
 	\item{Location (\underline{ID}), longitude, latitude}	
-	\item{Safa Area (\underline{ID}, \textit{Location})} %type A=Safe Area, B=Charging Station, C=both, Add an ID!!!
+	\item{Safa Area (\underline{ID}, \underline{Location})} %type A=Safe Area, B=Charging Station, C=both, Add an ID!!!
 	\item{Charging Station(\underline{ID}, \textit{Location},\textit{ID\_SafeArea})}
 	\item{Reservation (\underline{ID}, \textit{ID\_User}, \textit{ID\_Vehicle}, start\_date\&time, end\_date\&time, expired)}
 	\item{Ride (\underline{ID}, \textit{ID\_User}, \textit{ID\_Vehicle}, \textit{ID\_Reservation}, \textit{ID\_Payment},\textit{Start\_Location},\textit{End\_Location}, start\_date\&time, end\_date\&time, num\_of\_passengers, travel\_distance, battery\_usage)}
@@ -56,7 +56,7 @@ User,Vehicle, Location, Safe Area, Charging Station, Reservation, Ride, Behaviou
 \end{itemize}
 In the User entity there are all the main informations about the user such as credentials and payment method. User lock tag can be either TRUE or FALSE. The user's location is not mandatory.
 \\A Vehicle entity has different attributes, some of them supplied by the On-Board computer. The status here can be FREE, RESERVED, INUSE or OUTOFSERVICE.
-\\The Location entity represent a location provided by the GPS. Safe areas are zones composed by one or more locations which can contain Charging stations.
+\\The Location entity represent a location provided by the GPS. Safe areas are zones composed by one or more locations disposed in poligons, which can contain Charging stations.
 \\A reservation is associated with a Payment object if and only if it is expired. Reservations are strictly connected with the Ride entity, which can exist only related with it. Each ride has a starting point and when it finishes an end point. 
 \\Every Ride is associated with a Payment object, in particular the presence of a related Behaviour object implies a variation of the final price. 
 \\In the Payment entity there are informations about the transaction from the user to PowerEnJoy, the status indicates if the payments succeeded or is pending.
