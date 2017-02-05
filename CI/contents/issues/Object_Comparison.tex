@@ -1,5 +1,6 @@
 \subsubsection{[40] Incorrect Object Comparation}
-%Check that all objects (including Strings) are compared with equals and not with ==.
 \begin{description}
-	\item[:103, :193, :250, :338] In the line 103 the objects are compared with \textit{equals}. In the other lines objects are incorrectly compared with "==". 
+	\item[:193] \textbf{store} and \textbf{null} are compared with "==". This is correct, though, as reference are being compared and not objects.  
+	\item[:250] \textbf{portProps} and \textbf{0} are compared with "==". This is correct, though, as \textbf{portProps} is of primitive type \textbf{int}. Eventually the variable could be declared as \textbf{Integer}.
+	\item[:338] \textbf{totalMessages} and \textbf{0} are compared with "==". This is correct, though, as \textbf{totalMessages} is of primitive type \textbf{int}. Eventually the variable could be declared as \textbf{Integer}.
 \end{description}

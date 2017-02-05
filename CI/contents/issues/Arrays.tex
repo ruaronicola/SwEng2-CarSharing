@@ -1,17 +1,11 @@
 \subsubsection{[37] Incorrect Array Access}
-%Check that there are no off-by-one errors in array indexing (that is, all required array elements are correctly accessed through the index).
-\begin{description}
-	\item[:344] There is only an array in our program, it is \textbf{Message[] messages} and it is correctly managed.
-\end{description}
+All array structures are correctly managed (eg. :344: \textbf{messages})
 
 \subsubsection{[38] Out-of-Bounds Array}
-\begin{description}
-	\item[:352] The array indexes have been prevented from going out-of-bounds.
-\end{description}
+The array's indexes have been prevented from going out-of-bounds.
 
 \subsubsection{[39] Not Called Constructors}
-%Check that constructors are called when a new array item is desired.
 \begin{description}
-	\item[:344] For the array two constructors are called, \textit{FlagTerm} and \textit{Flags}.
+	\item[:344] The \textbf{messages} array is not initialized as a new array, though it is correctly initialized using a method from the \textbf{javax.mail.Folder} class.
 \end{description}
 
