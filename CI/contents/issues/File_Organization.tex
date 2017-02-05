@@ -1,8 +1,49 @@
 \subsubsection{[12] Unseparated Sections}
-Blank lines and optional comments are used to separate sections. For example, blank lines are used for divide different kind of variables.
-%(beginning comments, package/import statements, class/interface declarations which include class variable/attributes declarations, constructors, and methods).
+\begin{description}
+	\item[:18] The \textbf{package} statement has not been separated from the beginning comment. This is, though, a reasonable choice as it makes the code more readable.
+	\item[:75] The \textbf{javadoc} for the \textbf{init} method has not been separated from the previous declarations.
+	\item[:103] \textbf{this.deleteMail} should be grouped with the following assignments, beginning from line \textbf{:105}.
+\end{description}
 
 \subsubsection{[13] Exceeded 80char Line Lenght}
-In the program many lines exceed 80char. Maybe these lines should be split, this solution is applicable in most of the cases.
+\begin{description}
+	\item[:70] The comment can eventually be rephased.
+	\item[:84] The method declaration can be split after the \textbf{name} attribute.
+	\item[:100] Wrapping this line is not practical and will compromise code readability.
+	\item[:101] Wrapping this line is not practical and will compromise code readability.
+	\item[:102] Wrapping this line is not practical and will compromise code readability.
+	\item[:103] Wrapping this line is not practical and will compromise code readability.
+	\item[:106] Wrapping this line is not practical and will compromise code readability.
+	\item[:107] Wrapping this line is not practical and will compromise code readability.
+	\item[:108] Wrapping this line is not practical and will compromise code readability.
+	\item[:111] Wrapping this line is not practical and will compromise code readability.
+	\item[:113] Wrapping this line is not practical and will compromise code readability.
+	\item[:115] Wrapping this line is not practical and will compromise code readability.
+	\item[:123] Wrapping this line is not practical and will compromise code readability.
+	\item[:137] Wrapping this line is not practical and will compromise code readability.
+	\item[:162] Wrapping this line is not practical and will compromise code readability.
+	\item[:164] Wrapping this line is not practical and will compromise code readability.
+	\item[:166] Wrapping this line is not practical and will compromise code readability.
+	\item[:184] Wrapping this line is not practical and will compromise code readability.
+	\item[:185] Wrapping this line is not practical and will compromise code readability.
+	\item[:247] This line can be split after \textbf{protocol}.
+	\item[:256] Wrapping this line is not practical and will compromise code readability.
+	\item[:283] This line can be split after \textbf{typeString}.
+	\item[:307] Wrapping this line is not practical and will compromise code readability.
+	\item[:318] Wrapping this line is not practical and will compromise code readability.
+	\item[:326] Wrapping this line is not practical and will compromise code readability.
+	\item[:344] Wrapping this line is not practical and will compromise code readability.
+	\item[:356] Wrapping this line is not practical and will compromise code readability.
+	\item[:359] This comment can be easily split in two lines (eg. split after \textbf{continue}).
+	\item[:382] Wrapping this line is not practical and will compromise code readability.
+\end{description}
 \subsubsection{[14] Exceeded 120char Line Lenght}
-In the program there are a few lines that exceed also 120char. The longest line is 178char. This lines must be divided in order to make them more practical.
+\begin{description}
+	\item[:135] This line can be split before \textbf{new PollerTask(dispatcher, userLogin)}.
+	\item[:202] This line can be split after \textbf{"Unable to connect to mail store : "}.
+	\item[:265] This line can be split after \textbf{protocol} and again before the following \textbf{+} operators where needed.
+	\item[:357] This line can be split after \textbf{message.getFrom()[0]} and again before the following \textbf{+} operators where needed.
+	\item[:363] This line can be split after \textbf{"Message from "} and again before the following \textbf{+} operators where needed.
+	\item[:365] This line can be split after \textbf{"Message ["} and again before the following \textbf{+} operators where needed.
+	\item[:369] This line can be split after \textbf{"Message ["} and again before the following \textbf{+} operators where needed.
+\end{description}
