@@ -1,26 +1,37 @@
 \subsubsection{[1] Unmeaningful Names}
 %All class names, interface names, method names, class variables, method variables, and constants used should have meaningful names and do what the name suggests.
-The names used are meaningful and explicative of their role.
+\begin{description}
+	\item[:100] The \textbf{cfg} variable can be renamed to \textbf{config}.
+	\item[:124] The meaning \textbf{prop} variable is not immediate. Considering that it is used as a throwaway variable, though, this is acceptable.
+	\item[:208] The meaning of the \textbf{props} argument is not immediate. Since it is used in an extended context and not as a throwaway variable, it should be named \textbf{properties}.
+	\item[:241] Similarly to the previous item, the \textbf{portProps} variable should be named \textbf{portProperties} instead.
+\end{description}
 
 
 \subsubsection{[2] One-char variables}
-One-character variables aren't present.
+\begin{description}
+	\item[:114, :178, :188, :201, :246, :255, :305, :312, :385] The variable \textbf{e} is correctly used as a throwaway variable for Exceptions.
+	\item[:166] The variable \textbf{p} is correctly used as a throwaway variable to loop through the \textbf{Property} attribute.
+\end{description}
 
 \subsubsection{[3] Inconsistent Class Names}
-All class names have the first letter of each word capitalized. 
+There are no inconsistent or improperly capitalized class names.
 
 \subsubsection{[4] Inconsistent Interface Names}
-No interfaces are present.
+There are no inconsistent or improperly capitalized interface names.
 
 \subsubsection{[5] Inconsistent Method Names}
-Method names are verbs, with the first letter of each addition word capitalized.
+\begin{description}
+	\item[:208] The method \textbf{updateUrlName} is correctly capitalized according to the capitalization conventions. To integrate consistently with the rest of this project, though, this method should be named \textbf{updateURLName}.
+\end{description}
 
 \subsubsection{[6] Inconsistent Attribute Names}
 %Class variables, also called attributes, are mixed case, but might begin with an underscore (‘ ’) followed by a lowercase first letter.\\
 %All the remaining words in the variable name have their first letter capitalized. Examples:   windowHeight, timeSeriesData.
-All the class variables don't begin with an underscore but the first letters are lowercase and all the remaining words in the variable name have their first letter capitalized.
+There are no inconsistent or improperly capitalized attribute names.
 
 \subsubsection{[7] Inconsistent Constants Names}
 %Constants are declared using all uppercase with words separated by an underscore. Examples: MIN\_WIDTH; MAX\_HEIGHT.
-The static variable \textit{module} should be named using uppercase letters.
-No other wrong constant names have been found.
+\begin{description}
+	\item[:61] The static variable \textbf{module} should be named \textbf{MODULE}, using uppercase letters.
+\end{description}
