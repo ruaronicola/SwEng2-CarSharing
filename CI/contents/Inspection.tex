@@ -70,7 +70,12 @@
 \subsection{Files}
 	\input{contents/issues/Files}
 
-
-
-\section{Other Problems}
-\blindtext
+\subsection{Other Issues}
+The cyclomatic complexity of the \textbf{JavaMailContainer.updateUrlName} and \textbf{PollerTask.checkMessages} methods is, respectively, \textbf{14} and \textbf{13} and should be reduced to 10.
+Additional issues are:
+\begin{description}
+	\item[:67]  '\textbf{300000}' is a magic number. It should, instead, be declared as a constant(\textbf{static final}).
+	\item[:68]  '\textbf{1000000}' is a magic number. It should, instead, be declared as a constant(\textbf{static final}).
+	\item[:107]  '\textbf{300000}' is a magic number. It should, instead, be declared as a constant(\textbf{static final}).
+	\item[:108]  '\textbf{1000000}' is a magic number. It should, instead, be declared as a constant(\textbf{static final}).
+\end{description}

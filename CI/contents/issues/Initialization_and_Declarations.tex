@@ -1,22 +1,40 @@
 \subsubsection{[28] Incorrect Type or Visibility}
 %Check that variables and class members are of the correct type. Check that they have the right visibility (public/private/protected).
-The variables and class members are of the correct type. 
+\begin{description}
+	\item[:64] Variable \textbf{delegator} must be private and have accessor methods.
+	\item[:65] Variable \textbf{dispatcher} must be private and have accessor methods.
+	\item[:66] Variable \textbf{userLogin} must be private and have accessor methods.
+	\item[:67] Variable \textbf{timerDelay} must be private and have accessor methods.
+	\item[:68] Variable \textbf{maxSize} must be private and have accessor methods.
+	\item[:69] Variable \textbf{pollTimer} must be private and have accessor methods.
+	\item[:70] Variable \textbf{deleteMail} must be private and have accessor methods.
+	\item[:72] Variable \textbf{configFile} must be private and have accessor methods.
+	\item[:73] Variable \textbf{stores} must be private and have accessor methods.
+	\item[:289] Variable \textbf{dispatcher} must be private and have accessor methods.
+	\item[:290] Variable \textbf{userLogin} must be private and have accessor methods.
+\end{description}
 
 \subsubsection{[29] Incorrect Scope}
 All the variables are declared in the proper scope.
 
 \subsubsection{[30] Not Called Contructors}
 \begin{description}
-	\item[:59, :269] The JavaMailContainer and LoggingStoreListener classes' constructors aren't declared 
+	\item[:59] The JavaMailContainer class constructor is not explicitly declared. Using the default constructor is not recommended.
+	\item[:269] The LoggingStoreListener class constructor is not explicitly declared. Using the default constructor is not recommended.
+	\item[:64] The constructor for the \textbf{delegator} object should be called.
+	\item[:65] The constructor for the \textbf{dispatcher} object should be called.
+	\item[:66] The constructor for the \textbf{userLogin} object should be called.
+	\item[:69] The constructor for the \textbf{pollTimer} object should be called.
+	\item[:72] The constructor for the \textbf{configFile} object should be called.
+	\item[:73] The constructor for the \textbf{stores} object should be called.
 \end{description}
-%Check that constructors are called when a new object is desired.
 
 \subsubsection{[31] Not Initialized Objects}
 \begin{description}
-	\item[:74] The String \textbf{name} should be initializated.
-	\item[:175] The Store \textbf{store} should be initializated.
-	\item[:289] The LocalDispatcher \textbf{dispatcher} should be initializated.
-	\item[:290] The GenericValue \textbf{userLogin} should be initializated.
+	\item[:74] The \textbf{name} object should be initializated when declarated. Though, it is correctly initialized before use (assuming that the \textbf{init} method is correctly called).
+	\item[:175] The Store \textbf{store} should be initializated when declarated. Though, it is correctly initialized before use.
+	\item[:289] The LocalDispatcher \textbf{dispatcher} should be initializated when declarated. Though, it is correctly initialized before use (in the constructor).
+	\item[:290] The GenericValue \textbf{userLogin} should be initializated when declarated. Though, it is correctly initialized before use (in the constructor).
 \end{description}
 
 
