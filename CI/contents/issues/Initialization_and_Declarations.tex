@@ -6,13 +6,22 @@ The variables and class members are of the correct type.
 All the variables are declared in the proper scope.
 
 \subsubsection{[30] Not Called Contructors}
-Check that constructors are called when a new object is desired.
+\begin{description}
+	\item[:59, :269] The JavaMailContainer and LoggingStoreListener classes' constructors aren't declared 
+\end{description}
+%Check that constructors are called when a new object is desired.
 
 \subsubsection{[31] Not Initialized Objects}
-The JavaMailContainer class' constructor is not declared and  also for the LoggingStoreListener class it isn't present. Only in the PollerTask class there is a constructor.
+\begin{description}
+	\item[:74] The String \textbf{name} should be initializated.
+	\item[:175] The Store \textbf{store} should be initializated.
+	\item[:289] The LocalDispatcher \textbf{dispatcher} should be initializated.
+	\item[:290] The GenericValue \textbf{userLogin} should be initializated.
+\end{description}
+
 
 \subsubsection{[32] Incorrect Variable Initialization}
-All the variables are initialized where they are declared.
+All the variables inizialized, are inizialized with a correct value.
 
 \subsubsection{[33] Incorrect Variable Declaration}
 All the variables are declared at the beginning of blocks.
