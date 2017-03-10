@@ -30,9 +30,9 @@ users. Specifically:
 ### Deadlines
 
 * **Group registration** deadline: 16/10/2016
-* **[RASD](https://github.com/ruaronicola/SwEng2-CarSharing/releases/download/v1.0/RASD.pdf)** submission deadline: 13/11/2016
-* **DD** submission deadline: 11/12/2016
-* **Testing document** submission deadline: 15/01/2017
-* **Project management** deadline: 22/01/2017
-* **Code inspection** deadline: 05/02/2017
-* **Final presentation**: (to be scheduled)
+* **[Requirements Analysis and Specification](https://github.com/ruaronicola/SwEng2-CarSharing/raw/master/DELIVERIES/RASDv1.3.pdf)** submission deadline: 13/11/2016
+* **[Design](https://github.com/ruaronicola/SwEng2-CarSharing/raw/master/DELIVERIES/DDv1.2.pdf)** submission deadline: 11/12/2016
+* **[Testing](https://github.com/ruaronicola/SwEng2-CarSharing/raw/master/DELIVERIES/ITPDv1.0.pdf)** submission deadline: 15/01/2017
+* **[Project Planning](https://github.com/ruaronicola/SwEng2-CarSharing/raw/master/DELIVERIES/PPv1.0.pdf)** deadline: 22/01/2017
+* **[Code Inspection](https://github.com/ruaronicola/SwEng2-CarSharing/raw/master/DELIVERIES/CIv1.0.pdf)** deadline: 05/02/2017
+* **[Final Presentation](https://github.com/ruaronicola/SwEng2-CarSharing/raw/master/DELIVERIES/Final_Presentation.pdf)**: 09/03/2017
